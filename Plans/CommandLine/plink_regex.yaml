@@ -1,0 +1,27 @@
+Name: TestPlink
+Description: Test Plink Handler
+IsActive: true
+Actions:
+- Name: SayHello
+  Handler:
+    Type: Synapse.Handlers.CommandLine:CommandLineHandler
+    Config:
+      Type: Yaml
+      Values:
+        WorkingDirectory: C:\Putty\0.63
+        Command: C:\Putty\0.63\plink.exe
+        TimeoutMills: 10000
+        TimeoutAction: Error
+  Parameters:
+    Type: Yaml
+    Values:
+      Parser: Regex
+      Arguments: 
+        ArgString: -v -ssh -i "~~KEY~~" -batch ~~USER~~@~~HOST~~ echo HelloWorld
+        Expressions:
+        - Find: ~~KEY~~
+          ReplaceWith: .\keys\rsa_key_filename.ppk
+        - Find: ~~USER~~
+          ReplaceWith: oracle
+        - Find: ~~HOST~~
+          ReplaceWith: servername.domain.com

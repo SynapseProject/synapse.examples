@@ -1,0 +1,25 @@
+Name: plan0
+Description: planDesc
+IsActive: true
+Actions:
+- Name: ac1
+  Handler:
+    Type: Synapse.Core:Synapse.Handlers.EchoHandler
+  Parameters:
+    Type: Yaml
+    Values:
+      Message: Action 001
+- Name: ac2
+  Handler:
+    Type: Synapse.Core:Synapse.Handlers.EchoHandler
+  Parameters:
+    Type: Yaml
+    Values:
+      Message: Action 002
+- Name: ac3
+  Handler:
+    Type: Synapse.Core:Synapse.Handlers.EchoHandler
+  Parameters:
+    Type: Yaml
+    Values:
+      Message: Action 003
