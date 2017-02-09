@@ -1,0 +1,20 @@
+Name: TestRCA
+Description: Test RemoteCommand Handler
+IsActive: true
+Actions:
+- Name: Hostname
+  Handler:
+    Type: Synapse.Handlers.Legacy.RemoteCommand:RemoteCommandHandler
+  Parameters:
+    Type: Xml
+    Values:
+      <RemoteCommand xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <Servers>
+          <Server>localhost</Server>
+        </Servers>
+        <WorkingDir>C:\Temp</WorkingDir>
+        <Timeout>300000</Timeout>
+        <Powershell>
+          <Command>hostname</Command>
+        </Powershell>
+      </RemoteCommand>

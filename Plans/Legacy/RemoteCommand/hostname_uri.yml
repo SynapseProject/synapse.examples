@@ -1,0 +1,10 @@
+Name: TestRCA
+Description: Test RemoteCommand Handler
+IsActive: true
+Actions:
+- Name: Hostname
+  Handler:
+    Type: Synapse.Handlers.RemoteCommand:RemoteCommandHandler
+  Parameters:
+    Type: Xml
+    Uri: file://C:/Hold/test.xml
