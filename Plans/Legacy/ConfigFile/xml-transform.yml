@@ -1,0 +1,21 @@
+Name: TestConfigFile
+Description: Test Legacy ConfigFile Handler
+IsActive: true
+Actions:
+- Name: ConvertFile
+  Handler:
+    Type: Synapse.Handlers.Legacy.ConfigFile:ConfigFileHandler
+  Parameters:
+    Type: Xml
+    Values:
+      <ConfigFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      	<Files>
+      		<File>
+      			<Type>XmlTransform</Type>
+      			<Source>C:\Temp\Web.config</Source>
+      			<Destination>C:\Temp\Web.config.new</Destination>
+      			<SettingsFile>C:\Temp\Web.NEW.config</SettingsFile>
+      			<CopySource>False</CopySource>
+      		</File>
+        </Files>
+      </ConfigFile>

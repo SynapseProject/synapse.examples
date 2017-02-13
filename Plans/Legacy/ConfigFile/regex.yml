@@ -1,0 +1,26 @@
+Name: TestConfigFile
+Description: Test Legacy ConfigFile Handler
+IsActive: true
+Actions:
+- Name: ConvertFile
+  Handler:
+    Type: Synapse.Handlers.Legacy.ConfigFile:ConfigFileHandler
+  Parameters:
+    Type: Xml
+    Values:
+      <ConfigFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      	<Files>
+      		<File>
+      			<Type>Regex</Type>
+      			<Source>C:\Temp\regex.cfg</Source>
+      			<Destination>C:\Temp\regex.cfg.new</Destination>
+      			<SettingsFile HasEncryptedValues="True">C:\Temp\RegexTransform.csv</SettingsFile>
+      			<Settings>
+      				<Setting>
+      					<Key>(SET\s*ENDUR_VER\s*=\s*).*?$</Key>
+      					<Value>${1}NEW_VERSION_NUMBER_HERE</Value>
+      				</Setting>
+      			</Settings>
+      		</File>
+      	</Files>
+      </ConfigFile>

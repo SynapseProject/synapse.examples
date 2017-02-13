@@ -1,0 +1,71 @@
+Name: TestConfigFile
+Description: Test Legacy ConfigFile Handler
+IsActive: true
+Actions:
+- Name: ConvertFile
+  Handler:
+    Type: Synapse.Handlers.Legacy.ConfigFile:ConfigFileHandler
+  Parameters:
+    Type: Xml
+    Values:
+      <ConfigFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      	<Files>
+      		<File>
+      			<Type>INI</Type>
+      			<Source>C:\Temp\input.ini</Source>
+      			<Destination>C:\Temp\output.ini</Destination>
+      			<SettingsFile CreateIfNotFound="True" HasEncryptedValues="True">C:\Temp\initransform.csv</SettingsFile>
+      			<CopySource>False</CopySource>
+      			<Settings>
+      				<Setting>
+      					<Key>TESTKEY</Key>
+      					<Value IsEncrypted="false">Guy Waguespack Was Here</Value>
+      				</Setting>
+      				<Setting>
+      					<Section>ODBC 32 bit Data Sources</Section>
+      					<Key>TESTKEY</Key>
+      					<Value IsEncrypted="false">Guy Waguespack Was Here Too</Value>
+      				</Setting>
+      				<Setting>
+      					<Section>Sybase ASE ODBC Driver (32 bit)</Section>
+      					<Key>Driver</Key>
+      					<Value IsEncrypted="false">Guy Waguespack Is Everywhere   </Value>
+      				</Setting>
+      				<Setting CreateIfNotFound="True">
+      					<Section>SECTION1</Section>
+      					<Key>Guys New Value 4</Key>
+      					<Value IsEncrypted="false">Guys_Component   </Value>
+      				</Setting>
+      				<Setting CreateIfNotFound="True">
+      					<Section>SECTION100</Section>
+      					<Key>Guys New Value 5</Key>
+      					<Value IsEncrypted="false">Guys_Component   </Value>
+      				</Setting>
+      				<Setting CreateIfNotFound="True">
+      					<Section>SECTION3</Section>
+      					<Key>Guys New Value</Key>
+      					<Value IsEncrypted="false">Guys_Component   </Value>
+      				</Setting>
+      				<Setting CreateIfNotFound="True">
+      					<Section>SECTION3</Section>
+      					<Key>Guys New Value 2</Key>
+      					<Value IsEncrypted="false">Guys_Component   </Value>
+      				</Setting>
+      				<Setting CreateIfNotFound="True">
+      					<Section>SECTION3</Section>
+      					<Key>Guys New Value 3</Key>
+      					<Value IsEncrypted="false">Guys_Component   </Value>
+      				</Setting>
+      				<Setting CreateIfNotFound="True">
+      					<Section>Guys New Section</Section>
+      					<Key>Guys New Value</Key>
+      					<Value IsEncrypted="false">Guys_Component   </Value>
+      				</Setting>
+      				<Setting CreateIfNotFound="True">
+      					<Key>TESTKEY4</Key>
+      					<Value IsEncrypted="false">Guys_Component   </Value>
+      				</Setting>
+      			</Settings>
+      		</File>
+      	</Files>
+      </ConfigFile>

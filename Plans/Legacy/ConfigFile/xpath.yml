@@ -1,0 +1,31 @@
+Name: TestConfigFile
+Description: Test Legacy ConfigFile Handler
+IsActive: true
+Actions:
+- Name: ConvertFile
+  Handler:
+    Type: Synapse.Handlers.Legacy.ConfigFile:ConfigFileHandler
+  Parameters:
+    Type: Xml
+    Values:
+      <ConfigFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      	<Files>
+      		<File>
+      			<Type>XPath</Type>
+      			<Source>C:\Temp\XPath.config</Source>
+      			<Destination>C:\Temp\XPath.config.new</Destination>
+      			<SettingsFile HasEncryptedValues="True">C:\Temp\XPath.csv</SettingsFile>
+      			<CopySource>True</CopySource>
+      			<Settings>
+      				<Setting>
+      					<Key>//configuration/applicationSettings/MyService.Properties.Settings/setting[@name="passPhrase"]/value</Key>
+      					<Value IsEncrypted="false">GuyWaguespack</Value>
+      				</Setting>
+      				<Setting>
+      					<Key>//configuration/applicationSettings/MyService.Properties.Settings/setting[@name="saltValue"]/value</Key>
+      					<Value IsEncrypted="true">s8GhXy0I9QipkB8A+OIn0A==</Value>
+      				</Setting>
+      			</Settings>
+      		</File>
+      	</Files>
+      </ConfigFile>

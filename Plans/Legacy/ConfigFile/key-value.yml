@@ -1,0 +1,46 @@
+Name: TestConfigFile
+Description: Test Legacy ConfigFile Handler
+IsActive: true
+Actions:
+- Name: ConvertFile
+  Handler:
+    Type: Synapse.Handlers.Legacy.ConfigFile:ConfigFileHandler
+  Parameters:
+    Type: Xml
+    Values:
+      <ConfigFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <Files>
+              <File>
+                  <Type>KeyValue</Type>
+                  <Source>C:\Temp\javainput.properties</Source>
+                  <Destination>C:\Temp\javaoutput.properties</Destination>
+                  <CopySource>False</CopySource>
+                  <Settings>
+                      <Setting CreateIfNotFound="True">
+                          <Key>baseGroup.ABCDEFG-svrMessageLogger.description</Key>
+                          <Value IsEncrypted="false">Guy Waguespack Was Here</Value>
+                      </Setting>
+                      <Setting CreateIfNotFound="False">
+                          <Key>baseGroup.ABCDEFG-svrMessageLogger.isLogging</Key>
+                          <Value IsEncrypted="false">false</Value>
+                      </Setting>
+                      <Setting CreateIfNotFound="False">
+                          <Key>baseGroup.ABCDEFG-svrMessageLogger.component</Key>
+                          <Value IsEncrypted="false">Guys_Component   </Value>
+                      </Setting>
+                      <Setting CreateIfNotFound="False">
+                          <Key>baseGroup.ABCDEFG-svrMessageLogger.name</Key>
+                          <Value IsEncrypted="false">GUYS-MessageLogger </Value>
+                      </Setting>
+                      <Setting CreateIfNotFound="True">
+                          <Key>guy.waguespack</Key>
+                          <Value IsEncrypted="true">envLpPg9LD2VN6mC+sM9XQ==</Value>
+                      </Setting>
+                      <Setting CreateIfNotFound="True">
+                          <Key>srinivas.chandolu</Key>
+                          <Value IsEncrypted="false">444</Value>
+                      </Setting>
+                  </Settings>
+              </File>
+          </Files>
+      </ConfigFile>

@@ -1,0 +1,140 @@
+Name: TestConfigFile
+Description: Test Legacy ConfigFile Handler
+IsActive: true
+Actions:
+- Name: ConvertFile
+  Handler:
+    Type: Synapse.Handlers.Legacy.ConfigFile:ConfigFileHandler
+  Parameters:
+    Type: Xml
+    Values:
+      <ConfigFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <RunSequential/>
+      	<Files>
+      		<File>
+      			<Type>XPath</Type>
+      			<Source>C:\Temp\XPath.config</Source>
+      			<Destination>C:\Temp\XPath.config.new</Destination>
+      			<SettingsFile HasEncryptedValues="True">C:\Temp\XPath.csv</SettingsFile>
+      			<CopySource>True</CopySource>
+      			<Settings>
+      				<Setting>
+      					<Key>//configuration/applicationSettings/MyService.Properties.Settings/setting[@name="passPhrase"]/value</Key>
+      					<Value IsEncrypted="false">GuyWaguespack</Value>
+      				</Setting>
+      				<Setting>
+      					<Key>//configuration/applicationSettings/MyService.Properties.Settings/setting[@name="saltValue"]/value</Key>
+      					<Value IsEncrypted="true">s8GhXy0I9QipkB8A+OIn0A==</Value>
+      				</Setting>
+      			</Settings>
+      		</File>
+      		<File>
+      			<Type>INI</Type>
+      			<Source>C:\Temp\input.ini</Source>
+      			<Destination>C:\Temp\output.ini</Destination>
+      			<SettingsFile CreateIfNotFound="True" HasEncryptedValues="True">C:\Temp\initransform.csv</SettingsFile>
+      			<CopySource>False</CopySource>
+      			<Settings>
+      				<Setting>
+      					<Key>TESTKEY</Key>
+      					<Value IsEncrypted="false">Guy Waguespack Was Here</Value>
+      				</Setting>
+      				<Setting>
+      					<Section>ODBC 32 bit Data Sources</Section>
+      					<Key>TESTKEY</Key>
+      					<Value IsEncrypted="false">Guy Waguespack Was Here Too</Value>
+      				</Setting>
+      				<Setting>
+      					<Section>Sybase ASE ODBC Driver (32 bit)</Section>
+      					<Key>Driver</Key>
+      					<Value IsEncrypted="false">Guy Waguespack Is Everywhere   </Value>
+      				</Setting>
+      				<Setting CreateIfNotFound="True">
+      					<Section>SECTION1</Section>
+      					<Key>Guys New Value 4</Key>
+      					<Value IsEncrypted="false">Guys_Component   </Value>
+      				</Setting>
+      				<Setting CreateIfNotFound="True">
+      					<Section>SECTION100</Section>
+      					<Key>Guys New Value 5</Key>
+      					<Value IsEncrypted="false">Guys_Component   </Value>
+      				</Setting>
+      				<Setting CreateIfNotFound="True">
+      					<Section>SECTION3</Section>
+      					<Key>Guys New Value</Key>
+      					<Value IsEncrypted="false">Guys_Component   </Value>
+      				</Setting>
+      				<Setting CreateIfNotFound="True">
+      					<Section>SECTION3</Section>
+      					<Key>Guys New Value 2</Key>
+      					<Value IsEncrypted="false">Guys_Component   </Value>
+      				</Setting>
+      				<Setting CreateIfNotFound="True">
+      					<Section>SECTION3</Section>
+      					<Key>Guys New Value 3</Key>
+      					<Value IsEncrypted="false">Guys_Component   </Value>
+      				</Setting>
+      				<Setting CreateIfNotFound="True">
+      					<Section>Guys New Section</Section>
+      					<Key>Guys New Value</Key>
+      					<Value IsEncrypted="false">Guys_Component   </Value>
+      				</Setting>
+      				<Setting CreateIfNotFound="True">
+      					<Key>TESTKEY4</Key>
+      					<Value IsEncrypted="false">Guys_Component   </Value>
+      				</Setting>
+      			</Settings>
+      		</File>
+          <File>
+              <Type>KeyValue</Type>
+              <Source>C:\Temp\javainput.properties</Source>
+              <Destination>C:\Temp\javaoutput.properties</Destination>
+              <CopySource>False</CopySource>
+              <Settings>
+                  <Setting CreateIfNotFound="True">
+                      <Key>baseGroup.ABCDEFG-svrMessageLogger.description</Key>
+                      <Value IsEncrypted="false">Guy Waguespack Was Here</Value>
+                  </Setting>
+                  <Setting CreateIfNotFound="False">
+                      <Key>baseGroup.ABCDEFG-svrMessageLogger.isLogging</Key>
+                      <Value IsEncrypted="false">false</Value>
+                  </Setting>
+                  <Setting CreateIfNotFound="False">
+                      <Key>baseGroup.ABCDEFG-svrMessageLogger.component</Key>
+                      <Value IsEncrypted="false">Guys_Component   </Value>
+                  </Setting>
+                  <Setting CreateIfNotFound="False">
+                      <Key>baseGroup.ABCDEFG-svrMessageLogger.name</Key>
+                      <Value IsEncrypted="false">GUYS-MessageLogger </Value>
+                  </Setting>
+                  <Setting CreateIfNotFound="True">
+                      <Key>guy.waguespack</Key>
+                      <Value IsEncrypted="true">envLpPg9LD2VN6mC+sM9XQ==</Value>
+                  </Setting>
+                  <Setting CreateIfNotFound="True">
+                      <Key>srinivas.chandolu</Key>
+                      <Value IsEncrypted="false">444</Value>
+                  </Setting>
+              </Settings>
+          </File>
+      		<File>
+      			<Type>Regex</Type>
+      			<Source>C:\Temp\regex.cfg</Source>
+      			<Destination>C:\Temp\regex.cfg.new</Destination>
+      			<SettingsFile HasEncryptedValues="True">C:\Temp\RegexTransform.csv</SettingsFile>
+      			<Settings>
+      				<Setting>
+      					<Key>(SET\s*ENDUR_VER\s*=\s*).*?$</Key>
+      					<Value>${1}NEW_VERSION_NUMBER_HERE</Value>
+      				</Setting>
+      			</Settings>
+      		</File>
+      		<File>
+      			<Type>XmlTransform</Type>
+      			<Source>C:\Temp\Web.config</Source>
+      			<Destination>C:\Temp\Web.config.new</Destination>
+      			<SettingsFile>C:\Temp\Web.NEW.config</SettingsFile>
+      			<CopySource>False</CopySource>
+      		</File>
+      	</Files>
+      </ConfigFile>
