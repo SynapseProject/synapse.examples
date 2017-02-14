@@ -1,0 +1,26 @@
+Name: TestSQLCommand
+Description: Test SQLCommand Handler
+IsActive: true
+Actions:
+- Name: SimpleQuery
+  Handler:
+    Type: Synapse.Handlers.Legacy.SQLCommand:SQLCommandHandler
+  Parameters:
+    Type: Xml
+    Values:
+      <SQLCommand xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <Oracle>
+          <User>scott</User>
+          <Password>jnoGZmAO9m/ezX3+DGAwlg==</Password>
+          <DataSource>(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = DEDICATED)(SERVICE_NAME = XE)))</DataSource>
+        </Oracle>
+        <StoredProcedure>HELLOWORLD</StoredProcedure>
+        <Parameters>
+          <Parameter>
+            <Name>Results</Name>
+            <Direction>ReturnValue</Direction>
+            <Type>String</Type>
+            <Size>50</Size>
+          </Parameter>
+        </Parameters>
+      </SQLCommand>

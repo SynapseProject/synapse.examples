@@ -1,0 +1,25 @@
+Name: TestSQLCommand
+Description: Test SQLCommand Handler
+IsActive: true
+Actions:
+- Name: SimpleQuery
+  Handler:
+    Type: Synapse.Handlers.Legacy.SQLCommand:SQLCommandHandler
+  Parameters:
+    Type: Xml
+    Values:
+      <SQLCommand xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <SQLServer>
+          <DataSource>localhost</DataSource>
+          <Database>SANDBOX</Database>
+          <ConnectionTimeout>30</ConnectionTimeout>
+          <IntegratedSecurity>true</IntegratedSecurity>
+        </SQLServer>
+        <Query>SELECT TABLE_SCHEMA, TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_CATALOG = @DatabaseName</Query>
+        <Parameters>
+          <Parameter>
+            <Name>DatabaseName</Name>
+            <Value>SANDBOX</Value>
+          </Parameter>
+        </Parameters>
+      </SQLCommand>

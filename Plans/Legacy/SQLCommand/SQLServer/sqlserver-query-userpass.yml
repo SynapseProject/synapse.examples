@@ -1,0 +1,20 @@
+Name: TestSQLCommand
+Description: Test SQLCommand Handler
+IsActive: true
+Actions:
+- Name: SimpleQuery
+  Handler:
+    Type: Synapse.Handlers.Legacy.SQLCommand:SQLCommandHandler
+  Parameters:
+    Type: Xml
+    Values:
+      <SQLCommand xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <SQLServer>
+          <User>guy</User>
+          <Password>S4l1v/VIBH8pXwyszqlh8w==</Password>
+          <DataSource>localhost</DataSource>
+          <Database>SANDBOX</Database>
+          <ConnectionTimeout>30</ConnectionTimeout>
+        </SQLServer>
+        <Query>SELECT * from PRESIDENTS</Query>
+      </SQLCommand>
