@@ -1,0 +1,15 @@
+Name: QueryService
+Description: Test WinCore Handler
+IsActive: true
+Actions:
+- Name: SimpleServiceQuery
+  Handler:
+    Type: Synapse.Handlers.Legacy.WinUtil:WinCoreHandler
+  Parameters:
+    Type: Xml
+    Values: 
+      <WinProcAdapter>
+        <Tasks>
+          <Task Action="Start" ServerName="localhost" TargetName="TestTask" TargetType="ScheduledTask" />
+        </Tasks>
+      </WinProcAdapter>

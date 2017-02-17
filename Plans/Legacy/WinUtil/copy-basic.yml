@@ -1,0 +1,18 @@
+Name: QueryService
+Description: Test WinCore Handler
+IsActive: true
+Actions:
+- Name: SimpleServiceQuery
+  Handler:
+    Type: Synapse.Handlers.Legacy.StandardCopyProcess:StandardCopyProcessHandler
+  Parameters:
+    Type: Xml
+    Values: 
+      <DeliveranceAdapter>
+        <DeploymentRoot>C:\Temp</DeploymentRoot>
+        <Servers>
+          <Server>localhost</Server>
+        </Servers>
+        <SourceDirectory>Source</SourceDirectory>
+        <TargetServerDestination>C:\Temp\Destination</TargetServerDestination>
+      </DeliveranceAdapter>
