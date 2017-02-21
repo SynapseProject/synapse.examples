@@ -8,7 +8,7 @@ Actions:
   Parameters:
     Type: Xml
     Values: 
-      <DeliveranceAdapter>
+      <StandardCopy>
         <DeploymentRoot>C:\Temp</DeploymentRoot>
         <Servers>
           <Server>localhost</Server>
@@ -18,4 +18,4 @@ Actions:
         <Services>
           <Service StartService="true">OracleServiceXE</Service>
         </Services>
-      </DeliveranceAdapter>
+      </StandardCopy>

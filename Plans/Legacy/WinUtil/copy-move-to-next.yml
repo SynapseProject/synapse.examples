@@ -8,7 +8,7 @@ Actions:
   Parameters:
     Type: Xml
     Values: 
-      <DeliveranceAdapter>
+      <StandardCopy>
         <DeploymentRoot>C:\Temp</DeploymentRoot>
         <Servers>
           <Server>localhost</Server>
@@ -16,4 +16,4 @@ Actions:
         <SourceDirectory>Source</SourceDirectory>
         <TargetServerDestination>C:\Temp\Destination</TargetServerDestination>
         <NextEnvironmentSourceDirectory>Next</NextEnvironmentSourceDirectory>
-      </DeliveranceAdapter>
+      </StandardCopy>

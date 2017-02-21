@@ -8,8 +8,8 @@ Actions:
   Parameters:
     Type: Xml
     Values: 
-      <WinProcAdapter>
+      <WinCore>
         <Tasks>
           <Task Action="Stop" ServerName="localhost" TargetName="DefaultAppPool" TargetType="AppPool" />
         </Tasks>
-      </WinProcAdapter>
+      </WinCore>

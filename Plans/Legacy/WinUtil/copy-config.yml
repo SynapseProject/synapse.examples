@@ -8,7 +8,7 @@ Actions:
   Parameters:
     Type: Xml
     Values: 
-      <DeliveranceAdapter>
+      <StandardCopy>
         <DeploymentRoot>C:\Temp</DeploymentRoot>
         <Servers>
           <Server>localhost</Server>
@@ -18,4 +18,4 @@ Actions:
         <ConfigFiles>
           <ConfigFile TransformFile="EmptyFileXform.xml">EmptyFile.txt</ConfigFile>
         </ConfigFiles>
-      </DeliveranceAdapter>
+      </StandardCopy>
