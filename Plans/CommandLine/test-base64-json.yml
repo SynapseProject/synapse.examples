@@ -1,0 +1,55 @@
+Name: TestRCA
+Description: Test RemoteCommand Handler
+IsActive: true
+Actions:
+- Name: Hostname
+  Handler:
+    Type: Synapse.Handlers.CommandLine:CommandLineHandler
+    Config:
+      Type: Yaml
+      Values:
+#        RunOn: localhost
+        WorkingDirectory: C:\Temp
+        Command: powershell.exe
+        TimeoutMills: 10000
+        TimeoutAction: Error
+        ValidExitCodes:
+        - "EqualTo 0"
+  Parameters:
+    Type: Yaml
+    Values:
+      Parser: Regex
+      Arguments: 
+        ArgString: -ExecutionPolicy Bypass -File C:\Hold\test-base64.ps1 -p1 aaa -p2 bbb -p3 ccc
+        Expressions:
+        - Find: (-p1\s*)aaa(\s*-p2)
+          ReplaceWith: ${1}xxx${2}
+        - Find: bbb
+          ReplaceWith: yyy
+        - Find: ccc
+          Encoding: Base64
+          ReplaceWith:
+            '
+            {
+              "glossary": {
+                "title": "example glossary",
+                "GlossDiv": {
+                  "title": "S",
+                  "GlossList": {
+                    "GlossEntry": {
+                      "ID": "SGML",
+                      "SortAs": "SGML",
+                      "GlossTerm": "Standard Generalized Markup Language",
+                      "Acronym": "SGML",
+                      "Abbrev": "ISO 8879:1986",
+                      "GlossDef": {
+                        "para": "A meta-markup language, used to create markup languages such as DocBook.",
+                        "GlossSeeAlso": ["GML", "XML"]
+                      },
+                      "GlossSee": "markup"
+                    }
+                  }
+                }
+              }
+            }
+            '

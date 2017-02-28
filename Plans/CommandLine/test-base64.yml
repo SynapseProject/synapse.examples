@@ -1,0 +1,31 @@
+Name: TestRCA
+Description: Test RemoteCommand Handler
+IsActive: true
+Actions:
+- Name: Hostname
+  Handler:
+    Type: Synapse.Handlers.CommandLine:CommandLineHandler
+    Config:
+      Type: Yaml
+      Values:
+#        RunOn: localhost
+        WorkingDirectory: C:\Temp
+        Command: powershell.exe
+        TimeoutMills: 10000
+        TimeoutAction: Error
+        ValidExitCodes:
+        - "EqualTo 0"
+  Parameters:
+    Type: Yaml
+    Values:
+      Parser: Regex
+      Arguments: 
+        ArgString: -ExecutionPolicy Bypass -File C:\Hold\test-base64.ps1 -p1 aaa -p2 bbb -p3 ccc
+        Expressions:
+        - Find: (-p1\s*)aaa(\s*-p2)
+          ReplaceWith: ${1}xxx${2}
+        - Find: bbb
+          ReplaceWith: yyy
+        - Find: ccc
+          ReplaceWith: Hello World
+          Encoding: Base64
