@@ -16,4 +16,8 @@ Actions:
     Type: Yaml
     Values:
       Parser: None
-      Arguments: -ExecutionPolicy Bypass Invoke-Command -ScriptBlock { hostname; whoami; }
+      Arguments: | 
+        -ExecutionPolicy Bypass Invoke-Command -ScriptBlock { 
+          hostname 
+          whoami 
+        }
