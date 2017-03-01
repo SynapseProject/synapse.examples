@@ -16,17 +16,18 @@ Actions:
     Type: Yaml
     Values:
       Parser: None
-      Arguments: -ExecutionPolicy Bypass Invoke-Command -ScriptBlock {
+      Arguments: | 
+        -ExecutionPolicy Bypass Invoke-Command -ScriptBlock {
           param(
             [string]$p1 = 'aaa',
             [string]$p2 = 'bbb',
             [string]$p3 = 'ccc'
-          );
-          write-host "P1 = $p1";
-          write-host "P2 = $p2";
-          write-host "P3 = $p3";
-          hostname;
-          whoami;
-          write-host "Hello World";
-          exit -1;
+          )
+          write-host "P1 = $p1"
+          write-host "P2 = $p2"
+          write-host "P3 = $p3"
+          hostname
+          whoami
+          write-host "Hello World"
+          exit -1
         }
