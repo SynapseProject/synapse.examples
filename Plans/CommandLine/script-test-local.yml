@@ -11,7 +11,7 @@ Actions:
         WorkingDirectory: C:\Temp
         Type: Powershell
         Args : -ExecutionPolicy Bypass
-        ScriptArgs : "xxx, yyy, zzz"
+        ScriptArgs : "-p1 xxx -p2 yyy -p3 zzz"
         TimeoutMills: 10000
         TimeoutAction: Error
         ValidExitCodes:
