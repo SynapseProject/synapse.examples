@@ -4,7 +4,7 @@ IsActive: true
 Actions:
 - Name: SayHello
   Handler:
-    Type: Synapse.Handlers.CommandLine:CommandLineHandler
+    Type: Synapse.Handlers.CommandLine:CommandHandler
     Config:
       Type: Yaml
       Values:
