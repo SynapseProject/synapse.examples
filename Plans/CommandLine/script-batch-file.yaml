@@ -1,0 +1,22 @@
+Name: TestRCA
+Description: Test RemoteCommand Handler
+IsActive: true
+Actions:
+- Name: Hostname
+  Handler:
+    Type: Synapse.Handlers.CommandLine:ScriptHandler
+    Config:
+      Type: Yaml
+      Values:
+        WorkingDirectory: C:\Temp
+        Type: Batch
+        Args : /c
+        ScriptArgs : One Two Three
+        ParameterType: File
+        TimeoutMills: 10000
+        TimeoutAction: Error
+        ValidExitCodes:
+        - "EqualTo 0"
+  Parameters:
+    Type: Unspecified
+    Values: C:\Temp\test.bat
