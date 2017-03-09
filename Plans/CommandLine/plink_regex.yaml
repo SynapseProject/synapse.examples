@@ -11,7 +11,7 @@ Actions:
         WorkingDirectory: C:\Putty\0.63
         Command: C:\Putty\0.63\plink.exe
         TimeoutMills: 10000
-        TimeoutAction: Error
+        TimeoutStatus: Failed
   Parameters:
     Type: Yaml
     Values:

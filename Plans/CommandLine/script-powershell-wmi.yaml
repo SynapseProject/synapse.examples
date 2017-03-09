@@ -14,7 +14,8 @@ Actions:
         Args : -ExecutionPolicy Bypass
         ScriptArgs : "-p1 xxx -p2 yyy -p3 zzz"
         TimeoutMills: 10000
-        TimeoutAction: Error
+        TimeoutStatus: Failed
+        KillRemoteProcessOnTimeout: true
         ValidExitCodes:
         - "EqualTo 0"
   Parameters:

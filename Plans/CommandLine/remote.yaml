@@ -12,7 +12,8 @@ Actions:
         WorkingDirectory: F:\Temp
         Command: powershell.exe
         TimeoutMills: 10000
-        TimeoutAction: Error
+        TimeoutStatus: Failed
+        KillRemoteProcessOnTimeout: true
   Parameters:
     Type: Yaml
     Values:

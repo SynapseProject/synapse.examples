@@ -11,7 +11,7 @@ Actions:
         WorkingDirectory: C:\temp
         Command: C:\Putty\0.63\putty.exe
         TimeoutMills: 10000
-        TimeoutAction: Error
+        TimeoutStatus: Failed
   Parameters:
     Type: Yaml
     Values:

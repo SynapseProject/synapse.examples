@@ -13,7 +13,7 @@ Actions:
         Args : /c
         ScriptArgs : One Two Three
         TimeoutMills: 10000
-        TimeoutAction: Error
+        TimeoutStatus: Failed
         ValidExitCodes:
         - "EqualTo 0"
   Parameters:

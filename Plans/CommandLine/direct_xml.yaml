@@ -11,7 +11,7 @@ Actions:
         WorkingDirectory: C:\Temp
         Command: powershell.exe
         TimeoutMills: 5000
-        TimeoutAction: Error
+        TimeoutStatus: Failed
   Parameters:
     Type: Xml
     Values:

@@ -14,7 +14,7 @@ Actions:
         ScriptArgs : "-p1 xxx -p2 yyy -p3 zzz"
         ParameterType: File
         TimeoutMills: 10000
-        TimeoutAction: Error
+        TimeoutStatus: Failed
         ValidExitCodes:
         - "EqualTo 0"
   Parameters:

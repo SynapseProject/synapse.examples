@@ -8,26 +8,17 @@ Actions:
     Config:
       Type: Yaml
       Values:
-        RunOn: localhost
         WorkingDirectory: C:\Temp
-        Type: Batch
-        Args : /c
-        ScriptArgs : One Two Three
-        TimeoutMills: 10000
+        Type: Powershell
+        Args : -ExecutionPolicy Bypass
+        TimeoutMills: 5000
         TimeoutStatus: Failed
-        KillRemoteProcessOnTimeout: true
         ValidExitCodes:
-        - "EqualTo 0"
+        - "EqualTo 42 Complete"
   Parameters:
     Type: Unspecified
     Values: |
-      echo off
-      echo Hello world.
-
-      echo P1 : %1
-      echo P2 : %2
-      echo P3 : %3
-      
       hostname
       whoami
-      echo on
+      sleep -s 30
+      exit 42
