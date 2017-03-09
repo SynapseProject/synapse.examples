@@ -1,0 +1,56 @@
+Name: TimeoutTestWithBranching
+Description: Test Timeouts With Branching
+IsActive: true
+Actions:
+- Name: TimeoutAction
+  Handler:
+    Type: Synapse.Handlers.CommandLine:ScriptHandler
+    Config:
+      Type: Yaml
+      Values:
+        WorkingDirectory: C:\Temp
+        Type: Powershell
+        Args : -ExecutionPolicy Bypass
+        TimeoutMills: 5000
+        TimeoutStatus: Failed
+        KillRemoteProcessOnTimeout: true
+        ValidExitCodes:
+        - "EqualTo 42 Complete"
+  Parameters:
+    Type: Unspecified
+    Values: |
+      hostname
+      whoami
+      sleep -s 30
+      exit 42
+  Actions:
+  - Name: SuccessAction
+    ExecuteCase: Complete
+    Handler: 
+      Type: Synapse.Handlers.CommandLine:ScriptHandler
+      Config:
+        Type: Yaml
+        Values:
+          WorkingDirectory: C:\Temp
+          Type: Powershell
+          Args : -ExecutionPolicy Bypass
+    Parameters:
+      Type: Unspecified
+      Values: |
+        write-host "Took Success Path"
+        exit 0
+  - Name: FailAction
+    ExecuteCase: Failed
+    Handler: 
+      Type: Synapse.Handlers.CommandLine:ScriptHandler
+      Config:
+        Type: Yaml
+        Values:
+          WorkingDirectory: C:\Temp
+          Type: Powershell
+          Args : -ExecutionPolicy Bypass
+    Parameters:
+      Type: Unspecified
+      Values: |
+        write-host "Took Failure Path"
+        exit 0
