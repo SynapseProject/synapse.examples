@@ -12,6 +12,14 @@ Actions:
         Type: Powershell
         Args : -ExecutionPolicy Bypass
         ScriptArgs : "-p1 xxx -p2 yyy -p3 zzz"
+        Expressions:
+        - Find: xxx
+          ReplaceWith: fff
+        - Find: yyy
+          ReplaceWith: ggg
+        - Find : zzz
+          ReplaceWith: hhh
+          Encoding: Base64
         TimeoutMills: 10000
         TimeoutStatus: Failed
         ValidExitCodes:
