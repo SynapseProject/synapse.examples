@@ -1,8 +1,8 @@
-Name: TestRCA
-Description: Test RemoteCommand Handler
+Name: ScriptBatchScript
+Description: Calling A Windows Batch File Specified In The Plan. 
 IsActive: true
 Actions:
-- Name: Hostname
+- Name: Action001
   Handler:
     Type: Synapse.Handlers.CommandLine:ScriptHandler
     Config:
@@ -10,22 +10,23 @@ Actions:
       Values:
         WorkingDirectory: C:\Temp
         Type: Batch
-        Args : /c
-        ScriptArgs : One Two Three
+        Arguments : /c
         TimeoutMills: 10000
         TimeoutStatus: Failed
         ValidExitCodes:
         - "EqualTo 0"
   Parameters:
-    Type: Unspecified
-    Values: |
-      echo off
-      echo Hello world.
+    Type: Yaml
+    Values: 
+      ScriptBlock: |
+        echo off
+        echo Hello world.
 
-      echo P1 : %1
-      echo P2 : %2
-      echo P3 : %3
+        echo P1 : %1
+        echo P2 : %2
+        echo P3 : %3
       
-      hostname
-      whoami
-      echo on
+        hostname
+        whoami
+        echo on
+      Arguments: One Two Three

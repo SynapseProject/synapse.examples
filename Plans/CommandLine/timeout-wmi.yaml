@@ -1,8 +1,8 @@
-Name: TestRCA
-Description: Test RemoteCommand Handler
+Name: TimeoutWMI
+Description: Test Timeout Actions When Running on another server (using WMI)
 IsActive: true
 Actions:
-- Name: Hostname
+- Name: Action001
   Handler:
     Type: Synapse.Handlers.CommandLine:ScriptHandler
     Config:
@@ -11,16 +11,17 @@ Actions:
         RunOn: localhost
         WorkingDirectory: C:\Temp
         Type: Powershell
-        Args : -ExecutionPolicy Bypass
+        Arguments : -ExecutionPolicy Bypass
         TimeoutMills: 5000
         TimeoutStatus: CompletedWithErrors
         KillRemoteProcessOnTimeout: true
         ValidExitCodes:
         - "EqualTo 42 Complete"
   Parameters:
-    Type: Unspecified
-    Values: |
-      hostname
-      whoami
-      sleep -s 30
-      exit 42
+    Type: Yaml
+    Values:
+      ScriptBlock: |
+        hostname
+        whoami
+        sleep -s 30
+        exit 42

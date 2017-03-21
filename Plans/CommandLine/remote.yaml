@@ -1,15 +1,15 @@
-Name: TestRCA
-Description: Test RemoteCommand Handler
+Name: Remote
+Description: Test Call Executing On Another Server
 IsActive: true
 Actions:
-- Name: Hostname
+- Name: Action001
   Handler:
     Type: Synapse.Handlers.CommandLine:CommandHandler
     Config:
       Type: Yaml
       Values:
         RunOn: servername
-        WorkingDirectory: F:\Temp
+        WorkingDirectory: C:\Temp
         Command: powershell.exe
         TimeoutMills: 10000
         TimeoutStatus: Failed
@@ -17,13 +17,11 @@ Actions:
   Parameters:
     Type: Yaml
     Values:
-      Parser: Regex
-      Arguments: 
-        ArgString: -ExecutionPolicy Bypass -File F:\Temp\test.ps1 -p1 aaa -p2 bbb -p3 ccc
-        Expressions:
-        - Find: (-p1\s*)aaa(\s*-p2)
-          ReplaceWith: ${1}xxx${2}
-        - Find: bbb
-          ReplaceWith: yyy
-        - Find: ccc
-          ReplaceWith: zzz
+      Arguments: -ExecutionPolicy Bypass -File C:\Hold\test.ps1 -p1 aaa -p2 bbb -p3 ccc
+      Expressions:
+      - Find: (-p1\s*)aaa(\s*-p2)
+        ReplaceWith: ${1}xxx${2}
+      - Find: bbb
+        ReplaceWith: yyy
+      - Find: ccc
+        ReplaceWith: zzz

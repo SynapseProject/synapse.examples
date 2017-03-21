@@ -1,8 +1,8 @@
-Name: TestRCA
-Description: Test RemoteCommand Handler
+Name: Test
+Description: Output Hostname
 IsActive: true
 Actions:
-- Name: Hostname
+- Name: Action001
   Handler:
     Type: Synapse.Handlers.CommandLine:CommandHandler
     Config:
@@ -15,5 +15,4 @@ Actions:
   Parameters:
     Type: Yaml
     Values:
-      Parser: None
       Arguments: hostname

@@ -10,19 +10,20 @@ Actions:
       Values:
         WorkingDirectory: C:\Temp
         Type: Powershell
-        Args : -ExecutionPolicy Bypass
+        Arguments : -ExecutionPolicy Bypass
         TimeoutMills: 5000
         TimeoutStatus: Failed
         KillRemoteProcessOnTimeout: true
         ValidExitCodes:
         - "EqualTo 42 Complete"
   Parameters:
-    Type: Unspecified
-    Values: |
-      hostname
-      whoami
-      sleep -s 30
-      exit 42
+    Type: Yaml
+    Values:
+      ScriptBlock: |
+        hostname
+        whoami
+        sleep -s 30
+        exit 42 
   Actions:
   - Name: SuccessAction
     ExecuteCase: Complete
@@ -33,12 +34,13 @@ Actions:
         Values:
           WorkingDirectory: C:\Temp
           Type: Powershell
-          Args : -ExecutionPolicy Bypass
+          Arguments : -ExecutionPolicy Bypass
     Parameters:
-      Type: Unspecified
-      Values: |
-        write-host "Took Success Path"
-        exit 0
+      Type: Yaml
+      Values:
+        ScriptBlock: |
+          write-host "Took Success Path"
+          exit 0
   - Name: FailAction
     ExecuteCase: Failed
     Handler: 
@@ -48,9 +50,10 @@ Actions:
         Values:
           WorkingDirectory: C:\Temp
           Type: Powershell
-          Args : -ExecutionPolicy Bypass
+          Arguments : -ExecutionPolicy Bypass
     Parameters:
-      Type: Unspecified
-      Values: |
-        write-host "Took Failure Path"
-        exit 0
+      Type: Yaml
+      Values:
+        ScriptBlock: |
+          write-host "Took Failure Path"
+          exit 0

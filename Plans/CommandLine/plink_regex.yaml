@@ -15,13 +15,11 @@ Actions:
   Parameters:
     Type: Yaml
     Values:
-      Parser: Regex
-      Arguments: 
-        ArgString: -v -ssh -i "~~KEY~~" -batch ~~USER~~@~~HOST~~ echo HelloWorld
-        Expressions:
-        - Find: ~~KEY~~
-          ReplaceWith: .\keys\rsa_key_filename.ppk
-        - Find: ~~USER~~
-          ReplaceWith: oracle
-        - Find: ~~HOST~~
-          ReplaceWith: servername.domain.com
+      Arguments: -v -ssh -i "~~KEY~~" -batch ~~USER~~@~~HOST~~ echo HelloWorld
+      Expressions:
+      - Find: ~~KEY~~
+        ReplaceWith: .\keys\rsa_key_filename.ppk
+      - Find: ~~USER~~
+        ReplaceWith: oracle
+      - Find: ~~HOST~~
+        ReplaceWith: servername.domain.com

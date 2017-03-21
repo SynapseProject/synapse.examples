@@ -1,8 +1,8 @@
-Name: TestRCA
-Description: Test RemoteCommand Handler
+Name: DirectYaml
+Description: Test Direct Call Specified in YAML
 IsActive: true
 Actions:
-- Name: Hostname
+- Name: Action001
   Handler:
     Type: Synapse.Handlers.CommandLine:CommandHandler
     Config:
@@ -16,4 +16,3 @@ Actions:
     Type: Yaml
     Values:
       Arguments: -ExecutionPolicy Bypass -File C:\Hold\test.ps1 -p1 aaa -p2 bbb -p3 ccc
-      Parser: None

@@ -1,8 +1,8 @@
-Name: TestRCA
-Description: Test RemoteCommand Handler
+Name: RegexXmlXml
+Description: Test Call Using Regex Replacement Specified in XML
 IsActive: true
 Actions:
-- Name: Hostname
+- Name: Action001
   Handler:
     Type: Synapse.Handlers.CommandLine:CommandHandler
     Config:
@@ -15,23 +15,20 @@ Actions:
   Parameters:
     Type: Xml
     Values:
-      <HandlerParameters>
-        <Parser>Regex</Parser>
-        <Arguments>
-          <ArgString>-ExecutionPolicy Bypass -File C:\Hold\test.ps1 -p1 aaa -p2 bbb -p3 ccc</ArgString>
-          <Expressions>
-            <Expression>
-              <Find>aaa</Find>
-              <ReplaceWith>xxx</ReplaceWith>
-            </Expression>
-            <Expression>
-              <Find>bbb</Find>
-              <ReplaceWith>yyy</ReplaceWith>
-            </Expression>
-            <Expression>
-              <Find>ccc</Find>
-              <ReplaceWith>zzz</ReplaceWith>
-            </Expression>
-          </Expressions>
-        </Arguments>
-      </HandlerParameters>
+      <CommandHandlerParameters>
+        <Arguments>-ExecutionPolicy Bypass -File C:\Hold\test.ps1 -p1 aaa -p2 bbb -p3 ccc</Arguments>
+        <Expressions>
+          <Expression>
+            <Find>aaa</Find>
+            <ReplaceWith>xxx</ReplaceWith>
+          </Expression>
+          <Expression>
+            <Find>bbb</Find>
+            <ReplaceWith>yyy</ReplaceWith>
+          </Expression>
+          <Expression>
+            <Find>ccc</Find>
+            <ReplaceWith>zzz</ReplaceWith>
+          </Expression>
+        </Expressions>
+      </CommandHandlerParameters>

@@ -1,8 +1,8 @@
-Name: TestRCA
-Description: Test RemoteCommand Handler
+Name: DirectXml
+Description: Test Direct Call Specified in XML
 IsActive: true
 Actions:
-- Name: Hostname
+- Name: Action001
   Handler:
     Type: Synapse.Handlers.CommandLine:CommandHandler
     Config:
@@ -15,7 +15,6 @@ Actions:
   Parameters:
     Type: Xml
     Values:
-      <HandlerParameters>
+      <CommandHandlerParameters>
         <Arguments>-ExecutionPolicy Bypass -File C:\Hold\test.ps1 -p1 aaa -p2 bbb -p3 ccc</Arguments>
-        <Parser>None</Parser>
-      </HandlerParameters>
+      </CommandHandlerParameters>

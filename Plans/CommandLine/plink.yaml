@@ -15,4 +15,4 @@ Actions:
   Parameters:
     Type: Yaml
     Values:
-      Arguments: -v -ssh -i ".\keys\rsa_key_filename.ppk" -batch oracle@servername.domain.com echo HelloWorld
+      Arguments: -v -ssh -batch -i ".\keys\rsa_key_filename.ppk" oracle@servername.domain.com echo HelloWorld

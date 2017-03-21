@@ -1,8 +1,8 @@
-Name: TestRCA
-Description: Test RemoteCommand Handler
+Name: WMI
+Description: Test Running Command On Another Server (using WMI)
 IsActive: true
 Actions:
-- Name: Hostname
+- Name: Action001
   Handler:
     Type: Synapse.Handlers.CommandLine:CommandHandler
     Config:
@@ -17,13 +17,11 @@ Actions:
   Parameters:
     Type: Yaml
     Values:
-      Parser: Regex
-      Arguments: 
-        ArgString: -ExecutionPolicy Bypass -File C:\Hold\test.ps1 -p1 aaa -p2 bbb -p3 ccc
-        Expressions:
-        - Find: (-p1\s*)aaa(\s*-p2)
-          ReplaceWith: ${1}xxx${2}
-        - Find: bbb
-          ReplaceWith: yyy
-        - Find: ccc
-          ReplaceWith: zzz
+      Arguments: -ExecutionPolicy Bypass -File C:\Hold\test.ps1 -p1 aaa -p2 bbb -p3 ccc
+      Expressions:
+      - Find: (-p1\s*)aaa(\s*-p2)
+        ReplaceWith: ${1}xxx${2}
+      - Find: bbb
+        ReplaceWith: yyy
+      - Find: ccc
+        ReplaceWith: zzz

@@ -1,8 +1,8 @@
-Name: TestRCA
-Description: Test RemoteCommand Handler
+Name: TimeoutLocal
+Description: Test Timeout Actions When Running Locally (Process.Start)
 IsActive: true
 Actions:
-- Name: Hostname
+- Name: Action001
   Handler:
     Type: Synapse.Handlers.CommandLine:ScriptHandler
     Config:
@@ -10,15 +10,16 @@ Actions:
       Values:
         WorkingDirectory: C:\Temp
         Type: Powershell
-        Args : -ExecutionPolicy Bypass
+        Arguments : -ExecutionPolicy Bypass
         TimeoutMills: 5000
         TimeoutStatus: Failed
         ValidExitCodes:
         - "EqualTo 42 Complete"
   Parameters:
-    Type: Unspecified
-    Values: |
-      hostname
-      whoami
-      sleep -s 30
-      exit 42
+    Type: Yaml
+    Values:
+      ScriptBlock: |
+        hostname
+        whoami
+        sleep -s 30
+        exit 42
