@@ -1,0 +1,65 @@
+Name: HandlerVariables
+Description: Test Handler Variable Substitution
+IsActive: true
+Actions:
+- Name: Action001
+  Handler:
+    Type: Synapse.Handlers.CommandLine:ScriptHandler
+    Config:
+      Type: Yaml
+      Values:
+        WorkingDirectory: C:\Temp
+        Type: Powershell
+        Arguments : -ExecutionPolicy Bypass
+        TimeoutMills: 10000
+        TimeoutStatus: Failed
+        ValidExitCodes:
+        - "EqualTo 0"
+  Parameters:
+    Type: Yaml
+    Values:
+      ScriptBlock: |
+        write-host '{ "glossary": { "title": "example glossary", "GlossDiv": { "title": "S", "GlossList": { "GlossEntry": { "ID": "SGML", "SortAs": "SGML", "GlossTerm": "Standard Generalized Markup Language", "Acronym": "SGML", "Abbrev": "ISO 8879:1986", "GlossDef": { "para": "A meta-markup language, used to create markup languages such as DocBook.", "GlossSeeAlso": ["GML", "XML"] }, "GlossSee": "markup" } } } } }'
+        exit 0
+  Actions:
+  - Name: Action002
+    Handler:
+      Type: Synapse.Handlers.CommandLine:ScriptHandler
+      Config:
+        Type: Yaml
+        Values:
+          WorkingDirectory: C:\Temp
+          Type: Powershell
+          Arguments : -ExecutionPolicy Bypass
+          TimeoutMills: 10000
+          TimeoutStatus: Failed
+          ValidExitCodes:
+          - "EqualTo 0"
+    Parameters:
+      Type: Yaml
+      Values:
+        ScriptBlock: |
+          param(
+            [string]$instanceId,
+            [string]$isDryRun,
+            [string]$parentExitData,
+            [string]$requestNumber,
+            [string]$requestUser,
+            [string]$actionName,
+            [string]$runtimeType
+          )
+          write-host "==========================================="
+          write-host "InstanceId >>     [$instanceId]"
+          write-host "IsDryRun >>       [$isDryRun]"
+          write-host "ParentExitData >> [$parentExitData]"
+          write-host "RequestNumber >>  [$requestNumber]"
+          write-host "RequestUser >>    [$requestUser]"
+          write-host "ActionName >>     [$actionName]"
+          write-host "RuntimeType >>    [$runtimeType]"
+          write-host ""
+          $data = [System.Text.Encoding]::ASCII.GetString([System.Convert]::FromBase64String($parentExitData))
+          write-host "ParentExitData (Decoded) : "
+          write-host "$data"
+          write-host "==========================================="
+          exit 0
+        Arguments : '-instanceId "~~InstanceId~~" -isDryRun "~~IsDryRun~~" -parentExitData "~~ParentExitData~~" -requestNumber "~~RequestNumber~~" -requestUser "~~RequestUser~~" -actionName "~~ ActionName ~~" -runtimeType "~~RuntimeType~~"'

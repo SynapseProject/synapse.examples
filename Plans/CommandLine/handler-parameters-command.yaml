@@ -1,0 +1,24 @@
+Name: TestParameterSubstitution
+Description: Test Parameter Substitution in the CommandLine Handler
+IsActive: true
+Actions:
+- Name: Action001
+  Handler:
+    Type: Synapse.Handlers.CommandLine:CommandHandler
+    Config:
+      Type: Yaml
+      Values:
+        WorkingDirectory: C:\Temp
+        Command: powershell.exe
+        TimeoutMills: 5000
+        TimeoutAction: Error
+  Parameters:
+    Type: Yaml
+    Values:
+      Arguments : -ExecutionPolicy Bypass -File C:\Hold\test.ps1 -p1 "~~IsDryRun~~" -p2 "bbb" -p3 "ccc"
+      Expressions:
+      - Find: bbb
+        ReplaceWith: Action Name = ~~actionName~~
+      - Find: ccc
+        ReplaceWith: ~~ RUNTIMETYPE ~~
+  
