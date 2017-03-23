@@ -1,0 +1,18 @@
+Name: TestRCA
+Description: Test RemoteCommand Handler
+IsActive: true
+Actions:
+- Name: Hostname
+  Handler:
+    Type: Synapse.Handlers.CommandLine:CommandHandler
+    Config:
+      Type: Yaml
+      Values:
+        WorkingDirectory: C:\DoesNotExist
+        Command: powershell.exe
+        TimeoutMills: 5000
+        TimeoutAction: Error
+  Parameters:
+    Type: Yaml
+    Values:
+      Arguments : -ExecutionPolicy Bypass -File C:\Hold\test.ps1 -p1 aaa -p2 bbb -p3 ccc

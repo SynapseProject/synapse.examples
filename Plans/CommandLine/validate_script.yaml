@@ -1,0 +1,25 @@
+Name: ValidateScript
+Description: Test All Validation Elements on a Script Handler Action
+IsActive: true
+Actions:
+- Name: Hostname
+  Handler:
+    Type: Synapse.Handlers.CommandLine:ScriptHandler
+    Config:
+      Type: Yaml
+      Values:
+        RunOn: localhost
+        WorkingDirectory: C:\DoesNotExist
+        Type: Powershell
+        Arguments : /c
+        TimeoutMills: 10000
+        TimeoutAction: Error
+        ValidExitCodes:
+        - "EqualTo 0"
+  Parameters:
+    Type: Yaml
+    Values:
+      Script: C:\DoesNotExist\test.ps1
+      ScriptBlock: |
+        write-host "Hello World"
+        exit 0
