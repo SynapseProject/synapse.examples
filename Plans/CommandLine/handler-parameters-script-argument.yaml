@@ -1,6 +1,7 @@
 Name: HandlerVariables
 Description: Test Handler Variable Substitution
 IsActive: true
+InstanceId: 8675309  #Overwritten by Synapse Controller
 Actions:
 - Name: Action001
   Handler:
@@ -41,6 +42,8 @@ Actions:
         ScriptBlock: |
           param(
             [string]$instanceId,
+            [string]$planInstanceId,
+            [string]$actionInstanceId,
             [string]$isDryRun,
             [string]$parentExitData,
             [string]$requestNumber,
@@ -49,17 +52,19 @@ Actions:
             [string]$runtimeType
           )
           write-host "==========================================="
-          write-host "InstanceId >>     [$instanceId]"
-          write-host "IsDryRun >>       [$isDryRun]"
-          write-host "ParentExitData >> [$parentExitData]"
-          write-host "RequestNumber >>  [$requestNumber]"
-          write-host "RequestUser >>    [$requestUser]"
-          write-host "ActionName >>     [$actionName]"
-          write-host "RuntimeType >>    [$runtimeType]"
+          write-host "InstanceId >>        [$instanceId]"
+          write-host "PlanInstanceId >>    [$planInstanceId]"
+          write-host "ActionInstanceId >>  [$actionInstanceId]"
+          write-host "IsDryRun >>          [$isDryRun]"
+          write-host "ParentExitData >>    [$parentExitData]"
+          write-host "RequestNumber >>     [$requestNumber]"
+          write-host "RequestUser >>       [$requestUser]"
+          write-host "ActionName >>        [$actionName]"
+          write-host "RuntimeType >>       [$runtimeType]"
           write-host ""
           $data = [System.Text.Encoding]::ASCII.GetString([System.Convert]::FromBase64String($parentExitData))
           write-host "ParentExitData (Decoded) : "
           write-host "$data"
           write-host "==========================================="
           exit 0
-        Arguments : '-instanceId "~~InstanceId~~" -isDryRun "~~IsDryRun~~" -parentExitData "~~ParentExitData~~" -requestNumber "~~RequestNumber~~" -requestUser "~~RequestUser~~" -actionName "~~ ActionName ~~" -runtimeType "~~RuntimeType~~"'
+        Arguments : '-instanceId "~~InstanceId~~" -isDryRun "~~IsDryRun~~" -parentExitData "~~ParentExitData~~" -requestNumber "~~RequestNumber~~" -requestUser "~~RequestUser~~" -actionName "~~ ActionName ~~" -runtimeType "~~RuntimeType~~" -planInstanceId "~~PlanInstanceId~~" -actionInstanceId"~~ActionInstanceId~~"'

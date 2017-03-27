@@ -1,6 +1,10 @@
 Name: HandlerVariables
 Description: Test Handler Variable Substitution
 IsActive: true
+InstanceId: 8675309           #Overwritten by Synapse Controller
+StartInfo:                    #Overwritten by Synapse Controller
+  RequestUser: dc1\batman     #Overwritten by Synapse Controller
+  RequestNumber: REQ00000042  #Overwritten by Synapse Controller
 Actions:
 - Name: Action001
   Handler:
@@ -41,6 +45,8 @@ Actions:
         ScriptBlock: |
           param(
             [string]$instanceId,
+            [string]$planInstanceId,
+            [string]$actionInstanceId,
             [string]$isDryRun,
             [string]$parentExitData,
             [string]$requestNumber,
@@ -49,20 +55,22 @@ Actions:
             [string]$runtimeType
           )
           write-host "==========================================="
-          write-host "InstanceId >>     [$instanceId]"
-          write-host "IsDryRun >>       [$isDryRun]"
-          write-host "ParentExitData >> [$parentExitData]"
-          write-host "RequestNumber >>  [$requestNumber]"
-          write-host "RequestUser >>    [$requestUser]"
-          write-host "ActionName >>     [$actionName]"
-          write-host "RuntimeType >>    [$runtimeType]"
+          write-host "InstanceId >>        [$instanceId]"
+          write-host "PlanInstanceId >>    [$planInstanceId]"
+          write-host "ActionInstanceId >>  [$actionInstanceId]"
+          write-host "IsDryRun >>          [$isDryRun]"
+          write-host "ParentExitData >>    [$parentExitData]"
+          write-host "RequestNumber >>     [$requestNumber]"
+          write-host "RequestUser >>       [$requestUser]"
+          write-host "ActionName >>        [$actionName]"
+          write-host "RuntimeType >>       [$runtimeType]"
           write-host ""
           $data = [System.Text.Encoding]::ASCII.GetString([System.Convert]::FromBase64String($parentExitData))
           write-host "ParentExitData (Decoded) : "
           write-host "$data"
           write-host "==========================================="
           exit 0
-        Arguments : '-instanceId "P1" -isDryRun "P2" -parentExitData "P3" -requestNumber "P4" -requestUser "P5" -actionName "P6" -runtimeType "P7"'
+        Arguments : '-instanceId "P1" -isDryRun "P2" -parentExitData "P3" -requestNumber "P4" -requestUser "P5" -actionName "P6" -runtimeType "P7" -planInstanceId "P8" -actionInstanceId "P9"'
         Expressions:
         - Find: P1
           ReplaceWith: Instance Id Is ~~InstanceId~~
@@ -78,3 +86,7 @@ Actions:
           ReplaceWith: Action Name Is [~~                      ActionName         ~~]
         - Find: P7
           ReplaceWith: ~~RuntimeType~~
+        - Find: P8
+          ReplaceWith: ~~PlanInstanceId~~
+        - Find: P9
+          ReplaceWith: ~~ActionInstanceId~~
