@@ -1,0 +1,33 @@
+Name: TestSQLCommand
+Description: Simple Query with no Parameters
+Actions:
+- Name: SimpleStoredProc001
+  Handler:
+    Type: Synapse.Handler.Sql:OdbcHandler
+    Config:
+      Type: Yaml
+      Values:
+        ConnectionString: DSN=SQL_SANDBOX
+        OutputType: Yaml
+  Parameters:
+    Type: Yaml
+    Values:
+      StoredProcedure: "{ ? = call dbo.MultiParams(?,?,?,?) }"
+      IsQuery: true
+      Parameters:
+      - Name: Results
+        Direction: Output
+        Type: Int16
+      - Name: Param1
+        Value: 10
+        Direction: Input
+        Type: Int16
+      - Name: Param2
+        Direction: Output
+        Type: Int16
+      - Name: Param3
+        Direction: Output
+        Type: Int16
+      - Name: Param4
+        Direction: Output
+        Type: DateTime

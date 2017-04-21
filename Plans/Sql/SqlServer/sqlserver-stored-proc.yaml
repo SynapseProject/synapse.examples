@@ -1,0 +1,19 @@
+Name: TestSQLCommand
+Description: Simple Query with no Parameters
+Actions:
+- Name: SimpleStoredProc001
+  Handler:
+    Type: Synapse.Handler.Sql:SqlServerHandler
+    Config:
+      Type: Yaml
+      Values:
+        User: guy
+        Password: guy
+        DataSource: localhost
+        Database: SANDBOX
+        ConnectionTimeout: 30
+        OutputType: Yaml
+  Parameters:
+    Type: Yaml
+    Values:
+      StoredProcedure: dbo.uspGetPresidents

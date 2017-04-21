@@ -1,0 +1,15 @@
+Name: TestSQLCommand
+Description: Simple Query with no Parameters
+Actions:
+- Name: SimpleQuery001
+  Handler:
+    Type: Synapse.Handler.Sql:OdbcHandler
+    Config:
+      Type: Yaml
+      Values:
+        ConnectionString: DSN=SQL_SANDBOX
+        OutputType: Yaml
+  Parameters:
+    Type: Yaml
+    Values:
+      Text: SELECT * from PRESIDENTS

@@ -1,0 +1,37 @@
+Name: TestSQLCommand
+Description: Simple Query with no Parameters
+Actions:
+- Name: SimpleStoredProc001
+  Handler:
+    Type: Synapse.Handler.Sql:SqlServerHandler
+    Config:
+      Type: Yaml
+      Values:
+        User: guy
+        Password: guy
+        DataSource: localhost
+        Database: SANDBOX
+        ConnectionTimeout: 30
+        OutputType: Yaml
+  Parameters:
+    Type: Yaml
+    Values:
+      StoredProcedure: dbo.MultiParams
+      Parameters:
+      - Name: Param1
+        Value: 10
+        Direction: Input
+        Type: Int16
+      - Name: Param2
+        Direction: Output
+        Type: Int16
+      - Name: Param3
+        Direction: Output
+        Type: Int16
+      - Name: Param4
+        Direction: Output
+        Type: DateTime
+      - Name: Results
+        Value: 21
+        Direction: ReturnValue
+        Type: Int16

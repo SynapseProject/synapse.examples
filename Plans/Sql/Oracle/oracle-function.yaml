@@ -1,0 +1,22 @@
+Name: TestOracleHandler
+Description: Simple Query with no Parameters
+Actions:
+- Name: SimpleQuery001
+  Handler:
+    Type: Synapse.Handler.Sql:OracleHandler
+    Config:
+      Type: Yaml
+      Values:
+        User: scott
+        Password: tiger
+        DataSource: (DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = DEDICATED)(SERVICE_NAME = XE)))
+        OutputType: Yaml
+  Parameters:
+    Type: Yaml
+    Values:
+      StoredProcedure: HELLOWORLD
+      Parameters:
+      - Name: Result
+        Direction: ReturnValue
+        Type: String
+        Size: 50

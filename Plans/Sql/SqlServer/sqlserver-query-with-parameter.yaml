@@ -1,0 +1,21 @@
+Name: TestSQLCommand
+Description: Simple Query with A Single Parameter
+Actions:
+- Name: SimpleQuery002
+  Handler:
+    Type: Synapse.Handler.Sql:SqlServerHandler
+    Config:
+      Type: Yaml
+      Values:
+        DataSource: localhost
+        Database: SANDBOX
+        IntegratedSecurity: true
+        ConnectionTimeout: 30
+        OutputType: Yaml
+  Parameters:
+    Type: Yaml
+    Values:
+      Text: SELECT TABLE_SCHEMA, TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_CATALOG = @DatabaseName
+      Parameters:
+      - Name: DatabaseName
+        Value: SANDBOX

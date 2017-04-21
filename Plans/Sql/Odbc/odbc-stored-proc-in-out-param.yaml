@@ -1,0 +1,21 @@
+Name: TestSQLCommand
+Description: Simple Query with no Parameters
+Actions:
+- Name: SimpleStoredProc001
+  Handler:
+    Type: Synapse.Handler.Sql:OdbcHandler
+    Config:
+      Type: Yaml
+      Values:
+        ConnectionString: DSN=SQL_SANDBOX
+        OutputType: Yaml
+  Parameters:
+    Type: Yaml
+    Values:
+      StoredProcedure: "{ call dbo.uspDouble(?) }"
+      IsQuery: false
+      Parameters:
+      - Name: Param1
+        Value: 21
+        Direction: InputOutput
+        Type: Int16
