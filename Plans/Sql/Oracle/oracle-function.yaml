@@ -3,7 +3,7 @@ Description: Simple Query with no Parameters
 Actions:
 - Name: SimpleQuery001
   Handler:
-    Type: Synapse.Handler.Sql:OracleHandler
+    Type: Synapse.Handlers.Sql:OracleHandler
     Config:
       Type: Yaml
       Values:

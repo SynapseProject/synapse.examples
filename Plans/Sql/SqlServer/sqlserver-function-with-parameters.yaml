@@ -3,7 +3,7 @@ Description: Simple Query with no Parameters
 Actions:
 - Name: SimpleStoredProc001
   Handler:
-    Type: Synapse.Handler.Sql:SqlServerHandler
+    Type: Synapse.Handlers.Sql:SqlServerHandler
     Config:
       Type: Yaml
       Values:

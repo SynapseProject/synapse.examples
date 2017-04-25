@@ -3,7 +3,7 @@ Description: Simple Query with A Single Parameter
 Actions:
 - Name: SimpleQuery002
   Handler:
-    Type: Synapse.Handler.Sql:OdbcHandler
+    Type: Synapse.Handlers.Sql:OdbcHandler
     Config:
       Type: Yaml
       Values:
