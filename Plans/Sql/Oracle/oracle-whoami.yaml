@@ -1,0 +1,15 @@
+Name: TestOracleHandler
+Description: Simple Query with no Parameters
+Actions:
+- Name: SimpleQuery001
+  Handler:
+    Type: Synapse.Handlers.Sql:OracleHandler
+    Config:
+      Type: Yaml
+      Values:
+        ConnectionString: user id=/;data source=(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = DEDICATED)(SERVICE_NAME = XE)));
+        OutputType: Yaml
+  Parameters:
+    Type: Yaml
+    Values:
+      Text: SELECT USER FROM DUAL
