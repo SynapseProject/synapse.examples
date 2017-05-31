@@ -1,0 +1,29 @@
+Name: CopyFile001
+Description: Test CopyFile Handler
+IsActive: true
+Actions:
+- Name: Hostname
+  Handler:
+    Type: Synapse.Handlers.FileUtil:CopyFileHandler
+    Config:
+      Type: Yaml
+      Values:
+        Action: Copy
+        OverwriteExisting: true
+        IncludeSubdirectories : true
+        PurgeDestination: false
+        UseTransaction: true
+        Verbose: true
+  Parameters:
+    Type: Yaml
+    Values:
+      FileSets:
+      - Sources: 
+        - C:\Temp\FileUtil\Source1\
+        - C:\Temp\FileUtil\Source2\
+        - C:\Temp\FileUtil\Source3\
+        - C:\Temp\FileUtil\Source4\
+        Destinations: 
+        - C:\Temp\FileUtil\Destination1\
+        - C:\Temp\FileUtil\Destination2\
+        - \\localhost\c$\Temp\FileUtil\Destination3\

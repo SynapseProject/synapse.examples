@@ -1,0 +1,23 @@
+Name: CopyFile001
+Description: Test CopyFile Handler
+IsActive: true
+Actions:
+- Name: Hostname
+  Handler:
+    Type: Synapse.Handlers.FileUtil:DeleteFileHandler
+    Config:
+      Type: Yaml
+      Values:
+        Recursive : true
+        IgnoreReadOnly: true
+        UseTransaction: true
+        FailIfMissing: false
+        Verbose: true
+  Parameters:
+    Type: Yaml
+    Values:
+      Targets:
+      - C:\Temp\FileUtil\Source1\guy.txt
+      - C:\Temp\FileUtil\Source2
+      - C:\Temp\FileUtil\Source3
+      - C:\Temp\FileUtil\Source4\

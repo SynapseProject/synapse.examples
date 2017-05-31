@@ -1,0 +1,26 @@
+Name: ModifyFile001
+Description: Test ModifyFile (ConfigFile) Handler
+Actions:
+- Name: ConfigFile
+  Handler:
+    Type: Synapse.Handlers.FileUtil:ModifyFileHandler
+    Config:
+      Type: Yaml
+      Values:
+        Type : XPath
+        BackupSource: true
+        CreateSettingIfNotFound: true
+        RunSequential: true
+  Parameters:
+    Type: Yaml
+    Values:
+      Files:
+      - Source: C:\Temp\XPath.config
+        Destination: C:\Temp\XPath.config.new
+        SettingsFile: 
+          Name: C:\Temp\XPath.csv
+        Settings:
+        - Key: '//configuration/applicationSettings/MyService.Properties.Settings/setting[@name="passPhrase"]/value'
+          Value: GuyWaguespack
+        - Key: '//configuration/applicationSettings/MyService.Properties.Settings/setting[@name="saltValue"]/value'
+          Value: SaltyGuy

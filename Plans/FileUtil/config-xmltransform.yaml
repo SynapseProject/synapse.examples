@@ -1,0 +1,21 @@
+Name: ModifyFile001
+Description: Test ModifyFile (ConfigFile) Handler
+Actions:
+- Name: ConfigFile
+  Handler:
+    Type: Synapse.Handlers.FileUtil:ModifyFileHandler
+    Config:
+      Type: Yaml
+      Values:
+        Type : XmlTransform
+        BackupSource: true
+        CreateSettingIfNotFound: true
+        RunSequential: true
+  Parameters:
+    Type: Yaml
+    Values:
+      Files:
+      - Source: C:\Temp\Web.config
+        Destination: C:\Temp\Web.config.new
+        SettingsFile: 
+          Name: C:\Temp\Web.NEW.config

@@ -1,0 +1,26 @@
+Name: ModifyFile001
+Description: Test ModifyFile (ConfigFile) Handler
+Actions:
+- Name: ConfigFile
+  Handler:
+    Type: Synapse.Handlers.FileUtil:ModifyFileHandler
+    Config:
+      Type: Yaml
+      Values:
+        Type : INI
+        BackupSource: true
+        CreateSettingIfNotFound: true
+        RunSequential: true
+  Parameters:
+    Type: Yaml
+    Values:
+      Files:
+      - Source: C:\Temp\input.ini
+        Destination: C:\Temp\output.ini
+        SettingsFile: 
+          Name: C:\Temp\initransform.csv
+        Settings:
+        - Key: TESTKEY
+          Value: Guy Waguespack Was Here
+        - Key: "[ODBC 32 bit Data Sources]:TESTKEY"
+          Value: Guy Waguespack Was Here Too

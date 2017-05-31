@@ -1,0 +1,24 @@
+Name: ModifyFile001
+Description: Test ModifyFile (ConfigFile) Handler
+Actions:
+- Name: ConfigFile
+  Handler:
+    Type: Synapse.Handlers.FileUtil:ModifyFileHandler
+    Config:
+      Type: Yaml
+      Values:
+        Type : Regex
+        BackupSource: true
+        CreateSettingIfNotFound: true
+        RunSequential: true
+  Parameters:
+    Type: Yaml
+    Values:
+      Files:
+      - Source: C:\Temp\regex.cfg
+        Destination: C:\Temp\regex.cfg.new
+        SettingsFile: 
+          Name: C:\Temp\RegexTransform.csv
+        Settings:
+        - Key: (SET\s*ENDUR_VER\s*=\s*).*?$
+          Value: ${1}NEW_VERSION_NUMBER_HERE

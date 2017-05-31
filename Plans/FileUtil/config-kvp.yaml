@@ -1,0 +1,24 @@
+Name: ModifyFile001
+Description: Test ModifyFile (ConfigFile) Handler
+Actions:
+- Name: ConfigFile
+  Handler:
+    Type: Synapse.Handlers.FileUtil:ModifyFileHandler
+    Config:
+      Type: Yaml
+      Values:
+        Type : KeyValue
+        BackupSource: true
+        CreateSettingIfNotFound: true
+        RunSequential: true
+  Parameters:
+    Type: Yaml
+    Values:
+      Files:
+      - Source: C:\Temp\javainput.properties
+        Destination: C:\Temp\javaoutput.properties
+        SettingsFile: 
+          Name: C:\Temp\kvptransform.csv
+        Settings:
+        - Key: baseGroup.ABCDEFG-svrMessageLogger.isLogging
+          Value: false
