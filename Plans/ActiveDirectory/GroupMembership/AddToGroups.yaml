@@ -1,0 +1,29 @@
+Name: AddToGroups
+Description: Add To Groups
+IsActive: true
+Actions:
+- Name: Action001
+  Handler:
+    Type: Synapse.Handlers.ActiveDirectory:ActiveDirectoryHandler
+    Config:
+      Type: Yaml
+      Values:
+        Action: AddToGroup
+        RunSequential: false
+        OutputType: Yaml
+        ReturnObjects: true
+        QueryGroupMembership: true
+        PrettyPrint: true
+        SuppressOutput: false
+  Parameters:
+    Type: Yaml
+    Values:
+      Users:
+      - Identity: testuser001
+        Groups:
+        - MyNewGroup
+        - MyParentGroup
+      Groups:
+      - Identity: MyNewGroup
+        Groups:
+        - MyParentGroup

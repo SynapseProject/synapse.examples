@@ -1,0 +1,22 @@
+Name: QueryUser
+Description: Query User
+IsActive: true
+Actions:
+- Name: Action001
+  Handler:
+    Type: Synapse.Handlers.ActiveDirectory:ActiveDirectoryHandler
+    Config:
+      Type: Yaml
+      Values:
+        Action: Query
+        RunSequential: true
+        ReturnObjects: true
+        OutputType: Yaml
+        PrettyPrint: true
+        SuppressOutput: false
+  Parameters:
+    Type: Yaml
+    Values:
+      Users:
+      - Identity: cn=TestUser001,ou=Synapse,DC=sandbox,DC=local
+      - Identity: MyBoss001

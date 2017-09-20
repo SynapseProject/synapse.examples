@@ -1,0 +1,21 @@
+Name: DeleteOrgUnit
+Description: Delete Organizational Unit
+IsActive: true
+Actions:
+- Name: Action001
+  Handler:
+    Type: Synapse.Handlers.ActiveDirectory:ActiveDirectoryHandler
+    Config:
+      Type: Yaml
+      Values:
+        Action: Delete
+        RunSequential: true
+        ReturnObjects: true
+        OutputType: Yaml
+        PrettyPrint: true
+        SuppressOutput: false
+  Parameters:
+    Type: Yaml
+    Values:
+      OrganizationalUnits:
+      - Identity: ou=MyOrgUnit,ou=Synapse,DC=sandbox,DC=local

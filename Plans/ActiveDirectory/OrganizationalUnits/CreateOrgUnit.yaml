@@ -1,0 +1,39 @@
+Name: CreateOrgUnit
+Description: Create Organizational Unit
+IsActive: true
+Actions:
+- Name: Action001
+  Handler:
+    Type: Synapse.Handlers.ActiveDirectory:ActiveDirectoryHandler
+    Config:
+      Type: Yaml
+      Values:
+        Action: Create
+        RunSequential: true
+        ReturnObjects: true
+        OutputType: Yaml
+        PrettyPrint: true
+        SuppressOutput: false
+  Parameters:
+    Type: Yaml
+    Values:
+      OrganizationalUnits:
+      - Identity: ou=MyOrgUnit,ou=Synapse,DC=sandbox,DC=local
+        Description: Test Organizational Unit
+        Properties:
+          managedBy:
+          - cn=TestUser001,ou=Synapse,DC=sandbox,DC=local
+          countryCode:
+          - 840
+          co:
+          - United States
+          c:
+          - US
+          l:
+          - Houston
+          postalCode:
+          - 77008
+          street:
+          - 1313 Mockingbird Lane
+          st:
+          - Texas

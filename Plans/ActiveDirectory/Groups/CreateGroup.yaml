@@ -1,0 +1,37 @@
+Name: CreateGroup
+Description: Create Group
+IsActive: true
+Actions:
+- Name: Action001
+  Handler:
+    Type: Synapse.Handlers.ActiveDirectory:ActiveDirectoryHandler
+    Config:
+      Type: Yaml
+      Values:
+        Action: Create
+        RunSequential: true
+        ReturnObjects: true
+        OutputType: Yaml
+        PrettyPrint: true
+        SuppressOutput: false
+  Parameters:
+    Type: Yaml
+    Values:
+      Groups:
+      - Identity: cn=MyNewGroup,ou=Synapse,DC=sandbox,DC=local
+        Scope: Universal     # Local, Global or Universal
+        IsSecurityGroup: true
+        SamAccountName: MyNewGroupSam
+        Description: Some Lame Description
+        Properties:
+          managedBy:
+          - cn=TestUser001,ou=Synapse,DC=sandbox,DC=local
+          displayName:
+          - My Display Name
+          info:
+          - Comments Here
+          mail:
+          - MyNewGroup@company.com
+      - Identity: cn=MyParentGroup,ou=Synapse,DC=sandbox,DC=local
+        Scope: Universal     # Local, Global or Universal
+        IsSecurityGroup: true

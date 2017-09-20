@@ -1,0 +1,36 @@
+Name: ModifyUser
+Description: Modify User
+IsActive: true
+Actions:
+- Name: Action001
+  Handler:
+    Type: Synapse.Handlers.ActiveDirectory:ActiveDirectoryHandler
+    Config:
+      Type: Yaml
+      Values:
+        Action: Modify
+        RunSequential: true
+        ReturnObjects: true
+        OutputType: Yaml
+        PrettyPrint: true
+        SuppressOutput: false
+  Parameters:
+    Type: Yaml
+    Values:
+      Users:
+      - Identity: cn=TestUser001,ou=Synapse,DC=sandbox,DC=local
+        MiddleName: Michael
+        AllowReversiblePasswordEncryption: false
+        DisplayName : Test M. User
+        Description: Some Useless user
+        Properties:
+          info:
+          - ~null~        # Clears Out Existing Value
+          initials:
+          - TMU
+          otherPager:
+          - 1-800-555-1213
+          - ~null~        # If Any Element Is ~null~, Clears Out Existing Values
+          - 1-800-555-1215
+          pager:
+          - ~null~        # Clears Out Existing Value

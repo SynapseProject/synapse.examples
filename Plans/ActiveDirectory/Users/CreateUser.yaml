@@ -1,0 +1,146 @@
+Name: CreateUser
+Description: Create User
+IsActive: true
+Actions:
+- Name: Action001
+  Handler:
+    Type: Synapse.Handlers.ActiveDirectory:ActiveDirectoryHandler
+    Config:
+      Type: Yaml
+      Values:
+        Action: Create
+        RunSequential: true
+        ReturnObjects: true
+        OutputType: Yaml
+        PrettyPrint: true
+        SuppressOutput: false
+  Parameters:
+    Type: Yaml
+    Values:
+      Users:
+      - Identity: cn=MyBoss001,ou=Synapse,DC=sandbox,DC=local
+        Description: Dummy Boss User
+      - Identity: cn=TestUser001,ou=Synapse,DC=sandbox,DC=local
+        Password: bi@02LL49_VWQ{b
+        GivenName: Test
+        MiddleName: James
+        Surname: User
+        EmailAddress: testuser001@company.com
+        VoiceTelephoneNumber: +1-800-555-1212
+        EmployeeId: 42
+        Enabled: true
+        SmartcardLogonRequired: false
+        DelegationPermitted: true
+        HomeDirectory: Users\TestUser001
+        ScriptPath: C:\Users\TestUser001\Scripts
+        PasswordNotRequired: false
+        PasswordNeverExpires: true
+        UserCannotChangePassword: false
+        AllowReversiblePasswordEncryption: true
+        HomeDrive: "D:"
+        AccountExpirationDate: 2020-08-10T16:35:46.0417954Z
+        PermittedLogonTimes:
+        - 255
+        - 0
+        - 255
+        - 0
+        - 255
+        - 0
+        - 255
+        - 0
+        - 255
+        - 0
+        - 255
+        - 0
+        - 255
+        - 0
+        - 255
+        - 0
+        - 255
+        - 0
+        - 255
+        - 0
+        - 255
+        DisplayName : Test J. User
+        Description: Some Useless user
+        UserPrincipalName: testuser001@sandbox.local
+        SamAccountName: testuser001Sam
+        Properties:
+          c:
+          - US
+          co:
+          - United States
+          company:
+          - MyCompany LLC
+          countryCode:
+          - 840
+          department:
+          - My Department
+          facsimileTelephoneNumber:
+          - 1-800-555-1212
+          homePhone:
+          - 1-800-555-1212
+          info:
+          - Comments Here
+          initials:
+          - TJU
+          ipPhone:
+          - 1-800-555-1212
+          l:
+          - Mockingbird Heights
+          lockoutTime:
+          - 0
+          logonWorkstation:
+          - MyComputer
+          manager:
+          - cn=MyBoss001,ou=Synapse,DC=sandbox,DC=local
+          mobile:
+          - 1-800-555-1212
+          otherFacsimileTelephoneNumber:
+          - 1-800-555-1213
+          - 1-800-555-1214
+          - 1-800-555-1215
+          otherHomePhone:
+          - 1-800-555-1213
+          - 1-800-555-1214
+          - 1-800-555-1215
+          otherIpPhone:
+          - 1-800-555-1213
+          - 1-800-555-1214
+          - 1-800-555-1215
+          otherMobile:
+          - 1-800-555-1213
+          - 1-800-555-1214
+          - 1-800-555-1215
+          otherPager:
+          - 1-800-555-1213
+          - 1-800-555-1214
+          - 1-800-555-1215
+          otherTelephone:
+          - 1-800-555-1213
+          - 1-800-555-1214
+          - 1-800-555-1215
+          pager:
+          - 1-800-555-1212
+          physicalDeliveryOfficeName:
+          - My Office Name
+          postalCode:
+          - 90066
+          postOfficeBox:
+          - 666
+          profilePath:
+          - C:\Users\TestUser001\Profile
+          st:
+          - California
+          streetAddress:
+          - 1313 Mockingbird Lane
+          title:
+          - Generic User
+          url:
+          - http://www.google.com
+          - http://www.bing.com
+          - http://www.yahoo.com
+          userWorkstations:
+          - MyComputer
+          wWWHomePage:
+          - http://www.company.com

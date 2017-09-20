@@ -1,0 +1,27 @@
+Name: ModifyGroup
+Description: Modify Group
+IsActive: true
+Actions:
+- Name: Action001
+  Handler:
+    Type: Synapse.Handlers.ActiveDirectory:ActiveDirectoryHandler
+    Config:
+      Type: Yaml
+      Values:
+        Action: Modify
+        RunSequential: true
+        ReturnObjects: true
+        OutputType: Yaml
+        PrettyPrint: true
+        SuppressOutput: false
+  Parameters:
+    Type: Yaml
+    Values:
+      Groups:
+      - Identity: MyNewGroup
+        Scope: Global     # Local, Global or Universal
+        Properties:
+          displayName:
+          - My New Display Name
+          info:
+          - ~null~        # Clears Out Existing Field
