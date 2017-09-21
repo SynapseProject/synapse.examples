@@ -20,9 +20,8 @@ Actions:
       OrganizationalUnits:
       - Identity: ou=MyOrgUnit,ou=Synapse,DC=sandbox,DC=local
         Description: Test Organizational Unit
+        ManagedBy: TestUser001
         Properties:
-          managedBy:
-          - cn=TestUser001,ou=Synapse,DC=sandbox,DC=local
           countryCode:
           - 840
           co:

@@ -19,6 +19,7 @@ Actions:
     Values:
       OrganizationalUnits:
       - Identity: ou=MyOrgUnit,ou=Synapse,DC=sandbox,DC=local
+        ManagedBy: ~null~          # Clears Out Existing Field
         Description: ~null~        # Clears Out Existing Field
         Properties:
           l:

@@ -23,9 +23,8 @@ Actions:
         IsSecurityGroup: true
         SamAccountName: MyNewGroupSam
         Description: Some Lame Description
+        ManagedBy: TestUser001
         Properties:
-          managedBy:
-          - cn=TestUser001,ou=Synapse,DC=sandbox,DC=local
           displayName:
           - My Display Name
           info:
