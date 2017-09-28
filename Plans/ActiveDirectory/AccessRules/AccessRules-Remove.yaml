@@ -1,0 +1,54 @@
+Name: CreateUser
+Description: Create User
+IsActive: true
+Actions:
+- Name: Action001
+  Handler:
+    Type: Synapse.Handlers.ActiveDirectory:ActiveDirectoryHandler
+    Config:
+      Type: Yaml
+      Values:
+        Action: RemoveAccessRight
+        RunSequential: true
+        ReturnObjects: true
+        ReturnAccessRules: true
+        QueryGroupMembership: false
+        OutputType: Yaml
+        PrettyPrint: true
+        SuppressOutput: false
+  Parameters:
+    Type: Yaml
+    Values:
+      Users:
+      - Identity: SomeUser001
+        AccessRules:
+        - Identity: TestUser001
+          Type: Allow
+          Rights:
+          - GenericRead
+        - Identity: TestUser001
+          Type: Deny
+          Rights:
+          - ListChildren
+      Groups:
+      - Identity: SomeGroup001
+        AccessRules:
+        - Identity: TestUser001
+          Type: Allow
+          Rights:
+          - GenericRead
+        - Identity: TestUser001
+          Type: Deny
+          Rights:
+          - ListChildren
+      OrganizationalUnits:
+      - Identity: SomeOrgUnit001
+        AccessRules:
+        - Identity: TestUser001
+          Type: Allow
+          Rights:
+          - GenericRead
+        - Identity: TestUser001
+          Type: Deny
+          Rights:
+          - ListChildren
