@@ -24,19 +24,16 @@ Actions:
         AccessRules:
         - Identity: TestUser001
           Type: Allow
-          Rights:
-          - GenericAll
+          Rights: GenericAll
       Groups:
       - Identity: SomeGroup001
         AccessRules:
         - Identity: TestUser001
           Type: Allow
-          Rights:
-          - GenericAll
+          Rights: GenericAll
       OrganizationalUnits:
       - Identity: SomeOrgUnit001
         AccessRules:
         - Identity: TestUser001
           Type: Allow
-          Rights:
-          - GenericAll
+          Rights: GenericAll

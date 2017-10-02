@@ -24,34 +24,25 @@ Actions:
         AccessRules:
         - Identity: TestUser001
           Type: Allow
-          Rights:
-          - Self
-          - GenericRead
+          Rights: Self,GenericRead
         - Identity: TestUser001
           Type: Deny
-          Rights:
-          - ListChildren
+          Rights: ListChildren
       Groups:
       - Identity: SomeGroup001
         AccessRules:
         - Identity: TestUser001
           Type: Allow
-          Rights:
-          - Self
-          - GenericRead
+          Rights: Self,GenericRead
         - Identity: TestUser001
           Type: Deny
-          Rights:
-          - ListChildren
+          Rights: ListChildren
       OrganizationalUnits:
       - Identity: SomeOrgUnit001
         AccessRules:
         - Identity: TestUser001
           Type: Allow
-          Rights:
-          - Self
-          - GenericRead
+          Rights: Self,GenericRead
         - Identity: TestUser001
           Type: Deny
-          Rights:
-          - ListChildren
+          Rights: ListChildren
