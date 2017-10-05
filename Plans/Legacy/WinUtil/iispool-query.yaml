@@ -10,6 +10,6 @@ Actions:
     Values: 
       <WinCore>
         <Tasks>
-          <Task Action="Stop" ServerName="localhost" TargetName="DefaultAppPool" TargetType="AppPool" />
+          <Task Action="Query" ServerName="localhost" TargetName="DefaultAppPool" TargetType="AppPool" />
         </Tasks>
       </WinCore>
