@@ -1,0 +1,18 @@
+Name: Simple Copy
+Description: Test Simple Copy
+IsActive: true
+Actions:
+- Name: SimpleCopy
+  Handler:
+    Type: Synapse.Handlers.Legacy.StandardCopyProcess:StandardCopyProcessHandler
+  Parameters:
+    Type: Xml
+    Values: 
+      <StandardCopy>
+        <DeploymentRoot>C:\Temp</DeploymentRoot>
+        <Servers>
+          <Server>localhost</Server>
+        </Servers>
+        <SourceDirectory>Source</SourceDirectory>
+        <TargetServerDestination>C:\Temp\Destination</TargetServerDestination>
+      </StandardCopy>

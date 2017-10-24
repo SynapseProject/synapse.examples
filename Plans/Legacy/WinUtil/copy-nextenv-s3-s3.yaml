@@ -1,0 +1,25 @@
+Name: Simple Copy
+Description: Test Simple Copy
+IsActive: true
+Actions:
+- Name: SimpleCopy
+  Handler:
+    Type: Synapse.Handlers.Legacy.StandardCopyProcess:StandardCopyProcessHandler
+    Config:
+      Type: Yaml
+      Values:
+        Aws:
+#          AccessKey: xxxxxxxxxxxxxxxxxxxx
+#          SecretKey: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+          Region: eu-west-1
+  Parameters:
+    Type: Xml
+    Values: 
+      <StandardCopy>
+        <Servers>
+          <Server>localhost</Server>
+        </Servers>
+        <SourceDirectory>s3://my-bucket-name/DevA</SourceDirectory>
+        <TargetServerDestination>C:\Temp\Destination</TargetServerDestination>
+        <NextEnvironmentSourceDirectory>s3://my-bucket-name/NextEnv</NextEnvironmentSourceDirectory>
+      </StandardCopy>
