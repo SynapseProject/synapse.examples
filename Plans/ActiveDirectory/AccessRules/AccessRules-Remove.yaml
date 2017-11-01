@@ -12,7 +12,7 @@ Actions:
         RunSequential: true
         ReturnObjects: true
         ReturnAccessRules: true
-        QueryGroupMembership: false
+        ReturnGroupMembership: false
         OutputType: Yaml
         PrettyPrint: true
         SuppressOutput: false
