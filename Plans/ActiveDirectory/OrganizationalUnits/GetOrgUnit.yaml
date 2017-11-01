@@ -1,5 +1,5 @@
-Name: QueryUser
-Description: Query User
+Name: QueryOrgUnit
+Description: Query Organizational Unit
 IsActive: true
 Actions:
 - Name: Action001
@@ -8,7 +8,7 @@ Actions:
     Config:
       Type: Yaml
       Values:
-        Action: Query
+        Action: Get
         RunSequential: true
         ReturnObjects: true
         OutputType: Yaml
@@ -17,6 +17,5 @@ Actions:
   Parameters:
     Type: Yaml
     Values:
-      Users:
-      - Identity: cn=TestUser001,ou=Synapse,DC=sandbox,DC=local
-      - Identity: MyBoss001
+      OrganizationalUnits:
+      - Identity: ou=MyOrgUnit,ou=Synapse,DC=sandbox,DC=local

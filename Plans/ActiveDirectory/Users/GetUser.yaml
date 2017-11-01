@@ -1,5 +1,5 @@
-Name: QueryGroup
-Description: Query Group
+Name: QueryUser
+Description: Query User
 IsActive: true
 Actions:
 - Name: Action001
@@ -8,7 +8,7 @@ Actions:
     Config:
       Type: Yaml
       Values:
-        Action: Query
+        Action: Get
         RunSequential: true
         ReturnObjects: true
         OutputType: Yaml
@@ -17,6 +17,6 @@ Actions:
   Parameters:
     Type: Yaml
     Values:
-      Groups:
-      - Identity: MyNewGroup
-      - Identity: cn=MyParentGroup,ou=Synapse,DC=sandbox,DC=local
+      Users:
+      - Identity: cn=TestUser001,ou=Synapse,DC=sandbox,DC=local
+      - Identity: MyBoss001
