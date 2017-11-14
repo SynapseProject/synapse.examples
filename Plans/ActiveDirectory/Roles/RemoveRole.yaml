@@ -1,0 +1,34 @@
+Name: RemoveRole
+Description: Remove Roles From AD Objects
+IsActive: true
+Actions:
+- Name: RemoveRole
+  Handler:
+    Type: Synapse.Handlers.ActiveDirectory:ActiveDirectoryHandler
+    Config:
+      Type: Yaml
+      Values:
+        Action: AddRole
+        RunSequential: false
+        ReturnObjects: true
+        OutputType: Yaml
+        PrettyPrint: true
+        SuppressOutput: false
+  Parameters:
+    Type: Yaml
+    Values:
+      Users:
+      - Identity: SomeUser001
+        Roles:
+        - Name: AdOwner
+          Principal: TestUser001
+      Groups:
+      - Identity: SomeGroup001
+        Roles:
+        - Name: AdReadWrite
+          Principal: TestUser001
+      OrganizationalUnits:
+      - Identity: ou=Synapse,dc=sandbox,dc=local
+        Roles:
+        - Name: AdSomeOtherRole
+          Principal: TestUser001
