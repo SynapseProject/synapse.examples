@@ -21,5 +21,6 @@ Actions:
           Name: C:\Temp\Web.NEW.config
           HasEncryptedValues: true
     Crypto:
-      KeyUri: C:\Synapse\Keys\SynapseDev-PublicPrivate.key
-      KeyContainerName: SynapseDev
+      Key:
+        Uri: C:\Synapse\Keys\SynapseDev-PublicPrivate.key
+        ContainerName: SynapseDev
