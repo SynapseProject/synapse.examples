@@ -11,6 +11,10 @@ Actions:
         BackupSource: true
         CreateSettingIfNotFound: true
         RunSequential: true
+        Aws:
+          AccessKey: xxxxxxxx
+          SecretKey: xxxxxxxx
+          Region: eu-west-1
   Parameters:
     Type: Yaml
     Values:
@@ -24,3 +28,17 @@ Actions:
           Value: Guy Waguespack Was Here
         - Key: "[ODBC 32 bit Data Sources]:TESTKEY"
           Value: Guy Waguespack Was Here Too
+      - Source: s3://mybucket/FileMunge/input.ini
+        Destination: s3://mybucket/FileMunge/output/output.ini
+        SettingsFile: 
+          Name: s3://mybucket/FileMunge/initransform.csv
+          HasEncryptedValues: true
+        Settings:
+        - Key: TESTKEY
+          Value: Guy Waguespack Was Here
+        - Key: "[ODBC 32 bit Data Sources]:TESTKEY"
+          Value: Guy Waguespack Was Here Too
+    Crypto:
+      Key:
+        Uri: C:\Synapse\Keys\SynapseDev-PublicPrivate.key
+        ContainerName: SynapseDev

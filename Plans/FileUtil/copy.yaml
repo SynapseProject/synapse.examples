@@ -14,6 +14,10 @@ Actions:
         PurgeDestination: false
         UseTransaction: true
         Verbose: true
+        Aws:
+          AccessKey: xxxxxxxx
+          SecretKey: xxxxxxxx
+          Region: eu-west-1
   Parameters:
     Type: Yaml
     Values:
@@ -23,7 +27,9 @@ Actions:
         - C:\Temp\FileUtil\Source2\
         - C:\Temp\FileUtil\Source3\
         - C:\Temp\FileUtil\Source4\
+        - s3://mybucket/Source/
         Destinations: 
         - C:\Temp\FileUtil\Destination1\
         - C:\Temp\FileUtil\Destination2\
         - \\localhost\c$\Temp\FileUtil\Destination3\
+        - s3://mybucket/Destination/

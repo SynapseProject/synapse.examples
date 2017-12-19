@@ -11,6 +11,10 @@ Actions:
         BackupSource: true
         CreateSettingIfNotFound: true
         RunSequential: true
+        Aws:
+          AccessKey: xxxxxxxx
+          SecretKey: xxxxxxxx
+          Region: eu-west-1
   Parameters:
     Type: Yaml
     Values:
@@ -22,3 +26,15 @@ Actions:
         Settings:
         - Key: (SET\s*ENDUR_VER\s*=\s*).*?$
           Value: ${1}NEW_VERSION_NUMBER_HERE
+      - Source: s3://mybucket/FileMunge/regex.cfg
+        Destination: s3://mybucket/FileMunge/output/regex.cfg.new
+        SettingsFile: 
+          Name: s3://mubucket/FileMunge/RegexTransform.csv
+          HasEncryptedValues: true
+        Settings:
+        - Key: (SET\s*ENDUR_VER\s*=\s*).*?$
+          Value: ${1}NEW_VERSION_NUMBER_HERE
+    Crypto:
+      Key:
+        Uri: C:\Synapse\Keys\SynapseDev-PublicPrivate.key
+        ContainerName: SynapseDev

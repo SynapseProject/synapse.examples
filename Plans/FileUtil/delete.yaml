@@ -13,6 +13,10 @@ Actions:
         UseTransaction: true
         FailIfMissing: false
         Verbose: true
+        Aws:
+          AccessKey: xxxxxxxx
+          SecretKey: xxxxxxxx
+          Region: eu-west-1
   Parameters:
     Type: Yaml
     Values:
@@ -21,3 +25,5 @@ Actions:
       - C:\Temp\FileUtil\Source2
       - C:\Temp\FileUtil\Source3
       - C:\Temp\FileUtil\Source4\
+      - s3://mybucket/Destination/File001.txt
+      - s3://mybucket/Destination/MyFolder/

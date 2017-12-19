@@ -11,6 +11,10 @@ Actions:
         BackupSource: true
         CreateSettingIfNotFound: true
         RunSequential: true
+        Aws:
+          AccessKey: xxxxxxxx
+          SecretKey: xxxxxxxx
+          Region: eu-west-1
   Parameters:
     Type: Yaml
     Values:
@@ -19,6 +23,11 @@ Actions:
         Destination: C:\Temp\Web.config.new
         SettingsFile: 
           Name: C:\Temp\Web.NEW.config
+          HasEncryptedValues: true
+      - Source: s3://mybucket/FileMunge/Web.config
+        Destination: s3://mybucket/FileMunge/output/Web.config.new
+        SettingsFile: 
+          Name: s3://mybucket/FileMunge/Web.NEW.config
           HasEncryptedValues: true
     Crypto:
       Key:

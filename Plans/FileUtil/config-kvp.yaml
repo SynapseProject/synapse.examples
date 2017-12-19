@@ -11,6 +11,10 @@ Actions:
         BackupSource: true
         CreateSettingIfNotFound: true
         RunSequential: true
+        Aws:
+          AccessKey: xxxxxxxx
+          SecretKey: xxxxxxxx
+          Region: eu-west-1
   Parameters:
     Type: Yaml
     Values:
@@ -19,6 +23,13 @@ Actions:
         Destination: C:\Temp\javaoutput.properties
         SettingsFile: 
           Name: C:\Temp\kvptransform.csv
+        Settings:
+        - Key: baseGroup.ABCDEFG-svrMessageLogger.isLogging
+          Value: false
+      - Source: s3://mybucket/FileMunge/javainput.properties
+        Destination: s3://mybucket/FileMunge/output/javaoutput.properties
+        SettingsFile: 
+          Name: s3://mybucket/FileMunge/kvptransform.csv
         Settings:
         - Key: baseGroup.ABCDEFG-svrMessageLogger.isLogging
           Value: false

@@ -11,6 +11,10 @@ Actions:
         BackupSource: true
         CreateSettingIfNotFound: true
         RunSequential: true
+        Aws:
+          AccessKey: xxxxxxxx
+          SecretKey: xxxxxxxx
+          Region: eu-west-1
   Parameters:
     Type: Yaml
     Values:
@@ -24,3 +28,17 @@ Actions:
           Value: GuyWaguespack
         - Key: '//configuration/applicationSettings/MyService.Properties.Settings/setting[@name="saltValue"]/value'
           Value: SaltyGuy
+      - Source: s3://mybucket/FileMunge/XPath.config
+        Destination: s3://mybucket/FileMunge/output/XPath.config.new
+        SettingsFile: 
+          Name: s3://mybucket/FileMunge/XPath.csv
+          HasEncryptedValues: true
+        Settings:
+        - Key: '//configuration/applicationSettings/MyService.Properties.Settings/setting[@name="passPhrase"]/value'
+          Value: GuyWaguespack
+        - Key: '//configuration/applicationSettings/MyService.Properties.Settings/setting[@name="saltValue"]/value'
+          Value: SaltyGuy
+    Crypto:
+      Key:
+        Uri: C:\Synapse\Keys\SynapseDev-PublicPrivate.key
+        ContainerName: SynapseDev
