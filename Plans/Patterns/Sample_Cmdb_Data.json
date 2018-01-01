@@ -1,0 +1,53 @@
+{
+   "Environments":{
+      "Environment":[
+         {
+            "Dev":{
+               "Database":{
+                  "Name":"devDbname",
+                  "Server":"devDbServer"
+               },
+               "Services":{
+                  "LanmanWorkstation":{
+                     "DatabaseSchema":"svc1SchemaSlippery",
+                     "DisplayName":"Application Service 1",
+                     "InstallPath":"f:\\foo\\bar\\1\\dev\\service1.exe",
+                     "StagingLocation":"dev\\Service1"
+                  },
+                  "Themes":{
+                     "DatabaseSchema":"svc2SchemaSlope",
+                     "DisplayName":"Application Service 2",
+                     "InstallPath":"f:\\foo\\bar\\2\\dev\\service2.exe",
+                     "StagingLocation":"dev\\Service2"
+                  }
+               }
+            }
+         },
+         {
+            "Test":{
+               "Database":{
+                  "Name":"testDbname",
+                  "Server":"testDbServer"
+               },
+               "Services":{
+                  "Service1":{
+                     "DatabaseSchema":"svc1SchemaFunk",
+                     "DisplayName":"Application Service 1",
+                     "InstallPath":"f:\\foo\\bar\\1\\test\\service1.exe",
+                     "StagingLocation":"test\\Service1"
+                  },
+                  "Service2":{
+                     "DatabaseSchema":"svc2SchemaTest",
+                     "DisplayName":"Application Service 2",
+                     "InstallPath":"f:\\foo\\bar\\2\\test\\service2.exe",
+                     "StagingLocation":"test\\Service2"
+                  }
+               }
+            }
+         }
+      ]
+   },
+   "GlobalSettings":{
+      "DeploymentRoot":"s3:\\\\myBucket"
+   }
+}
