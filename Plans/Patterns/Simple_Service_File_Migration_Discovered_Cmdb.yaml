@@ -1,0 +1,128 @@
+Name: Simple_Service_File_Migration_Discovered
+Description: Discover EC2 servers, stop services/copy files/start services
+DefaultHandlerType: Synapse.Core:EmptyHandler
+Actions:
+- Name: topAction   #top-level action: ActionGroup execute first, then child Actions following successful completion of ActionGroup
+  ActionGroup:      #groups the EC2-disco and URI, requires the both succeed to continue to child Actions
+    Name: Gather_Parms
+    Description: Collect cmdb data from URI, collect servers from EC2-query action (placeholder)
+    Actions:
+    - Name: Cmdb_Data_From_Uri
+      Description: fetch data from json file at uri, returns complete contents of file in ExitData
+      Handler:
+        Type: Synapse.Handlers.Uri:SimpleUriHandler
+      Parameters:
+        Values:
+          Uri: https://raw.githubusercontent.com/SynapseProject/synapse.examples/develop/Plans/Patterns/Sample_Cmdb_Data.json
+          Format: Json
+      Actions:
+      - Name: Transform
+        Description: from ParentExitData, take 'Environments:Environment[0]:Dev:Services' section and transform it to a simple list -- #{ "Services": [ "LanmanWorkstation", "Themes" ] } 
+        Handler:
+          Type: Synapse.Handlers.DataTransformation:TransformHandler
+          Config:
+            Values:
+              InputType: Json
+        Parameters:
+          Values:
+            XslTransformations:
+            - <?xml version="1.0" encoding="UTF-8"?>
+              <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+              <xsl:template match="/">
+                <xsl:for-each select="/Services/*">
+                  <Services><xsl:value-of select="local-name()"/></Services>
+                </xsl:for-each>
+              </xsl:template>
+              </xsl:stylesheet>
+          ParentExitData:
+          - Source: Environments:Environment[0]:Dev:Services  #path to "Services" in cmdb data
+            Destination: Data:Services                        #put it into the "Data" element of the TransformHandler parameters, such that the xslt finds it at as a root of Services -- or-each select="/Services/*"
+        Actions:
+        - Name: Convert_ExitData_To_Params_appServices
+          Description: Take the transform result from ParentExitData and trim the artifical "root" node, then store it in 'appServices'
+          Handler:
+            Type: Synapse.Core:EmptyHandler
+          Parameters:
+            Name: appServices        #stores Parameters as global, named 'appServices'
+            ParentExitData:
+            - Source: root:Services  #selects 'Services' from ParentExitData and creates the same in Parameters.Values
+              Destination: Services
+    - Name: Query_EC2_Servers     #placeholder for ec2-discovery handler
+      Parameters:
+        Values:
+          ExitData:
+            Instances:            #expected return data
+            - localhost
+            - serverName001
+            - 127.0.0.1
+      Actions:
+      - Name: Convert_ExitData_To_Params_ec2servers
+        Parameters:
+          Name: ec2servers        #stores Parameters as global, named 'ec2servers'
+          ParentExitData:
+          - Source: Instances     #selects 'Instances' from ParentExitData and creates the same in Parameters.Values
+            Destination: Instances
+  Actions:
+  - Name: Work
+    ActionGroup:              #execute services.Stop in ActionGroup to ensure all succeed before progressing to child->CopyFiles_Container
+      Name: StopService_Container
+      Actions:
+      - Name: Stop_Services
+        Handler:
+          Type: Synapse.Handler.WinUtil:ServiceHandler
+          Config:
+            Values:
+              Action: Stop
+              Timeout: 30000
+              OutputType: Yaml
+              PrettyPrint: true
+        Parameters:
+          Values:
+            Services:
+            - StartMode: Disabled
+          ForEach:
+            ParameterSetSources:
+            - ParameterSet: ec2servers
+              Source: Instances #selects 'Instances' from 'ec2servers', casts array to ForEach.Items-->Services[0]:Server
+              Destination: Services[0]:Server
+            - ParameterSet: appServices
+              Source: Services  #selects 'Services' from 'appServices', casts array to ForEach.Items-->Services[0]:Name
+              Destination: Services[0]:Name
+    Actions:
+    - Name: CopyFiles_Container   #proceed with copy-files following successful services.stop
+      Handler:
+        Type: Synapse.Handlers.FileUtil:CopyFileHandler
+        Config:
+          Values:
+            OverwriteExisting: true
+            IncludeSubdirectories: true
+            Verbose: true
+      Parameters:
+        Values:
+          FileSets:
+          - Sources:
+            - C:\Devo\Source
+            Destinations:
+            - C:\Devo\Target
+      Actions:                #execute services.Start as child Actions collection, ActionGroup not needed here because no further dependencies
+      - Name: Start_Services
+        Handler:
+          Type: Synapse.Handler.WinUtil:ServiceHandler
+          Config:
+            Values:
+              Action: Start
+              Timeout: 30000
+              OutputType: Json
+              PrettyPrint: true
+        Parameters:
+          Values:
+            Services:
+            - StartMode: Automatic
+          ForEach:
+            ParameterSetSources:
+            - ParameterSet: ec2servers
+              Source: Instances #selects 'Instances' from 'ec2servers', casts array to ForEach.Items-->Services[0]:Server
+              Destination: Services[0]:Server
+            - ParameterSet: appServices
+              Source: Services  #selects 'Services' from 'appServices', casts array to ForEach.Items-->Services[0]:Name
+              Destination: Services[0]:Name

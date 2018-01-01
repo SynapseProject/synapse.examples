@@ -1,0 +1,86 @@
+Name: Simple_Service_File_Migration_Discovered
+Description: Discover EC2 servers, stop services/copy files/start services
+DefaultHandlerType: Synapse.Core:EmptyHandler
+Actions:
+- Name: Query_EC2_Servers     #placeholder for ec2-discovery handler
+  Parameters:
+    Values:
+      ExitData:
+        Instances:            #expected return data
+        - localhost
+        - serverName001
+        - 127.0.0.1
+        Services:             #placeholder for "discovered" services
+        - LanmanWorkstation
+        - Themes
+  Actions:
+  - Name: Convert_ExitData_To_Params
+    Parameters:
+      Name: ec2servers        #stores Parameters as global, named 'ec2servers'
+      ParentExitData:
+      - Source: Instances     #selects 'Instances' from ParentExitData and creates the same in Parameters.Values
+        Destination: Instances
+      - Source: Services      #selects 'Services' from ParentExitData and creates the same in Parameters.Values
+        Destination: Services
+    ActionGroup:              #execute services.Stop in ActionGroup to ensure all succeed before progressing to child->CopyFiles_Container
+      Name: StopService_Container
+      Actions:
+      - Name: Stop_Services
+        Handler:
+          Type: Synapse.Handler.WinUtil:ServiceHandler
+          Config:
+            Values:
+              Action: Stop
+              Timeout: 30000
+              OutputType: Yaml
+              PrettyPrint: true
+        Parameters:
+          Values:
+            Services:
+            - StartMode: Disabled
+          ForEach:
+            ParameterSetSources:
+            - ParameterSet: ec2servers
+              Source: Instances #selects 'Instances' from 'ec2servers', casts array to ForEach.Items-->Services[0]:Server
+              Destination: Services[0]:Server
+            - ParameterSet: ec2servers
+              Source: Services  #selects 'Services' from 'ec2servers', casts array to ForEach.Items-->Services[0]:Name
+              Destination: Services[0]:Name
+    Actions:
+    - Name: CopyFiles_Container
+      Handler:
+        Type: Synapse.Handlers.FileUtil:CopyFileHandler
+        Config:
+          Values:
+            OverwriteExisting: true
+            IncludeSubdirectories: true
+            Verbose: true
+      Parameters:
+        Values:
+          FileSets:
+          - Sources:
+            - C:\Devo\Source
+            Destinations:
+            - C:\Devo\Target
+      Actions:                #execute services.Start as child Actions collection, ActionGroup not needed here because no further dependencies
+      - Name: Start_Services
+        Handler:
+          Type: Synapse.Handler.WinUtil:ServiceHandler
+          Config:
+            Values:
+              Action: Start
+              Timeout: 30000
+              OutputType: Json
+              PrettyPrint: true
+        Parameters:
+          Values:
+            Services:
+            - StartMode: Automatic
+          ForEach:
+            ParameterSetSources:
+            - ParameterSet: ec2servers
+              Source: Instances #selects 'Instances' from 'ec2servers', casts array to ForEach.Items-->Services[0]:Server
+              Destination: Services[0]:Server
+            - ParameterSet: ec2servers
+              Source: Services  #selects 'Services' from 'ec2servers', casts array to ForEach.Items-->Services[0]:Name
+              Destination: Services[0]:Name
