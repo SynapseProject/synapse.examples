@@ -8,14 +8,14 @@
                   "Server":"devDbServer"
                },
                "Services":{
-                  "Service1":{
+                  "LanmanWorkstation":{
                      "DatabaseSchema":"svc1SchemaSlippery",
                      "DisplayName":"Application Service 1",
                      "InstallFolder":"C:\\Devo\\Target\\Service1",
                      "InstallPath":"f:\\foo\\bar\\1\\dev\\service1.exe",
                      "StagingLocation":"C:\\Devo\\Source\\Service1"
                   },
-                  "Service2":{
+                  "Themes":{
                      "DatabaseSchema":"svc2SchemaSlope",
                      "DisplayName":"Application Service 2",
                      "InstallFolder":"C:\\Devo\\Target\\Service2",
