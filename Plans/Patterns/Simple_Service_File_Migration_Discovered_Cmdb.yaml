@@ -16,7 +16,7 @@ Actions:
           Uri: https://raw.githubusercontent.com/SynapseProject/synapse.examples/develop/Plans/Patterns/Sample_Cmdb_Data.json
           Format: Json
       Actions:
-      - Name: Transform
+      - Name: Transform_appServices
         Description: from ParentExitData, take 'Environments:Environment[0]:Dev:Services' section and transform it to a simple list -- #{ "Services": [ "LanmanWorkstation", "Themes" ] } 
         Handler:
           Type: Synapse.Handlers.DataTransformation:TransformHandler
@@ -26,14 +26,16 @@ Actions:
         Parameters:
           Values:
             XslTransformations:
-            - <?xml version="1.0" encoding="UTF-8"?>
-              <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-              <xsl:template match="/">
-                <xsl:for-each select="/Services/*">
-                  <Services><xsl:value-of select="local-name()"/></Services>
-                </xsl:for-each>
-              </xsl:template>
-              </xsl:stylesheet>
+            - Xslt:
+                <?xml version="1.0" encoding="UTF-8"?>
+                <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+                <xsl:template match="/">
+                  <xsl:for-each select="/Services/*">
+                    <Services><xsl:value-of select="local-name()"/></Services>
+                  </xsl:for-each>
+                </xsl:template>
+                </xsl:stylesheet>
+              PreserveOutputAsIs: False
           ParentExitData:
           - Source: Environments:Environment[0]:Dev:Services  #path to "Services" in cmdb data
             Destination: Data:Services                        #put it into the "Data" element of the TransformHandler parameters, such that the xslt finds it at as a root of Services -- or-each select="/Services/*"
@@ -47,6 +49,41 @@ Actions:
             ParentExitData:
             - Source: root:Services  #selects 'Services' from ParentExitData and creates the same in Parameters.Values
               Destination: Services
+      - Name: Transform_FileCopy
+        Handler:
+          Type: Synapse.Handlers.DataTransformation:TransformHandler
+          Config:
+            Values:
+              InputType: Json
+        Parameters:
+          Values:
+            XslTransformations:
+            - Xslt: |
+                <?xml version="1.0" encoding="UTF-8"?>
+                <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+                <xsl:template match="/">
+                FileSets:
+                  <xsl:for-each select="/Services/*">
+                - Sources:
+                  - <xsl:value-of select="StagingLocation"/>
+                  Destinations:
+                  - <xsl:value-of select="InstallFolder"/>
+                  </xsl:for-each>
+                </xsl:template>
+                </xsl:stylesheet>
+          ParentExitData:
+          - Source: Environments:Environment[0]:Dev:Services
+            Destination: Data:Services
+        Actions:
+        - Name: Convert_ExitData_To_Params_FileCopy
+          Description: Take the transform result from ParentExitData and trim the artifical "root" node, then store it in 'appServices'
+          Handler:
+            Type: Synapse.Core:EmptyHandler
+          Parameters:
+            Name: appServices_FileCopy #stores Parameters as global, named 'appServices_FileCopy'
+            ParentExitData:
+            - Source: FileSets  #selects 'Services' from ParentExitData and creates the same in Parameters.Values
+              Destination: FileSets
     - Name: Query_EC2_Servers     #placeholder for ec2-discovery handler
       Parameters:
         Values:
@@ -98,12 +135,7 @@ Actions:
             IncludeSubdirectories: true
             Verbose: true
       Parameters:
-        Values:
-          FileSets:
-          - Sources:
-            - C:\Devo\Source
-            Destinations:
-            - C:\Devo\Target
+        InheritFrom: appServices_FileCopy
       Actions:                #execute services.Start as child Actions collection, ActionGroup not needed here because no further dependencies
       - Name: Start_Services
         Handler:
