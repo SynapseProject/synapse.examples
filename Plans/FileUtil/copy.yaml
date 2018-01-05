@@ -10,9 +10,8 @@ Actions:
       Values:
         Action: Copy
         OverwriteExisting: true
-        IncludeSubdirectories : true
+        Recurse : true
         PurgeDestination: false
-        UseTransaction: true
         Verbose: true
         Aws:
           AccessKey: xxxxxxxx
