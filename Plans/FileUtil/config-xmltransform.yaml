@@ -11,6 +11,7 @@ Actions:
         BackupSource: true
         CreateSettingIfNotFound: true
         RunSequential: true
+        OverwriteExisting: true
         Aws:
           AccessKey: xxxxxxxx
           SecretKey: xxxxxxxx
@@ -21,6 +22,7 @@ Actions:
       Files:
       - Source: C:\Temp\Web.config
         Destination: C:\Temp\Web.config.new
+        OverwriteExisting: false
         SettingsFile: 
           Name: C:\Temp\Web.NEW.
       - Source: s3://mybucket/FileMunge/Web.config
