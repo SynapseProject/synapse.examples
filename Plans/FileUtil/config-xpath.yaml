@@ -11,6 +11,7 @@ Actions:
         BackupSource: true
         CreateSettingIfNotFound: true
         RunSequential: true
+        OverwriteExisting: true
         Aws:
           AccessKey: xxxxxxxx
           SecretKey: xxxxxxxx
@@ -21,6 +22,7 @@ Actions:
       Files:
       - Source: C:\Temp\XPath.config
         Destination: C:\Temp\XPath.config.new
+        OverwriteExisting: false
         SettingsFile: 
           Name: C:\Temp\XPath.csv
         Settings:

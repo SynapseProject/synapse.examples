@@ -11,6 +11,7 @@ Actions:
         BackupSource: true
         CreateSettingIfNotFound: true
         RunSequential: true
+        OverwriteExisting: true
         Aws:
           AccessKey: xxxxxxxx
           SecretKey: xxxxxxxx
@@ -21,6 +22,7 @@ Actions:
       Files:
       - Source: C:\Temp\regex.cfg
         Destination: C:\Temp\regex.cfg.new
+        OverwriteExisting: false
         SettingsFile: 
           Name: C:\Temp\RegexTransform.csv
         Settings:

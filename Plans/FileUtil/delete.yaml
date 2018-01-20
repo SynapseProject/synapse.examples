@@ -8,9 +8,7 @@ Actions:
     Config:
       Type: Yaml
       Values:
-        Recursive : true
-        IgnoreReadOnly: true
-        UseTransaction: true
+        Recurse : true
         FailIfMissing: false
         Verbose: true
         Aws:

@@ -10,6 +10,7 @@ Actions:
         Type : XmlTransform
         BackupSource: true
         CreateSettingIfNotFound: true
+        OverwriteExisting: true
         RunSequential: true
         Aws:
           AccessKey: xxxxxxxx
@@ -21,6 +22,7 @@ Actions:
       Files:
       - Source: C:\Temp\Web.config
         Destination: C:\Temp\Web.config.new
+        OverwriteExisting: false
         SettingsFile: 
           Name: C:\Temp\Web.NEW.config
           HasEncryptedValues: true
