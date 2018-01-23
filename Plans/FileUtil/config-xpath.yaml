@@ -3,7 +3,7 @@ Description: Test ModifyFile (ConfigFile) Handler
 Actions:
 - Name: ConfigFile
   Handler:
-    Type: Synapse.Handlers.FileUtil:ModifyFileHandler
+    Type: Synapse.Handlers.FileUtil:MungeFileHandler
     Config:
       Type: Yaml
       Values:
