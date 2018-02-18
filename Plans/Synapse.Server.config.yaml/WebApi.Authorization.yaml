@@ -1,0 +1,90 @@
+# This example focuses on the WebApi Authorization section of Synapse.Server.config.yaml.
+#   - Settings above Authorization are shown for contextual refrence.
+#   - See https://github.com/SynapseProject/synapse.docs/blob/master/docs/run/setup/authorization.md for details.
+
+WebApi:
+  Host: localhost
+  Port: 20000
+  IsSecure: false
+  UseImpersonation: false
+  Authentication:
+    Scheme: IntegratedWindowsAuthentication
+    Config: 
+  Authorization:
+    AllowAnonymous: true
+    Providers:
+    - Type: Synapse.Authorization:WindowsPrincipalProvider
+      AppliesTo:
+        ServerRole: Controller, Node
+      Config:
+        # specify an LdapRoot if using Groups
+        LdapRoot: {LDAP://...}
+        # a ListSource is a serialized list of Users/Groups with is checked for changes on every authorization call
+        # see below for example
+        ListSourcePath: {file path}\myAuthorizationList.yaml
+        # staticly declared Users/Groups, static lists and ListSource can be used together in an additive fashion
+        Users:
+          Allowed:
+          - domain/user0
+          - domain/user1
+          Denied:
+          - domain/user2
+        Groups:
+          Allowed:
+          - group0
+          Denied:
+          - group1
+    - Type: Synapse.Authorization.Suplex:SuplexProvider
+      AppliesTo:
+        ServerRole: Admin
+      Config:
+        Connection:
+          Type: File
+          Path: {file path}\{suplexFile}.splx
+        # a ListSource is a serialized list of Users/Groups with is checked for changes on every authorization call
+        # see below for example
+        ListSourcePath: {file path}\myAuthorizationList.yaml
+        # staticly declared Users/Groups, static lists and ListSource can be used together in an additive fashion
+        Users:
+          Allowed:
+          - domain/user0
+          - domain/user1
+          Denied:
+          - domain/user2
+        Groups:
+          Allowed:
+          - group0
+          Denied:
+          - group1
+    - Type: Synapse.Authorization.Suplex:SuplexProvider
+      AppliesTo:
+        ServerRole: Admin
+        Topics:
+        - AutoUpdate
+      Config:
+        Connection:
+          Type: File
+          Path: {file path}\{suplexFile}.splx
+        ListSourcePath: {file path}\{fileName}.yaml
+
+
+# Example of ListSource: myAuthorizationList.yaml
+# Static lists and ListSource can be used together in an additive fashion.
+Users:
+  Allowed:
+  - domain/user0
+  - domain/user1
+  Denied:
+  - domain/user2
+Groups:
+  Allowed:
+  - group0
+  Denied:
+  - group1
+
+
+# The Authorization section may be omitted entirely if not required, or declared in a minimal setup:
+WebApi:
+  Authorization:
+    AllowAnonymous: true
+    Providers:

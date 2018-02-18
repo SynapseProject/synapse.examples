@@ -1,0 +1,11 @@
+# This example focuses on the Node section of Synapse.Server.config.yaml.
+#   - See http://synapse.readthedocs.io/en/latest/run/setup/#node-settings for details.
+
+Node:
+  MaxServerThreads: 0
+  AuditLogRootPath: .\Logs
+  Log4NetConversionPattern: '%d{ISO8601}|%-5p|(%t)|%m%n'
+  SerializeResultPlan: true
+  ValidatePlanSignature: false
+  ControllerUrl: 
+  ControllerAuthenticationScheme: None

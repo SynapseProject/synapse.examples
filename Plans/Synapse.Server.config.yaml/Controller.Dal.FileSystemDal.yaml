@@ -1,0 +1,19 @@
+# This example focuses on the Controller.Dal section of Synapse.Server.config.yaml, for Type = Synapse.Controller.Dal.FileSystem:FileSystemDal
+#   - See http://synapse.readthedocs.io/en/latest/run/dal/#filesystemdal for details.
+
+Controller:
+  # other settings omitted for brevity
+  Dal:
+    Type: Synapse.Controller.Dal.FileSystem:FileSystemDal
+    LdapRoot: 
+    Config:
+      PlanFolderPath: Plans
+      HistoryFolderPath: History
+      ProcessPlansOnSingleton: false
+      ProcessActionsOnSingleton: true
+      Security:
+        FilePath: Security
+        IsRequired: false
+        ValidateSignature: false
+        SignaturePublicKeyFile: 
+        GlobalExternalGroupsCsv: Everyone

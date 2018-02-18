@@ -1,0 +1,23 @@
+# This example focuses on the Controller section of Synapse.Server.config.yaml.
+#   - See http://synapse.readthedocs.io/en/latest/run/setup/#controller-settings for details.
+
+Controller:
+  NodeUrl: http://localhost:20000/synapse/node
+  NodeAuthenticationScheme: None
+  SignPlan: false
+  Assemblies:
+  # - custom Controller extensions
+  Dal:
+    Type: Synapse.Controller.Dal.FileSystem:FileSystemDal
+    LdapRoot: #{LDAP://...}
+    Config:
+      PlanFolderPath: Plans
+      HistoryFolderPath: History
+      ProcessPlansOnSingleton: false
+      ProcessActionsOnSingleton: true
+      Security:
+        FilePath: Security
+        IsRequired: false
+        ValidateSignature: false
+        SignaturePublicKeyFile: 
+        GlobalExternalGroupsCsv: Everyone
