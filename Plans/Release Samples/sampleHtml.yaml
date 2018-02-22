@@ -1,0 +1,99 @@
+Name: SamplePlan
+Description: Returns HTML
+Actions:
+- Name: HtmlAction
+  Handler:
+    Type: Synapse.Core:EmptyHandler
+  Parameters:
+    Values:
+      SleepMilliseconds: 0
+      ReturnStatus: Complete
+      ExitData: >+
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+            <title>Hello from Synapse, World!</title>
+            <basefont face="Raleway, Helvetica, sans-serif">
+            <style>
+              .hilite {
+                  display: inline;
+                  background: #b7e1b7;
+                  font-weight: bold;
+              }
+            </style>
+          </head>
+          <body style="font-family: Raleway, Helvetica, sans-serif;">
+            <img src="https://synapseproject.github.io/images/synapse_logo_64x64.png" alt="Synapse Logo" width="37" height="37">
+            <h2 style="display: inline; vertical-align: 9px; padding: 5px">Hello from Synapse, World!</h2>
+            <p>It's easy to send HTML back.</p>
+            <ul>
+              <li>In the execute/start URL, specify the PlanName like normal.</li>
+              <li>Specify to run the plan synchronously, serializing the result as HTML.</li>
+              <li>Return your HTML in the Result.ExitData.</li>
+            </ul>
+            <table style="width: 75%" cellpadding="5" border="1">
+              <tbody>
+                <tr style="background: #2d486c; color: white;">
+                  <td><strong>Setting</strong></td>
+                  <td><strong>Value</strong></td>
+                </tr>
+                <tr>
+                  <td style="background: #c9d7e8">Start</td>
+                  <td>/synapse/execute/<div class="hilite">{planName}</div>/start/<div class="hilite">sync/?serializationType=html<div></td>
+                </tr>
+                <tr>
+                  <td style="background: #c9d7e8; vertical-align: top">Result.ExitData</td>
+                  <td>
+                    <pre>
+          Result:
+            Status: Complete
+            <b class="hilite">ExitData: &gt;-</b><div style="display: inline; background: #edf7ed;">
+              &lt;!DOCTYPE html&gt;
+              &lt;html&gt;
+                &lt;head&gt;
+                  &lt;meta http-equiv="content-type" content="text/html; charset=UTF-8"&gt;
+                  &lt;title&gt;Hello from Synapse, World!&lt;/title&gt;
+                  &lt;basefont face="Raleway, Helvetica, sans-serif"&gt;
+                  &lt;style&gt;
+                    .hilite {
+                        display: inline;
+                        background: #b7e1b7;
+                        font-weight: bold;
+                    }
+                  &lt;/style&gt;
+                &lt;/head&gt;
+                &lt;body style="font-family: Raleway, Helvetica, sans-serif;"&gt;
+                  &lt;img src="https://synapseproject.github.io/images/synapse_logo_64x64.png" alt="Synapse Logo" width="37" height="37"&gt;
+                  &lt;h2 style="display: inline; vertical-align: 9px; padding: 5px"&gt;Hello from Synapse, World!&lt;/h2&gt;
+                  &lt;p&gt;It's easy to send HTML back.&lt;/p&gt;
+                  &lt;ul&gt;
+                    &lt;li&gt;In the execute/start URL, specify the PlanName like normal.&lt;/li&gt;
+                    &lt;li&gt;Specify to run the plan synchronously, serializing the result as HTML.&lt;/li&gt;
+                    &lt;li&gt;Return your HTML in the Result.ExitData.&lt;/li&gt;
+                  &lt;/ul&gt;
+                  &lt;table style="width: 75%" cellpadding="5" border="1"&gt;
+                    &lt;tbody&gt;
+                      &lt;tr style="background: #2d486c; color: white;"&gt;
+                        &lt;td&gt;&lt;strong&gt;Setting&lt;/strong&gt;&lt;/td&gt;
+                        &lt;td&gt;&lt;strong&gt;Value&lt;/strong&gt;&lt;/td&gt;
+                      &lt;/tr&gt;
+                      &lt;tr&gt;
+                        &lt;td style="background: #c9d7e8"&gt;Start&lt;/td&gt;
+                        &lt;td&gt;/synapse/execute/&lt;div class="hilite"&gt;{planName}&lt;/div&gt;/start/&lt;div class="hilite"&gt;sync/?serializationType=html&lt;div&gt;&lt;/td&gt;
+                      &lt;/tr&gt;
+                      &lt;tr&gt;
+                        &lt;td style="background: #c9d7e8; vertical-align: top"&gt;Result.ExitData&lt;/td&gt;
+                        &lt;td&gt;Inception.  It's perfectly possible.&lt;/td&gt;
+                      &lt;/tr&gt;
+                    &lt;/tbody&gt;
+                  &lt;/table&gt;
+                &lt;/body&gt;
+              &lt;/html&gt;</div>
+            BranchStatus: Complete</pre>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </body>
+        </html>

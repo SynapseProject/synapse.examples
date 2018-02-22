@@ -1,0 +1,36 @@
+Name: sample0
+Description: Simple call to powershell
+Actions:
+- Name: GetFilePaths
+  Description: script detects currentPath and assembles source/dest for file copy
+  Handler:
+    Type: Synapse.Handlers.CommandLine:CommandHandler
+    Config:
+      Values:
+        WorkingDirectory: C:\Devo\synapse\current\Node\_Samples
+        Command: powershell.exe
+        TimeoutMills: 5000
+        TimeoutStatus: Failed
+  Parameters:
+    Values:
+      Arguments: -ExecutionPolicy Bypass -File .\getSourceDest.ps1
+  Actions:
+  - Name: Sample FileCopy
+    Description: FileUtil.CopyFile Parameters.Values generated from ParentExitData
+    Handler:
+      Type: Synapse.Handlers.FileUtil:CopyFileHandler
+      Config:
+        Values:
+          OverwriteExisting: true
+          Recurse: false
+          StopOnError: true
+          PurgeDestination: false
+          Verbose: true
+    Parameters:
+      ParentExitData:
+      - CopyToValues:
+          Source: Data:Source
+          Target: FileSets[0]:Sources[0]
+      - CopyToValues:
+          Source: Data:Destination
+          Target: FileSets[0]:Destinations[0]
