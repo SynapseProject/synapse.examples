@@ -1,0 +1,22 @@
+Name: RenameOrgUnit
+Description: Rename Organizational Unit
+IsActive: true
+Actions:
+- Name: Action001
+  Handler:
+    Type: Synapse.Handlers.ActiveDirectory:ActiveDirectoryHandler
+    Config:
+      Type: Yaml
+      Values:
+        Action: Modify
+        RunSequential: true
+        ReturnObjects: true
+        OutputType: Yaml
+        PrettyPrint: true
+        SuppressOutput: false
+  Parameters:
+    Type: Yaml
+    Values:
+      OrganizationalUnits:
+      - Identity: ou=OldOrgUnit,ou=DeleteMe,ou=Synapse,DC=sandbox,DC=local
+        Name: NewOrgUnit

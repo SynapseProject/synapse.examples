@@ -1,0 +1,25 @@
+Name: RenameGroup
+Description: Rename Group
+IsActive: true
+Actions:
+- Name: Action001
+  Handler:
+    Type: Synapse.Handlers.ActiveDirectory:ActiveDirectoryHandler
+    Config:
+      Type: Yaml
+      Values:
+        Action: Modify
+        RunSequential: true
+        ReturnObjects: true
+        OutputType: Yaml
+        PrettyPrint: true
+        SuppressOutput: false
+  Parameters:
+    Type: Yaml
+    Values:
+      Groups:
+      - Identity: cn=OldGroup,ou=DeleteMe,ou=Synapse,DC=sandbox,DC=local
+        Name: NewGroup
+        # Name Field Only Modifies The Name.  To Modify SamAccount Name, Explicitly Add It.
+        SamAccountName: NewGroup
+        
