@@ -1,0 +1,26 @@
+Name: RenameUser
+Description: Rename User
+IsActive: true
+Actions:
+- Name: Action001
+  Handler:
+    Type: Synapse.Handlers.ActiveDirectory:ActiveDirectoryHandler
+    Config:
+      Type: Yaml
+      Values:
+        Action: Modify
+        RunSequential: true
+        ReturnObjects: true
+        OutputType: Yaml
+        PrettyPrint: true
+        SuppressOutput: false
+  Parameters:
+    Type: Yaml
+    Values:
+      Users:
+      - Identity: cn=OldUser,ou=DeleteMe,ou=Synapse,DC=sandbox,DC=local
+        Name: NewUser
+        # Name Field Only Modifies The Name.  To Modify UserPrincipal and SamAccount Name, Explicitly Add Them.
+        UserPrincipalName: newuser003@sandbox.local
+        SamAccountName: newuser003Sam
+        
