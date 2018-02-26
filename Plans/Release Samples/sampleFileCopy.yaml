@@ -7,7 +7,7 @@ Actions:
     Type: Synapse.Handlers.CommandLine:CommandHandler
     Config:
       Values:
-        WorkingDirectory: C:\Devo\synapse\current\Node\_Samples
+        WorkingDirectory: .\_Samples
         Command: powershell.exe
         TimeoutMills: 5000
         TimeoutStatus: Failed
