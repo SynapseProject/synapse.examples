@@ -1,0 +1,52 @@
+Name: ScriptPowershellWMI
+Description: Call a Powershell Script specified in the plan and run it locally using WMI.
+Actions:
+- Name: Action001
+  Handler:
+    Type: Synapse.Handlers.CommandLine:CommandHandler
+    Config:
+      Values:
+        WorkingDirectory: .\_Samples
+        Command: powershell.exe
+        TimeoutMills: 5000
+        TimeoutStatus: Failed
+  Parameters:
+    Values:
+      Arguments: -ExecutionPolicy Bypass -File .\getCurrDir.ps1
+  Actions:
+  - Name: Action001
+    Handler:
+      Type: Synapse.Handlers.CommandLine:ScriptHandler
+      Config:
+        Values:
+          RunOn: localhost
+          WorkingDirectory: dummy
+          Type: Powershell
+          Arguments : -ExecutionPolicy Bypass
+          TimeoutMills: 10000
+          TimeoutStatus: Failed
+          KillRemoteProcessOnTimeout: true
+          ValidExitCodes:
+          - "EqualTo 0"
+        ParentExitData:
+        - CopyToValues:
+            Source: CurrentDirectory
+            Target: WorkingDirectory
+    Parameters:
+      Type: Yaml
+      Values:
+        ScriptBlock: |
+          param(
+            [string]$p1,
+            [string]$p2,
+            [string]$p3
+          )
+
+          Write-Host $MyInvocation.MyCommand.Path
+          Write-Host "P1 = $p1"
+          Write-Host "P2 = $p2"
+          Write-Host "P3 = $p3"
+          hostname
+          whoami
+          exit -1
+        Arguments: "-p1 xxx -p2 yyy -p3 zzz"
