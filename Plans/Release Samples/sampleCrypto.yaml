@@ -1,0 +1,33 @@
+Name: pswd
+Actions:
+- Name: user/pswd
+  Description: just a placeholder for user/pswd
+  Handler:
+    Type: Synapse.Core:EmptyHandler
+  Parameters:
+    Values:
+      SleepMilliseconds: 0
+      ExitData:
+        UserName: steve
+        Password: eVfqF9puH+hrQEtMn10teoEZ13orUmYvZMOd6aZcTLUu3TSOivTHiKGpeE1i/P6nXLazErb0W5B4+3fgvA5aPZENTqsSOTVBnEIT8cJWRxuOcj7BY/O6VijGkgjbjUXh3fGKtkauJAVnWAdnynrRGs7bBctwaWmck+sYs/ILcKo=
+  Actions:
+  - Name: handoff
+    Handler:
+      Type: Synapse.Handlers.CommandLine:CommandHandler
+      Config:
+        Values:
+          WorkingDirectory: .\_Samples
+          Command: powershell.exe
+          TimeoutMills: 60000
+    Parameters:
+      Values:
+        Arguments: -ExecutionPolicy Bypass -File .\crypto.ps1 -username ~~username~~ -pswd ~~password~~
+      ParentExitData:
+      - CopyToValues:
+          Source: UserName
+          Target: Arguments
+          Replace: ~~username~~
+      - CopyToValues:
+          Source: Password
+          Target: Arguments
+          Replace: ~~password~~
