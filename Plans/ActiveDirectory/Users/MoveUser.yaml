@@ -1,0 +1,24 @@
+Name: Move
+Description: Move Object To Different OrgUnit
+IsActive: true
+Actions:
+- Name: GetUser
+  Handler:
+    Type: Synapse.Handlers.ActiveDirectory:ActiveDirectoryHandler
+    Config:
+      Type: Yaml
+      Values:
+        Action: Move
+        RunSequential: false
+        ReturnObjects: true
+        OutputType: Yaml
+        PrettyPrint: true
+        SuppressOutput: false
+  Parameters:
+    Type: Yaml
+    Values:
+      Users:
+      - Identity: cn=MoveMeUser,ou=Source,ou=MoveMe,ou=Synapse,dc=sandbox,dc=local
+        MoveTo: ou=Destination,ou=MoveMe,ou=Synapse,dc=sandbox,dc=local
+      - Identity: MoveMeUser2
+        MoveTo: Destination       # Identity of an OrgUnit
