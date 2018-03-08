@@ -3,9 +3,9 @@ Description: Demo of spawing in-Plan runtime context.  #Substitute appropriate c
 DefaultHandlerType: Synapse.Core:EchoHandler
 IsActive: true
 RunAs:
-  Domain: LAPTOP-TK2D9TB6       #subst machine/domain name
-  UserName: synapse1            #subst username
-  Password: ',^e-2:3mtk3!j-Py'  #subst plain-text password, then encrypt the Plan
+  Domain: machine/domain        #subst machine/domain name
+  UserName: username            #subst username
+  Password: password            #subst plain-text password, then encrypt the Plan
   IsInheritable: true
   BlockInheritance: false
   Crypto:
@@ -18,9 +18,9 @@ RunAs:
 Actions:
 - Name: Action001
   RunAs:
-    Domain: LAPTOP-TK2D9TB6       #subst machine/domain name
-    UserName: synapse2            #subst username
-    Password: ',^e-2:3mtk3!j-Py'  #subst plain-text password, then encrypt the Plan
+    Domain: machine/domain        #subst machine/domain name
+    UserName: username            #subst username
+    Password: password            #subst plain-text password, then encrypt the Plan
     IsInheritable: true
     BlockInheritance: true  #block security context and use a new context
     Crypto:

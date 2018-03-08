@@ -1,4 +1,4 @@
-Name: pswd
+Name: sampleZephyrCrypto
 Actions:
 - Name: user/pswd
   Description: just a placeholder for user/pswd

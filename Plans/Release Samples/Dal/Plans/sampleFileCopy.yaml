@@ -1,4 +1,4 @@
-Name: sample0
+Name: sampleFileCopy
 Description: Simple call to powershell
 Actions:
 - Name: GetFilePaths

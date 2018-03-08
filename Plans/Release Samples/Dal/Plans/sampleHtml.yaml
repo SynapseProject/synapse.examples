@@ -1,5 +1,5 @@
-Name: SamplePlan
-Description: Returns HTML
+Name: sampleHtml
+Description: Returns HTML #example url: http://localhost:20000/synapse/execute/samplehtml/start/sync/?serializationType=html
 Actions:
 - Name: HtmlAction
   Handler:
