@@ -1,4 +1,4 @@
-Name: ScriptPowershellWMI
+Name: samplePsWmi
 Description: Call a Powershell Script specified in the plan and run it locally using WMI.
 Actions:
 - Name: Action001
