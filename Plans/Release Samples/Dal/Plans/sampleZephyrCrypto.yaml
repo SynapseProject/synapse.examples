@@ -21,7 +21,7 @@ Actions:
           TimeoutMills: 60000
     Parameters:
       Values:
-        Arguments: -ExecutionPolicy Bypass -File .\crypto.ps1 -username ~~username~~ -pswd ~~password~~
+        Arguments: -ExecutionPolicy Bypass -File .\zephyr.Crypto.ps1 -username ~~username~~ -pswd ~~password~~
       ParentExitData:
       - CopyToValues:
           Source: UserName

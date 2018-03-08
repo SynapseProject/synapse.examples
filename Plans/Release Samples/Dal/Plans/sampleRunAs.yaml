@@ -1,0 +1,51 @@
+Name: sampleRunAs
+Description: Demo of spawing in-Plan runtime context.  #Substitute appropriate credentials.
+DefaultHandlerType: Synapse.Core:EchoHandler
+IsActive: true
+RunAs:
+  Domain: LAPTOP-TK2D9TB6       #subst machine/domain name
+  UserName: synapse1            #subst username
+  Password: ',^e-2:3mtk3!j-Py'  #subst plain-text password, then encrypt the Plan
+  IsInheritable: true
+  BlockInheritance: false
+  Crypto:
+    Key:
+      Uri: .\Crypto\sample.pubPriv
+      ContainerName: sample
+    Elements:
+    - Password
+    - UserName
+Actions:
+- Name: Action001
+  RunAs:
+    Domain: LAPTOP-TK2D9TB6       #subst machine/domain name
+    UserName: synapse2            #subst username
+    Password: ',^e-2:3mtk3!j-Py'  #subst plain-text password, then encrypt the Plan
+    IsInheritable: true
+    BlockInheritance: true  #block security context and use a new context
+    Crypto:
+      Key:
+        Uri: .\Crypto\sample.pubPriv
+        ContainerName: sample
+      Elements:
+      - Password
+  Actions:
+  - Name: Action002
+    RunAs:
+      IsInheritable: false
+      BlockInheritance: true
+    Actions:
+    - Name: Action003
+      RunAs:
+        BlockInheritance: false
+
+
+# Commands to create keys and encrypt/decrypt the Plan
+# .\synapse\Node>synapse.cli genkey:sample kcn:sample
+# Created public/private keypair in [sample.pubPriv].
+# Created public key (only) in [sample.pubOnly].
+
+# .\synapse\Node>synapse.cli encrypt:dns.yaml
+# .\synapse\Node>synapse.cli decrypt:dns.yaml
+
+# more info: http://synapse.readthedocs.io/en/latest/plans/runas/
