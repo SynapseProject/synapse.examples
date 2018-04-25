@@ -19,3 +19,4 @@ Actions:
     Values:
       OrganizationalUnits:
       - Identity: ou=MyOrgUnit,ou=Synapse,DC=sandbox,DC=local
+      - Identity: ou=MyOrgUnit,ou=Synapse,DC=sb2,DC=local

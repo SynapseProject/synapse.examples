@@ -25,3 +25,10 @@ Actions:
           - My New Display Name
           info:
           - ~null~        # Clears Out Existing Field
+      - Identity: SB2\MyNewGroup
+        Scope: Global     # Local, Global or Universal
+        Properties:
+          displayName:
+          - My New Display Name
+          info:
+          - ~null~        # Clears Out Existing Field

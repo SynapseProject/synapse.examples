@@ -20,3 +20,5 @@ Actions:
       Users:
       - Identity: cn=TestUser001,ou=Synapse,DC=sandbox,DC=local
         Enabled: false
+      - Identity: cn=TestUser001,ou=Synapse,DC=sb2,DC=local
+        Enabled: false

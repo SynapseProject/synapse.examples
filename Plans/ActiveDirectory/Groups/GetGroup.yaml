@@ -20,3 +20,5 @@ Actions:
       Groups:
       - Identity: MyNewGroup
       - Identity: cn=MyParentGroup,ou=Synapse,DC=sandbox,DC=local
+      - Identity: SB2\MyNewGroup
+      - Identity: cn=MyParentGroup,ou=Synapse,DC=sb2,DC=local

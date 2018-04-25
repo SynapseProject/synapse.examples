@@ -30,3 +30,15 @@ Actions:
           - 1313 Mockingbird Lane
           st:
           - California
+      - Identity: ou=MyOrgUnit,ou=Synapse,DC=sb2,DC=local
+        ManagedBy: ~null~          # Clears Out Existing Field
+        Description: ~null~        # Clears Out Existing Field
+        Properties:
+          l:
+          - Mockingbird Heights
+          postalCode:
+          - 90066
+          street:
+          - 1313 Mockingbird Lane
+          st:
+          - California

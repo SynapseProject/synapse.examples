@@ -20,3 +20,5 @@ Actions:
       OrganizationalUnits:
       - Identity: ou=OldOrgUnit,ou=DeleteMe,ou=Synapse,DC=sandbox,DC=local
         Name: NewOrgUnit
+      - Identity: ou=OldOrgUnit,ou=DeleteMe,ou=Synapse,DC=sb2,DC=local
+        Name: NewOrgUnit

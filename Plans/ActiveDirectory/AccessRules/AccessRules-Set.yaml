@@ -25,15 +25,24 @@ Actions:
         - Identity: TestUser001
           Type: Allow
           Rights: GenericAll
+        - Identity: SB2\TestUser001
+          Type: Allow
+          Rights: GenericAll
       Groups:
       - Identity: SomeGroup001
         AccessRules:
         - Identity: TestUser001
           Type: Allow
           Rights: GenericAll
+        - Identity: SB2\TestUser001
+          Type: Allow
+          Rights: GenericAll
       OrganizationalUnits:
       - Identity: SomeOrgUnit001
         AccessRules:
         - Identity: TestUser001
+          Type: Allow
+          Rights: GenericAll
+        - Identity: SB2\TestUser001
           Type: Allow
           Rights: GenericAll

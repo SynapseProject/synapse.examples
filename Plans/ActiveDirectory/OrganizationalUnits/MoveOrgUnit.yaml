@@ -20,3 +20,5 @@ Actions:
       OrganizationalUnits:
       - Identity: MoveMeOrgUnit
         MoveTo: Destination         # Identity of an OrgUnit
+      - Identity: SB2\MoveMeOrgUnit
+        MoveTo: SB2\Destination         # Identity of an OrgUnit

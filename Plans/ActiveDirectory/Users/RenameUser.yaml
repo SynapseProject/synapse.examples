@@ -23,4 +23,9 @@ Actions:
         # Name Field Only Modifies The Name.  To Modify UserPrincipal and SamAccount Name, Explicitly Add Them.
         UserPrincipalName: newuser003@sandbox.local
         SamAccountName: newuser003Sam
+      - Identity: cn=OldUser,ou=DeleteMe,ou=Synapse,DC=sb2,DC=local
+        Name: NewUser
+        # Name Field Only Modifies The Name.  To Modify UserPrincipal and SamAccount Name, Explicitly Add Them.
+        UserPrincipalName: newuser003@sb2.local
+        SamAccountName: newuser003Sam
         

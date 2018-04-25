@@ -22,4 +22,8 @@ Actions:
         Name: NewGroup
         # Name Field Only Modifies The Name.  To Modify SamAccount Name, Explicitly Add It.
         SamAccountName: NewGroup
+      - Identity: cn=OldGroup,ou=DeleteMe,ou=Synapse,DC=sb2,DC=local
+        Name: NewGroup
+        # Name Field Only Modifies The Name.  To Modify SamAccount Name, Explicitly Add It.
+        SamAccountName: NewGroup
         

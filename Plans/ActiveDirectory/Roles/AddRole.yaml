@@ -22,13 +22,19 @@ Actions:
         Roles:
         - Name: AdOwner
           Principal: TestUser001
+        - Name: AdOwner
+          Principal: SB2\TestUser001
       Groups:
       - Identity: SomeGroup001
         Roles:
         - Name: AdReadWrite
           Principal: TestUser001
+        - Name: AdReadWrite
+          Principal: SB2\TestUser001
       OrganizationalUnits:
       - Identity: ou=Synapse,dc=sandbox,dc=local
         Roles:
         - Name: AdSomeOtherRole
           Principal: TestUser001
+        - Name: AdSomeOtherRole
+          Principal: SB2\TestUser001

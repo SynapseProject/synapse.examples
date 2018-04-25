@@ -28,6 +28,9 @@ Actions:
         - Identity: TestUser001
           Type: Deny
           Rights: ListChildren
+        - Identity: SB2\TestUser001
+          Type: Allow
+          Rights: Self,GenericRead
       Groups:
       - Identity: SomeGroup001
         AccessRules:
@@ -37,6 +40,9 @@ Actions:
         - Identity: TestUser001
           Type: Deny
           Rights: ListChildren
+        - Identity: SB2\TestUser001
+          Type: Allow
+          Rights: Self,GenericRead
       OrganizationalUnits:
       - Identity: SomeOrgUnit001
         AccessRules:
@@ -46,3 +52,6 @@ Actions:
         - Identity: TestUser001
           Type: Deny
           Rights: ListChildren
+        - Identity: SB2\TestUser001
+          Type: Allow
+          Rights: Self,GenericRead

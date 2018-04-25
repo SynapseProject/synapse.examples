@@ -23,7 +23,14 @@ Actions:
         Groups:
         - MyNewGroup
         - MyParentGroup
+      - Identity: SB2\testuser001
+        Groups:
+        - SB2\MyNewGroup
+        - SB2\MyParentGroup
       Groups:
       - Identity: MyNewGroup
         Groups:
         - MyParentGroup
+      - Identity: SB2\MyNewGroup
+        Groups:
+        - SB2\MyParentGroup
