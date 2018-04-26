@@ -1,0 +1,27 @@
+Name: AccidentalDeleteProtection
+Description: Enable / Disable Protection from Accidental Deletion
+IsActive: true
+Actions:
+- Name: Action001
+  Handler:
+    Type: Synapse.Handlers.ActiveDirectory:ActiveDirectoryHandler
+    Config:
+      Type: Yaml
+      Values:
+        Action: AddAccessRule
+        RunSequential: true
+        ReturnObjects: true
+        ReturnAccessRules: true
+        ReturnGroupMembership: false
+        OutputType: Yaml
+        PrettyPrint: true
+        SuppressOutput: false
+  Parameters:
+    Type: Yaml
+    Values:
+      OrganizationalUnits:
+      - Identity: MyOrgUnit
+        AccessRules:
+        - Identity: S-1-1-0   # Everyone
+          Type: Deny
+          Rights: Delete,DeleteTree
