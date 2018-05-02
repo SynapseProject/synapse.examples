@@ -25,6 +25,7 @@ Actions:
         - Identity: TestUser001
           Type: Allow
           Rights: GenericAll
+          Inheritance: All
         - Identity: SB2\TestUser001
           Type: Allow
           Rights: GenericAll

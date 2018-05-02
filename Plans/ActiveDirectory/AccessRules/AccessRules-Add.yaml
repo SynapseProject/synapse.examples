@@ -25,21 +25,26 @@ Actions:
         - Identity: TestUser001
           Type: Allow
           Rights: Self,GenericRead
+          Inheritance: None
         - Identity: TestUser001
           Type: Deny
           Rights: ListChildren
+          Inheritance: All
         - Identity: SB2\TestUser001
           Type: Allow
           Rights: Self,GenericRead
+          Inheritance: Descendents
       Groups:
       - Identity: SomeGroup001
         AccessRules:
         - Identity: TestUser001
           Type: Allow
           Rights: Self,GenericRead
+          Inheritance: SelfAndChildren
         - Identity: TestUser001
           Type: Deny
           Rights: ListChildren
+          Inheritance: Children
         - Identity: SB2\TestUser001
           Type: Allow
           Rights: Self,GenericRead
