@@ -1,0 +1,29 @@
+Name: RenameComputer
+Description: Rename Computer
+IsActive: true
+Actions:
+- Name: Action001
+  Handler:
+    Type: Synapse.Handlers.ActiveDirectory:ActiveDirectoryHandler
+    Config:
+      Type: Yaml
+      Values:
+        Action: Modify
+        RunSequential: true
+        ReturnObjects: true
+        OutputType: Yaml
+        PrettyPrint: true
+        SuppressOutput: false
+  Parameters:
+    Type: Yaml
+    Values:
+      Computers:
+      - Identity: cn=MyNewComputer,ou=Random,DC=sandbox,DC=local
+        Name: MyNewerComputer
+        # Name Field Only Modifies The Name.  To Modify SamAccount Name, Explicitly Add It.
+        SamAccountName: MyNewerSam
+      - Identity: cn=MyNewComputer,ou=Random,DC=sb2,DC=local
+        Name: MyNewerComputer
+        # Name Field Only Modifies The Name.  To Modify SamAccount Name, Explicitly Add It.
+        SamAccountName: MyNewerSam
+        

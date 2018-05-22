@@ -1,0 +1,24 @@
+Name: GetComputer
+Description: Get Computer
+IsActive: true
+Actions:
+- Name: Action001
+  Handler:
+    Type: Synapse.Handlers.ActiveDirectory:ActiveDirectoryHandler
+    Config:
+      Type: Yaml
+      Values:
+        Action: Get
+        RunSequential: true
+        ReturnObjects: true
+        OutputType: Yaml
+        PrettyPrint: true
+        SuppressOutput: false
+  Parameters:
+    Type: Yaml
+    Values:
+      Computers:
+      - Identity: MyNewComputer
+      - Identity: cn=MyNewComputer,ou=Random,DC=sandbox,DC=local
+      - Identity: SB2\MyNewComputer
+      - Identity: cn=MyNewComputer,ou=Random,DC=sb2,DC=local

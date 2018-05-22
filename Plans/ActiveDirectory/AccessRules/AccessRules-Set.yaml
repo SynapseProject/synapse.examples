@@ -47,3 +47,12 @@ Actions:
         - Identity: SB2\TestUser001
           Type: Allow
           Rights: GenericAll
+      Computers:
+      - Identity: MyNewComputer
+        AccessRules:
+        - Identity: TestUser001
+          Type: Allow
+          Rights: GenericAll
+        - Identity: SB2\TestUser001
+          Type: Allow
+          Rights: GenericAll

@@ -1,0 +1,24 @@
+Name: Move
+Description: Move Object To Different OrgUnit
+IsActive: true
+Actions:
+- Name: MoveComputer
+  Handler:
+    Type: Synapse.Handlers.ActiveDirectory:ActiveDirectoryHandler
+    Config:
+      Type: Yaml
+      Values:
+        Action: Move
+        RunSequential: false
+        ReturnObjects: true
+        OutputType: Yaml
+        PrettyPrint: true
+        SuppressOutput: false
+  Parameters:
+    Type: Yaml
+    Values:
+      Computers:
+      - Identity: MyNewComputer
+        MoveTo: Destination         # Identity of an Org Unit
+      - Identity: SB2\MyNewComputer
+        MoveTo: SB2\Destination         # Identity of an Org Unit

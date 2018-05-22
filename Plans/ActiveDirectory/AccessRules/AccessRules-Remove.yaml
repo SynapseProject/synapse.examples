@@ -56,3 +56,15 @@ Actions:
         - Identity: SB2\TestUser001
           Type: Allow
           Rights: GenericRead
+      Computers:
+      - Identity: MyNewComputer
+        AccessRules:
+        - Identity: TestUser001
+          Type: Allow
+          Rights: GenericRead
+        - Identity: TestUser001
+          Type: Deny
+          Rights: ListChildren
+        - Identity: SB2\TestUser001
+          Type: Allow
+          Rights: GenericRead

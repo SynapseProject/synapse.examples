@@ -1,0 +1,32 @@
+Name: ModifyComputer
+Description: Modify Computer
+IsActive: true
+Actions:
+- Name: Action001
+  Handler:
+    Type: Synapse.Handlers.ActiveDirectory:ActiveDirectoryHandler
+    Config:
+      Type: Yaml
+      Values:
+        Action: Modify
+        RunSequential: true
+        ReturnObjects: true
+        OutputType: Yaml
+        PrettyPrint: true
+        SuppressOutput: false
+  Parameters:
+    Type: Yaml
+    Values:
+      Computers:
+      - Identity: MyNewComputer
+        Description: "Modified Description"
+        ManagedBy: "~null~"
+        Properties:
+          dnsHostName:
+          - mynewcomputer.sandbox.local
+          displayName:
+          - My New Display Name
+      - Identity: SB2\MyNewComputer
+        Properties:
+          displayName:
+          - My New Display Name

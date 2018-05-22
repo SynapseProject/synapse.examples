@@ -34,3 +34,8 @@ Actions:
         AccessRules:
         - Identity: TestUser001
         - Identity: SB2\TestUser001
+      Computers:
+      - Identity: MyNewComputer
+        AccessRules:
+        - Identity: TestUser001
+        - Identity: SB2\TestUser001

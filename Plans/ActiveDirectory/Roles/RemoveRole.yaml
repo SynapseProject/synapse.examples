@@ -38,3 +38,10 @@ Actions:
           Principal: TestUser001
         - Name: AdSomeOtherRole
           Principal: SB2\TestUser001
+      Computers:
+      - Identity: MyNewComputer
+        Roles:
+        - Name: AdSomeOtherRole
+          Principal: TestUser001
+        - Name: AdSomeOtherRole
+          Principal: SB2\TestUser001
