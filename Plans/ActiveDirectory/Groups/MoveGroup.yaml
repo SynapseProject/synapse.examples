@@ -20,3 +20,5 @@ Actions:
       Groups:
       - Identity: MoveMeGroup
         MoveTo: Destination         # Identity of an Org Unit
+      - Identity: SB2\MoveMeGroup
+        MoveTo: SB2\Destination         # Identity of an Org Unit

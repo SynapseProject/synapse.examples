@@ -1,5 +1,5 @@
-Name: CreateUser
-Description: Create User
+Name: DeleteComputer
+Description: Delete Computer
 IsActive: true
 Actions:
 - Name: Action001
@@ -8,7 +8,7 @@ Actions:
     Config:
       Type: Yaml
       Values:
-        Action: Modify
+        Action: Delete
         RunSequential: true
         ReturnObjects: true
         OutputType: Yaml
@@ -17,12 +17,8 @@ Actions:
   Parameters:
     Type: Yaml
     Values:
-      Users:
-      - Identity: cn=TestUser001,ou=Synapse,DC=sandbox,DC=local
-        Properties:
-          lockoutTime:
-          - 0
-      - Identity: cn=TestUser001,ou=Synapse,DC=sb2,DC=local
-        Properties:
-          lockoutTime:
-          - 0
+      Computers:
+      - Identity: MyNewComputer
+      - Identity: cn=MyNewComputer,ou=Random,DC=sandbox,DC=local
+      - Identity: SB2\MyNewComputer
+      - Identity: cn=MyNewComputer,ou=Random,DC=sb2,DC=local

@@ -25,18 +25,29 @@ Actions:
         - Identity: TestUser001
           Type: Allow
           Rights: Self,GenericRead
+          Inheritance: None
         - Identity: TestUser001
           Type: Deny
           Rights: ListChildren
+          Inheritance: All
+        - Identity: SB2\TestUser001
+          Type: Allow
+          Rights: Self,GenericRead
+          Inheritance: Descendents
       Groups:
       - Identity: SomeGroup001
         AccessRules:
         - Identity: TestUser001
           Type: Allow
           Rights: Self,GenericRead
+          Inheritance: SelfAndChildren
         - Identity: TestUser001
           Type: Deny
           Rights: ListChildren
+          Inheritance: Children
+        - Identity: SB2\TestUser001
+          Type: Allow
+          Rights: Self,GenericRead
       OrganizationalUnits:
       - Identity: SomeOrgUnit001
         AccessRules:
@@ -46,3 +57,18 @@ Actions:
         - Identity: TestUser001
           Type: Deny
           Rights: ListChildren
+        - Identity: SB2\TestUser001
+          Type: Allow
+          Rights: Self,GenericRead
+      Computers:
+      - Identity: MyNewComputer
+        AccessRules:
+        - Identity: TestUser001
+          Type: Allow
+          Rights: Self,GenericRead
+        - Identity: TestGroup001
+          Type: Deny
+          Rights: ListChildren
+        - Identity: SB2\SomeOtherUser
+          Type: Allow
+          Rights: Self,GenericRead

@@ -20,3 +20,5 @@ Actions:
       Users:
       - Identity: cn=TestUser001,ou=Synapse,DC=sandbox,DC=local
       - Identity: MyBoss001
+      - Identity: cn=TestUser001,ou=Synapse,DC=sb2,DC=local
+      - Identity: SB2\MyBoss001

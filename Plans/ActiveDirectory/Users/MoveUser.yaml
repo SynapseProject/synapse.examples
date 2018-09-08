@@ -22,3 +22,7 @@ Actions:
         MoveTo: ou=Destination,ou=MoveMe,ou=Synapse,dc=sandbox,dc=local
       - Identity: MoveMeUser2
         MoveTo: Destination       # Identity of an OrgUnit
+      - Identity: cn=MoveMeUser,ou=Source,ou=MoveMe,ou=Synapse,dc=sb2,dc=local
+        MoveTo: ou=Destination,ou=MoveMe,ou=Synapse,dc=sb2,dc=local
+      - Identity: SB2\MoveMeUser2
+        MoveTo: SB2\Destination       # Identity of an OrgUnit

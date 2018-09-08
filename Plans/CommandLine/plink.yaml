@@ -8,7 +8,7 @@ Actions:
     Config:
       Type: Yaml
       Values:
-        WorkingDirectory: C:\temp
+        WorkingDirectory: C:\Putty\0.63
         Command: C:\Putty\0.63\putty.exe
         TimeoutMills: 10000
         TimeoutStatus: Failed

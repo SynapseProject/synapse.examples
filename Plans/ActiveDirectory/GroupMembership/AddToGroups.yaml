@@ -20,10 +20,24 @@ Actions:
     Values:
       Users:
       - Identity: testuser001
-        Groups:
+        MemberOf:
         - MyNewGroup
         - MyParentGroup
+      - Identity: SB2\testuser001
+        MemberOf:
+        - SB2\MyNewGroup
+        - SB2\MyParentGroup
       Groups:
       - Identity: MyNewGroup
-        Groups:
+        MemberOf:
         - MyParentGroup
+      - Identity: SB2\MyNewGroup
+        MemberOf:
+        - SB2\MyParentGroup
+      Computers:
+      - Identity: MyNewComputer
+        MemberOf:
+        - MyParentGroup
+      - Identity: SB2\MyNewComputer
+        MemberOf:
+        - SB2\MyParentGroup

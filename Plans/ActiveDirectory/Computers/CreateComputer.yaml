@@ -1,0 +1,50 @@
+Name: CreateComputer
+Description: Create Computer
+IsActive: true
+Actions:
+- Name: Action001
+  Handler:
+    Type: Synapse.Handlers.ActiveDirectory:ActiveDirectoryHandler
+    Config:
+      Type: Yaml
+      Values:
+        Action: Create
+        RunSequential: true
+        ReturnObjects: true
+        OutputType: Yaml
+        PrettyPrint: true
+        SuppressOutput: false
+  Parameters:
+    Type: Yaml
+    Values:
+      Computers:
+      - Identity: cn=MyNewComputer,ou=Random,DC=sandbox,DC=local
+        Description: My New Computer
+        ManagedBy: wagug0
+        Properties:
+          dNSHostName:
+          - MyNewComputer.sandbox.local
+          displayName:
+          - My Display Name
+          location:
+          - Some Location
+          userAccountControl:
+          - 544
+          sAMAccountName:
+          - MyNewCompSam
+          operatingSystem:
+          - Windows Server 2016 Standard"
+          operatingSystemVersion:
+          - 10.0 (14393)
+          operatingSystemHotFix:
+          - HF1
+          operatingSystemServicePack:
+          - SP2
+          wWWHomePage:
+          - www.myhomepage.com
+          accountExpires:
+          - 131714099030000000
+          userPrincipal:
+          - mynewcomputer@sandbox.local
+
+        

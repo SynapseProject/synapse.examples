@@ -1,5 +1,5 @@
-Name: RenameOrgUnit
-Description: Rename Organizational Unit
+Name: AccidentalDeleteProtection
+Description: Enable / Disable Protection from Accidental Deletion
 IsActive: true
 Actions:
 - Name: Action001
@@ -8,9 +8,11 @@ Actions:
     Config:
       Type: Yaml
       Values:
-        Action: Modify
+        Action: AddAccessRule
         RunSequential: true
         ReturnObjects: true
+        ReturnAccessRules: true
+        ReturnGroupMembership: false
         OutputType: Yaml
         PrettyPrint: true
         SuppressOutput: false
@@ -18,7 +20,8 @@ Actions:
     Type: Yaml
     Values:
       OrganizationalUnits:
-      - Identity: ou=OldOrgUnit,ou=DeleteMe,ou=Synapse,DC=sandbox,DC=local
-        Name: NewOrgUnit
-      - Identity: ou=OldOrgUnit,ou=DeleteMe,ou=Synapse,DC=sb2,DC=local
-        Name: NewOrgUnit
+      - Identity: MyOrgUnit
+        AccessRules:
+        - Identity: S-1-1-0   # Everyone
+          Type: Deny
+          Rights: Delete,DeleteTree

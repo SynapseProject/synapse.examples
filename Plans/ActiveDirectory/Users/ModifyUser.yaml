@@ -34,3 +34,8 @@ Actions:
           - 1-800-555-1215
           pager:
           - ~null~        # Clears Out Existing Value
+      - Identity: cn=TestUser001,ou=Synapse,DC=sb2,DC=local
+        MiddleName: Michael
+        AllowReversiblePasswordEncryption: false
+        DisplayName : Test M. User
+        Description: Some Useless user

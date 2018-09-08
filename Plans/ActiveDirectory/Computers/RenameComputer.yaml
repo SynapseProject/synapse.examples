@@ -1,5 +1,5 @@
-Name: RenameGroup
-Description: Rename Group
+Name: RenameComputer
+Description: Rename Computer
 IsActive: true
 Actions:
 - Name: Action001
@@ -17,13 +17,13 @@ Actions:
   Parameters:
     Type: Yaml
     Values:
-      Groups:
-      - Identity: cn=OldGroup,ou=DeleteMe,ou=Synapse,DC=sandbox,DC=local
-        Name: NewGroup
+      Computers:
+      - Identity: cn=MyNewComputer,ou=Random,DC=sandbox,DC=local
+        Name: MyNewerComputer
         # Name Field Only Modifies The Name.  To Modify SamAccount Name, Explicitly Add It.
-        SamAccountName: NewGroup
-      - Identity: cn=OldGroup,ou=DeleteMe,ou=Synapse,DC=sb2,DC=local
-        Name: NewGroup
+        SamAccountName: MyNewerSam
+      - Identity: cn=MyNewComputer,ou=Random,DC=sb2,DC=local
+        Name: MyNewerComputer
         # Name Field Only Modifies The Name.  To Modify SamAccount Name, Explicitly Add It.
-        SamAccountName: NewGroup
+        SamAccountName: MyNewerSam
         

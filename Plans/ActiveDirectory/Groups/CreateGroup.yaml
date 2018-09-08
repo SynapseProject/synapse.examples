@@ -31,6 +31,18 @@ Actions:
           - Comments Here
           mail:
           - MyNewGroup@company.com
-      - Identity: cn=MyParentGroup,ou=Synapse,DC=sandbox,DC=local
+      - Identity: cn=MyParentGroup,ou=Synapse,DC=sb2,DC=local
         Scope: Universal     # Local, Global or Universal
         IsSecurityGroup: true
+      - Identity: cn=MyNewGroup,ou=Synapse,DC=sandbox,DC=local
+        Scope: Universal     # Local, Global or Universal
+        IsSecurityGroup: true
+        Description: Some Lame Description
+        ManagedBy: SB2\TestUser001
+        Properties:
+          displayName:
+          - My Display Name
+          info:
+          - Comments Here
+          mail:
+          - MyNewGroup@company.com

@@ -144,3 +144,12 @@ Actions:
           - MyComputer
           wWWHomePage:
           - http://www.company.com
+      - Identity: cn=TestUser001,ou=Synapse,DC=sb2,DC=local
+        Password: bi@02LL49_VWQ{b
+        GivenName: Test
+        MiddleName: James
+        Surname: User
+        EmailAddress: testuser001@company.com
+        Properties:
+          manager:
+          - cn=MyBoss001,ou=Synapse,DC=sb2,DC=local

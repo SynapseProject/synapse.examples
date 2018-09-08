@@ -36,3 +36,21 @@ Actions:
           - 1313 Mockingbird Lane
           st:
           - Texas
+      - Identity: ou=MyOrgUnit,ou=Synapse,DC=sb2,DC=local
+        Description: Test Organizational Unit
+        ManagedBy: SB2\TestUser001
+        Properties:
+          countryCode:
+          - 840
+          co:
+          - United States
+          c:
+          - US
+          l:
+          - Houston
+          postalCode:
+          - 77008
+          street:
+          - 1313 Mockingbird Lane
+          st:
+          - Texas

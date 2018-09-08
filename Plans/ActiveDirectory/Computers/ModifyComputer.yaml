@@ -1,5 +1,5 @@
-Name: ModifyGroup
-Description: Modify Group
+Name: ModifyComputer
+Description: Modify Computer
 IsActive: true
 Actions:
 - Name: Action001
@@ -17,18 +17,16 @@ Actions:
   Parameters:
     Type: Yaml
     Values:
-      Groups:
-      - Identity: MyNewGroup
-        Scope: Global     # Local, Global or Universal
+      Computers:
+      - Identity: MyNewComputer
+        Description: "Modified Description"
+        ManagedBy: "~null~"
+        Properties:
+          dnsHostName:
+          - mynewcomputer.sandbox.local
+          displayName:
+          - My New Display Name
+      - Identity: SB2\MyNewComputer
         Properties:
           displayName:
           - My New Display Name
-          info:
-          - ~null~        # Clears Out Existing Field
-      - Identity: SB2\MyNewGroup
-        Scope: Global     # Local, Global or Universal
-        Properties:
-          displayName:
-          - My New Display Name
-          info:
-          - ~null~        # Clears Out Existing Field
