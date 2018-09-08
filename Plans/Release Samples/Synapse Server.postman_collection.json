@@ -1,0 +1,1732 @@
+{
+	"info": {
+		"_postman_id": "19a532e6-f07b-4079-9446-bd4e77de8a8e",
+		"name": "Synapse Server",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Controller",
+			"item": [
+				{
+					"name": "Samples",
+					"item": [
+						{
+							"name": "samplePs1Dyn",
+							"item": [
+								{
+									"name": "Async [without] ContentType, JSON",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"DynamicParameters\": {\r\n    \"pa\": \"value_a\",\r\n    \"pb\": \"value_b\",\r\n    \"pc\": \"value_c\"\r\n  }\r\n}"
+										},
+										"url": {
+											"raw": "http://localhost:20000/synapse/execute/samplePs1Dyn/start/",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "20000",
+											"path": [
+												"synapse",
+												"execute",
+												"samplePs1Dyn",
+												"start",
+												""
+											]
+										},
+										"description": "Async JSON request/response with Dynamic"
+									},
+									"response": []
+								},
+								{
+									"name": "Async w/ ContentType, JSON",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"DynamicParameters\": {\r\n    \"pa\": \"value_a\",\r\n    \"pb\": \"value_b\",\r\n    \"pc\": \"value_c\"\r\n  }\r\n}"
+										},
+										"url": {
+											"raw": "http://localhost:20000/synapse/execute/samplePs1Dyn/start/async",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "20000",
+											"path": [
+												"synapse",
+												"execute",
+												"samplePs1Dyn",
+												"start",
+												"async"
+											]
+										},
+										"description": "Async JSON request/response with Dynamic, with ContentType"
+									},
+									"response": []
+								},
+								{
+									"name": "Async w/ ContentType, XML",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/xml"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "<StartPlanEnvelope>\r\n  <XmlDynamicParameters>\r\n   <Parm Name=\"pa\">value_a</Parm>\r\n   <Parm Name=\"pb\">value_b</Parm>\r\n   <Parm Name=\"pc\">value_c</Parm>\r\n  </XmlDynamicParameters>\r\n</StartPlanEnvelope>"
+										},
+										"url": {
+											"raw": "http://localhost:20000/synapse/execute/samplePs1Dyn/start/async",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "20000",
+											"path": [
+												"synapse",
+												"execute",
+												"samplePs1Dyn",
+												"start",
+												"async"
+											]
+										},
+										"description": "Async XML request/response with Dynamic"
+									},
+									"response": []
+								},
+								{
+									"name": "Sync ContentType, XML",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/xml"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "<StartPlanEnvelope>\r\n  <XmlDynamicParameters>\r\n   <Parm Name=\"pa\">value_a</Parm>\r\n   <Parm Name=\"pb\">value_b</Parm>\r\n   <Parm Name=\"pc\">value_c</Parm>\r\n  </XmlDynamicParameters>\r\n</StartPlanEnvelope>"
+										},
+										"url": {
+											"raw": "http://localhost:20000/synapse/execute/samplePs1Dyn/start/sync/?path=Actions[0]:Result&serializationType=xml",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "20000",
+											"path": [
+												"synapse",
+												"execute",
+												"samplePs1Dyn",
+												"start",
+												"sync",
+												""
+											],
+											"query": [
+												{
+													"key": "path",
+													"value": "Actions[0]:Result"
+												},
+												{
+													"key": "serializationType",
+													"value": "xml"
+												}
+											]
+										},
+										"description": "Async JSON request/response with Dynamic"
+									},
+									"response": [
+										{
+											"name": "samplePs1Dyn, Sync ContentType, XML (Actions[0]:Result)",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/xml"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "<StartPlanEnvelope>\r\n  <XmlDynamicParameters>\r\n   <Parm Name=\"pa\">value_a</Parm>\r\n   <Parm Name=\"pb\">value_b</Parm>\r\n   <Parm Name=\"pc\">value_c</Parm>\r\n  </XmlDynamicParameters>\r\n</StartPlanEnvelope>"
+												},
+												"url": {
+													"raw": "http://localhost:20000/synapse/execute/samplePs1Dyn/start/sync/?path=Actions[0]:Result&serializationType=xml",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "20000",
+													"path": [
+														"synapse",
+														"execute",
+														"samplePs1Dyn",
+														"start",
+														"sync",
+														""
+													],
+													"query": [
+														{
+															"key": "path",
+															"value": "Actions[0]:Result"
+														},
+														{
+															"key": "serializationType",
+															"value": "xml"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "xml",
+											"header": [
+												{
+													"key": "Content-Length",
+													"value": "384",
+													"name": "Content-Length",
+													"description": "The length of the response body in octets (8-bit bytes)"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/xml; charset=utf-16",
+													"name": "Content-Type",
+													"description": "The mime type of this content"
+												},
+												{
+													"key": "Date",
+													"value": "Sat, 08 Sep 2018 16:27:53 GMT",
+													"name": "Date",
+													"description": "The date and time that the message was sent"
+												},
+												{
+													"key": "Server",
+													"value": "Microsoft-HTTPAPI/2.0",
+													"name": "Server",
+													"description": "A name for the server"
+												}
+											],
+											"cookie": [],
+											"body": "<?xml version=\"1.0\" encoding=\"utf-16\"?>\r\n<Content>\r\n  <Status>Failed</Status>\r\n  <ExitData>startIndex cannot be larger than length of string.\r\nParameter name: startIndex</ExitData>\r\n</Content>"
+										},
+										{
+											"name": "samplePs1Dyn, Sync ContentType, XML (Actions[0]:Result:Status)",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/xml",
+														"disabled": false
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "<StartPlanEnvelope>\r\n  <XmlDynamicParameters>\r\n   <Parm Name=\"pa\">value_a</Parm>\r\n   <Parm Name=\"pb\">value_b</Parm>\r\n   <Parm Name=\"pc\">value_c</Parm>\r\n  </XmlDynamicParameters>\r\n</StartPlanEnvelope>"
+												},
+												"url": {
+													"raw": "http://localhost:20000/synapse/execute/samplePs1Dyn/start/sync/?path=Actions[0]:Result:Status&serializationType=xml",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "20000",
+													"path": [
+														"synapse",
+														"execute",
+														"samplePs1Dyn",
+														"start",
+														"sync",
+														""
+													],
+													"query": [
+														{
+															"key": "path",
+															"value": "Actions[0]:Result:Status"
+														},
+														{
+															"key": "serializationType",
+															"value": "xml"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "xml",
+											"header": [
+												{
+													"key": "Content-Length",
+													"value": "132",
+													"name": "Content-Length",
+													"description": "The length of the response body in octets (8-bit bytes)"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/xml; charset=utf-16",
+													"name": "Content-Type",
+													"description": "The mime type of this content"
+												},
+												{
+													"key": "Date",
+													"value": "Sat, 08 Sep 2018 16:35:40 GMT",
+													"name": "Date",
+													"description": "The date and time that the message was sent"
+												},
+												{
+													"key": "Server",
+													"value": "Microsoft-HTTPAPI/2.0",
+													"name": "Server",
+													"description": "A name for the server"
+												}
+											],
+											"cookie": [],
+											"body": "<?xml version=\"1.0\" encoding=\"utf-16\"?>\r\n<Content>Failed</Content>"
+										}
+									]
+								},
+								{
+									"name": "Sync ContentType, JSON",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"DynamicParameters\": {\r\n    \"pa\": \"value_a\",\r\n    \"pb\": \"value_b\",\r\n    \"pc\": \"value_c\"\r\n  }\r\n}"
+										},
+										"url": {
+											"raw": "http://localhost:20000/synapse/execute/samplePs1Dyn/start/sync/?path=Actions[0]:Result",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "20000",
+											"path": [
+												"synapse",
+												"execute",
+												"samplePs1Dyn",
+												"start",
+												"sync",
+												""
+											],
+											"query": [
+												{
+													"key": "path",
+													"value": "Actions[0]:Result"
+												}
+											]
+										},
+										"description": "Async JSON request/response with Dynamic"
+									},
+									"response": []
+								}
+							],
+							"_postman_isSubFolder": true
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "hello",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json, application/xml, text/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:20000/synapse/execute/hello?log={{log}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "20000",
+							"path": [
+								"synapse",
+								"execute",
+								"hello"
+							],
+							"query": [
+								{
+									"key": "log",
+									"value": "{{log}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "hello/whoami",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json, application/xml, text/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:20000/synapse/execute/hello/whoami",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "20000",
+							"path": [
+								"synapse",
+								"execute",
+								"hello",
+								"whoami"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get Plan Item",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:20000/synapse/execute/samplePs1Dyn/item",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "20000",
+							"path": [
+								"synapse",
+								"execute",
+								"samplePs1Dyn",
+								"item"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get Plan Help",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json, application/xml, text/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:20000/synapse/execute/:planUniqueName/help?simplify={{simplify}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "20000",
+							"path": [
+								"synapse",
+								"execute",
+								":planUniqueName",
+								"help"
+							],
+							"query": [
+								{
+									"key": "simplify",
+									"value": "{{simplify}}"
+								}
+							],
+							"variable": [
+								{
+									"key": "planUniqueName",
+									"value": "{{planUniqueName}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get Plan List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json, application/xml, text/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:20000/synapse/execute?filter={{filter}}&isRegexFilter={{isRegexFilter}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "20000",
+							"path": [
+								"synapse",
+								"execute"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "{{filter}}"
+								},
+								{
+									"key": "isRegexFilter",
+									"value": "{{isRegexFilter}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get Plan Execution History",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json, application/xml, text/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:20000/synapse/execute/samplePs1Dyn",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "20000",
+							"path": [
+								"synapse",
+								"execute",
+								"samplePs1Dyn"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get Plan Execution History Item",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:20000/synapse/execute/:planUniqueName/:planInstanceId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "20000",
+							"path": [
+								"synapse",
+								"execute",
+								":planUniqueName",
+								":planInstanceId"
+							],
+							"variable": [
+								{
+									"key": "planUniqueName",
+									"value": "{{planUniqueName}}"
+								},
+								{
+									"key": "planInstanceId",
+									"value": "{{planInstanceId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get Plan Execution History Item",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:20000/synapse/execute/:planUniqueName/:planInstanceId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "20000",
+							"path": [
+								"synapse",
+								"execute",
+								":planUniqueName",
+								":planInstanceId"
+							],
+							"variable": [
+								{
+									"key": "planUniqueName",
+									"value": "{{planUniqueName}}"
+								},
+								{
+									"key": "planInstanceId",
+									"value": "{{planInstanceId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Start Plan",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json, application/xml, text/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:20000/synapse/execute/:planUniqueName/start?dryRun={{dryRun}}&requestNumber={{requestNumber}}&nodeRootUrl={{nodeRootUrl}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "20000",
+							"path": [
+								"synapse",
+								"execute",
+								":planUniqueName",
+								"start"
+							],
+							"query": [
+								{
+									"key": "dryRun",
+									"value": "{{dryRun}}"
+								},
+								{
+									"key": "requestNumber",
+									"value": "{{requestNumber}}"
+								},
+								{
+									"key": "nodeRootUrl",
+									"value": "{{nodeRootUrl}}"
+								}
+							],
+							"variable": [
+								{
+									"key": "planUniqueName",
+									"value": "{{planUniqueName}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Start Plan (Async standard)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json, application/xml, text/xml"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:20000/synapse/execute/:planUniqueName/start?dryRun={{dryRun}}&requestNumber={{requestNumber}}&nodeRootUrl={{nodeRootUrl}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "20000",
+							"path": [
+								"synapse",
+								"execute",
+								":planUniqueName",
+								"start"
+							],
+							"query": [
+								{
+									"key": "dryRun",
+									"value": "{{dryRun}}"
+								},
+								{
+									"key": "requestNumber",
+									"value": "{{requestNumber}}"
+								},
+								{
+									"key": "nodeRootUrl",
+									"value": "{{nodeRootUrl}}"
+								}
+							],
+							"variable": [
+								{
+									"key": "planUniqueName",
+									"value": "{{planUniqueName}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Start Plan (Async w/ ContentType)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json, application/xml, text/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:20000/synapse/execute/:planUniqueName/start/async?dryRun={{dryRun}}&requestNumber={{requestNumber}}&nodeRootUrl={{nodeRootUrl}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "20000",
+							"path": [
+								"synapse",
+								"execute",
+								":planUniqueName",
+								"start",
+								"async"
+							],
+							"query": [
+								{
+									"key": "dryRun",
+									"value": "{{dryRun}}"
+								},
+								{
+									"key": "requestNumber",
+									"value": "{{requestNumber}}"
+								},
+								{
+									"key": "nodeRootUrl",
+									"value": "{{nodeRootUrl}}"
+								}
+							],
+							"variable": [
+								{
+									"key": "planUniqueName",
+									"value": "{{planUniqueName}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Start Plan (Async w/ ContentType)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json, application/xml, text/xml"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:20000/synapse/execute/:planUniqueName/start/async?dryRun={{dryRun}}&requestNumber={{requestNumber}}&nodeRootUrl={{nodeRootUrl}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "20000",
+							"path": [
+								"synapse",
+								"execute",
+								":planUniqueName",
+								"start",
+								"async"
+							],
+							"query": [
+								{
+									"key": "dryRun",
+									"value": "{{dryRun}}"
+								},
+								{
+									"key": "requestNumber",
+									"value": "{{requestNumber}}"
+								},
+								{
+									"key": "nodeRootUrl",
+									"value": "{{nodeRootUrl}}"
+								}
+							],
+							"variable": [
+								{
+									"key": "planUniqueName",
+									"value": "{{planUniqueName}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Start Plan (Sync w/ ContentType)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json, application/xml, text/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:20000/synapse/execute/:planUniqueName/start/sync?dryRun={{dryRun}}&requestNumber={{requestNumber}}&path={{path}}&serializationType={{serializationType}}&setContentType={{setContentType}}&pollingIntervalSeconds={{pollingIntervalSeconds}}&timeoutSeconds={{timeoutSeconds}}&nodeRootUrl={{nodeRootUrl}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "20000",
+							"path": [
+								"synapse",
+								"execute",
+								":planUniqueName",
+								"start",
+								"sync"
+							],
+							"query": [
+								{
+									"key": "dryRun",
+									"value": "{{dryRun}}"
+								},
+								{
+									"key": "requestNumber",
+									"value": "{{requestNumber}}"
+								},
+								{
+									"key": "path",
+									"value": "{{path}}"
+								},
+								{
+									"key": "serializationType",
+									"value": "{{serializationType}}"
+								},
+								{
+									"key": "setContentType",
+									"value": "{{setContentType}}"
+								},
+								{
+									"key": "pollingIntervalSeconds",
+									"value": "{{pollingIntervalSeconds}}"
+								},
+								{
+									"key": "timeoutSeconds",
+									"value": "{{timeoutSeconds}}"
+								},
+								{
+									"key": "nodeRootUrl",
+									"value": "{{nodeRootUrl}}"
+								}
+							],
+							"variable": [
+								{
+									"key": "planUniqueName",
+									"value": "{{planUniqueName}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Start Plan (Sync w/ ContentType)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json, application/xml, text/xml"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:20000/synapse/execute/:planUniqueName/start/sync?dryRun={{dryRun}}&requestNumber={{requestNumber}}&path={{path}}&serializationType={{serializationType}}&setContentType={{setContentType}}&pollingIntervalSeconds={{pollingIntervalSeconds}}&timeoutSeconds={{timeoutSeconds}}&nodeRootUrl={{nodeRootUrl}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "20000",
+							"path": [
+								"synapse",
+								"execute",
+								":planUniqueName",
+								"start",
+								"sync"
+							],
+							"query": [
+								{
+									"key": "dryRun",
+									"value": "{{dryRun}}"
+								},
+								{
+									"key": "requestNumber",
+									"value": "{{requestNumber}}"
+								},
+								{
+									"key": "path",
+									"value": "{{path}}"
+								},
+								{
+									"key": "serializationType",
+									"value": "{{serializationType}}"
+								},
+								{
+									"key": "setContentType",
+									"value": "{{setContentType}}"
+								},
+								{
+									"key": "pollingIntervalSeconds",
+									"value": "{{pollingIntervalSeconds}}"
+								},
+								{
+									"key": "timeoutSeconds",
+									"value": "{{timeoutSeconds}}"
+								},
+								{
+									"key": "nodeRootUrl",
+									"value": "{{nodeRootUrl}}"
+								}
+							],
+							"variable": [
+								{
+									"key": "planUniqueName",
+									"value": "{{planUniqueName}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel Plan Execution",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:20000/synapse/execute/:planUniqueName/:planInstanceId?nodeRootUrl={{nodeRootUrl}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "20000",
+							"path": [
+								"synapse",
+								"execute",
+								":planUniqueName",
+								":planInstanceId"
+							],
+							"query": [
+								{
+									"key": "nodeRootUrl",
+									"value": "{{nodeRootUrl}}"
+								}
+							],
+							"variable": [
+								{
+									"key": "planUniqueName",
+									"value": "{{planUniqueName}}"
+								},
+								{
+									"key": "planInstanceId",
+									"value": "{{planInstanceId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set Plan->Action Status",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:20000/synapse/execute/:planUniqueName/:planInstanceId/action",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "20000",
+							"path": [
+								"synapse",
+								"execute",
+								":planUniqueName",
+								":planInstanceId",
+								"action"
+							],
+							"variable": [
+								{
+									"key": "planUniqueName",
+									"value": "{{planUniqueName}}"
+								},
+								{
+									"key": "planInstanceId",
+									"value": "{{planInstanceId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Plam Element (part)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json, application/xml, text/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:20000/synapse/execute/:planUniqueName/:planInstanceId/part?elementPath={{elementPath}}&serializationType={{serializationType}}&setContentType={{setContentType}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "20000",
+							"path": [
+								"synapse",
+								"execute",
+								":planUniqueName",
+								":planInstanceId",
+								"part"
+							],
+							"query": [
+								{
+									"key": "elementPath",
+									"value": "{{elementPath}}"
+								},
+								{
+									"key": "serializationType",
+									"value": "{{serializationType}}"
+								},
+								{
+									"key": "setContentType",
+									"value": "{{setContentType}}"
+								}
+							],
+							"variable": [
+								{
+									"key": "planUniqueName",
+									"value": "{{planUniqueName}}"
+								},
+								{
+									"key": "planInstanceId",
+									"value": "{{planInstanceId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Plam Element (part)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json, application/xml, text/xml"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:20000/synapse/execute/:planUniqueName/:planInstanceId/part",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "20000",
+							"path": [
+								"synapse",
+								"execute",
+								":planUniqueName",
+								":planInstanceId",
+								"part"
+							],
+							"variable": [
+								{
+									"key": "planUniqueName",
+									"value": "{{planUniqueName}}"
+								},
+								{
+									"key": "planInstanceId",
+									"value": "{{planInstanceId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Folder for synapse"
+		},
+		{
+			"name": "Node",
+			"item": [
+				{
+					"name": "",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json, application/xml, text/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:20000/synapse/node/queue",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "20000",
+							"path": [
+								"synapse",
+								"node",
+								"queue"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json, application/xml, text/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:20000/synapse/node/queue/count",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "20000",
+							"path": [
+								"synapse",
+								"node",
+								"queue",
+								"count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json, application/xml, text/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:20000/synapse/node/drainstop/iscomplete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "20000",
+							"path": [
+								"synapse",
+								"node",
+								"drainstop",
+								"iscomplete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:20000/synapse/node/drainstop/cancel",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "20000",
+							"path": [
+								"synapse",
+								"node",
+								"drainstop",
+								"cancel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:20000/synapse/node/drainstop?shutdown={{shutdown}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "20000",
+							"path": [
+								"synapse",
+								"node",
+								"drainstop"
+							],
+							"query": [
+								{
+									"key": "shutdown",
+									"value": "{{shutdown}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:20000/synapse/node/:planInstanceId/p?dryRun={{dryRun}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "20000",
+							"path": [
+								"synapse",
+								"node",
+								":planInstanceId",
+								"p"
+							],
+							"query": [
+								{
+									"key": "dryRun",
+									"value": "{{dryRun}}"
+								}
+							],
+							"variable": [
+								{
+									"key": "planInstanceId",
+									"value": "{{planInstanceId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:20000/synapse/node/:planInstanceId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "20000",
+							"path": [
+								"synapse",
+								"node",
+								":planInstanceId"
+							],
+							"variable": [
+								{
+									"key": "planInstanceId",
+									"value": "{{planInstanceId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:20000/synapse/node/:planInstanceId?dryRun={{dryRun}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "20000",
+							"path": [
+								"synapse",
+								"node",
+								":planInstanceId"
+							],
+							"query": [
+								{
+									"key": "dryRun",
+									"value": "{{dryRun}}"
+								}
+							],
+							"variable": [
+								{
+									"key": "planInstanceId",
+									"value": "{{planInstanceId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json, application/xml, text/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:20000/synapse/node/hello/whoami",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "20000",
+							"path": [
+								"synapse",
+								"node",
+								"hello",
+								"whoami"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json, application/xml, text/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:20000/synapse/node/hello?log={{log}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "20000",
+							"path": [
+								"synapse",
+								"node",
+								"hello"
+							],
+							"query": [
+								{
+									"key": "log",
+									"value": "{{log}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json, application/xml, text/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:20000/synapse/admin/hello?log={{log}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "20000",
+							"path": [
+								"synapse",
+								"admin",
+								"hello"
+							],
+							"query": [
+								{
+									"key": "log",
+									"value": "{{log}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json, application/xml, text/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:20000/synapse/admin/hello/whoami",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "20000",
+							"path": [
+								"synapse",
+								"admin",
+								"hello",
+								"whoami"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:20000/synapse/admin/hello/about?asCsv={{asCsv}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "20000",
+							"path": [
+								"synapse",
+								"admin",
+								"hello",
+								"about"
+							],
+							"query": [
+								{
+									"key": "asCsv",
+									"value": "{{asCsv}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json, application/xml, text/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:20000/synapse/admin/update?drainstopNode={{drainstopNode}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "20000",
+							"path": [
+								"synapse",
+								"admin",
+								"update"
+							],
+							"query": [
+								{
+									"key": "drainstopNode",
+									"value": "{{drainstopNode}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json, application/xml, text/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:20000/synapse/admin/update/logs",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "20000",
+							"path": [
+								"synapse",
+								"admin",
+								"update",
+								"logs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json, application/xml, text/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:20000/synapse/admin/update/logs/:name",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "20000",
+							"path": [
+								"synapse",
+								"admin",
+								"update",
+								"logs",
+								":name"
+							],
+							"variable": [
+								{
+									"key": "name",
+									"value": "{{name}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json, application/xml, text/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:20000/synapse/admin/logs",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "20000",
+							"path": [
+								"synapse",
+								"admin",
+								"logs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:20000/synapse/admin/logs/:name",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "20000",
+							"path": [
+								"synapse",
+								"admin",
+								"logs",
+								":name"
+							],
+							"variable": [
+								{
+									"key": "name",
+									"value": "{{name}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
