@@ -1235,7 +1235,68 @@
 			"name": "Node",
 			"item": [
 				{
-					"name": "",
+					"name": "hello",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json, application/xml, text/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:20000/synapse/node/hello?log={{log}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "20000",
+							"path": [
+								"synapse",
+								"node",
+								"hello"
+							],
+							"query": [
+								{
+									"key": "log",
+									"value": "{{log}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "hello/whoami",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json, application/xml, text/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:20000/synapse/node/hello/whoami",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "20000",
+							"path": [
+								"synapse",
+								"node",
+								"hello",
+								"whoami"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Queue Item List",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -1262,7 +1323,7 @@
 					"response": []
 				},
 				{
-					"name": "",
+					"name": "Get Queue Item Count",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -1290,58 +1351,7 @@
 					"response": []
 				},
 				{
-					"name": "",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json, text/json, application/xml, text/xml"
-							}
-						],
-						"body": {},
-						"url": {
-							"raw": "http://localhost:20000/synapse/node/drainstop/iscomplete",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "20000",
-							"path": [
-								"synapse",
-								"node",
-								"drainstop",
-								"iscomplete"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {},
-						"url": {
-							"raw": "http://localhost:20000/synapse/node/drainstop/cancel",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "20000",
-							"path": [
-								"synapse",
-								"node",
-								"drainstop",
-								"cancel"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "",
+					"name": "Start Drainstop",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -1369,7 +1379,58 @@
 					"response": []
 				},
 				{
-					"name": "",
+					"name": "Get Drainstop IsComplete Status",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/json, application/xml, text/xml"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:20000/synapse/node/drainstop/iscomplete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "20000",
+							"path": [
+								"synapse",
+								"node",
+								"drainstop",
+								"iscomplete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel Drainstop",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:20000/synapse/node/drainstop/cancel",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "20000",
+							"path": [
+								"synapse",
+								"node",
+								"drainstop",
+								"cancel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Start Plan",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -1412,35 +1473,7 @@
 					"response": []
 				},
 				{
-					"name": "",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"body": {},
-						"url": {
-							"raw": "http://localhost:20000/synapse/node/:planInstanceId",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "20000",
-							"path": [
-								"synapse",
-								"node",
-								":planInstanceId"
-							],
-							"variable": [
-								{
-									"key": "planInstanceId",
-									"value": "{{planInstanceId}}"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "",
+					"name": "Start Plan with Parameters",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -1482,18 +1515,13 @@
 					"response": []
 				},
 				{
-					"name": "",
+					"name": "Cancel Plan Execution",
 					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json, text/json, application/xml, text/xml"
-							}
-						],
+						"method": "DELETE",
+						"header": [],
 						"body": {},
 						"url": {
-							"raw": "http://localhost:20000/synapse/node/hello/whoami",
+							"raw": "http://localhost:20000/synapse/node/:planInstanceId",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1502,40 +1530,12 @@
 							"path": [
 								"synapse",
 								"node",
-								"hello",
-								"whoami"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json, text/json, application/xml, text/xml"
-							}
-						],
-						"body": {},
-						"url": {
-							"raw": "http://localhost:20000/synapse/node/hello?log={{log}}",
-							"protocol": "http",
-							"host": [
-								"localhost"
+								":planInstanceId"
 							],
-							"port": "20000",
-							"path": [
-								"synapse",
-								"node",
-								"hello"
-							],
-							"query": [
+							"variable": [
 								{
-									"key": "log",
-									"value": "{{log}}"
+									"key": "planInstanceId",
+									"value": "{{planInstanceId}}"
 								}
 							]
 						}
@@ -1681,7 +1681,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "http://localhost:20000/synapse/admin/logs/:name",
+							"raw": "http://localhost:20000/synapse/admin/logs/{{logName}}",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1691,13 +1691,7 @@
 								"synapse",
 								"admin",
 								"logs",
-								":name"
-							],
-							"variable": [
-								{
-									"key": "name",
-									"value": "{{name}}"
-								}
+								"{{logName}}"
 							]
 						}
 					},
@@ -1776,7 +1770,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "http://localhost:20000/synapse/admin/update/logs/{{logName}}",
+							"raw": "http://localhost:20000/synapse/admin/update/logs/{{updateLogName}}",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1787,7 +1781,7 @@
 								"admin",
 								"update",
 								"logs",
-								"{{logName}}"
+								"{{updateLogName}}"
 							]
 						}
 					},
