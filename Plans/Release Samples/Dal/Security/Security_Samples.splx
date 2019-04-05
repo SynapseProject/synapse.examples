@@ -1,255 +1,154 @@
-<?xml version="1.0" encoding="us-ascii"?>
-<SuplexStore xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <UIElements>
-    <UIElement>
-      <Id>6117f271-14af-4103-a82a-1fe3bb595e32</Id>
-      <Name>SynapseRoot</Name>
-      <ControlType>SplxFileSystemManager</ControlType>
-      <UniqueName>SynapseRoot</UniqueName>
-      <Description />
-      <UseDescriptionAsTooltip>false</UseDescriptionAsTooltip>
-      <AllowUndeclared>false</AllowUndeclared>
-      <DataType>Empty</DataType>
-      <DataTypeErrorMessage />
-      <FormatString />
-      <ValidationRules />
-      <FillMaps />
-      <UIElements>
-        <UIElement>
-          <Id>0a85b824-9776-4e61-8b0e-a28dfc3188d8</Id>
-          <Name>Allowed</Name>
-          <ControlType>SplxFileSystemManager</ControlType>
-          <UniqueName>Allowed</UniqueName>
-          <Description>This container inherits from SynapseRoot.</Description>
-          <UseDescriptionAsTooltip>false</UseDescriptionAsTooltip>
-          <AllowUndeclared>false</AllowUndeclared>
-          <DataType>Empty</DataType>
-          <DataTypeErrorMessage />
-          <FormatString />
-          <ValidationRules />
-          <FillMaps />
-          <UIElements>
-            <UIElement>
-              <Id>6e34287f-3609-4cb3-ba9b-0e38baf5f4f0</Id>
-              <Name>sampleFileCopy</Name>
-              <ControlType>SplxFileSystemManager</ControlType>
-              <UniqueName>sampleFileCopy</UniqueName>
-              <Description />
-              <UseDescriptionAsTooltip>false</UseDescriptionAsTooltip>
-              <AllowUndeclared>false</AllowUndeclared>
-              <DataType>Empty</DataType>
-              <DataTypeErrorMessage />
-              <FormatString />
-              <ValidationRules />
-              <FillMaps />
-              <UIElements />
-              <SecurityDescriptor>
-                <DaclInherit>true</DaclInherit>
-                <SaclInherit>true</SaclInherit>
-                <SaclAuditTypeFilter>SuccessAudit FailureAudit Information Warning Error</SaclAuditTypeFilter>
-                <Dacl />
-                <Sacl />
-                <RightRoles />
-                <RightRoleRules />
-                <DeleteDaclIds />
-                <DeleteSaclIds />
-                <DeleteRightRoleIds />
-                <DeleteRightRoleRuleIds />
-              </SecurityDescriptor>
-            </UIElement>
-            <UIElement>
-              <Id>9224c1be-de6f-4dc7-94be-39d913b245c9</Id>
-              <Name>sampleHtml</Name>
-              <ControlType>SplxFileSystemManager</ControlType>
-              <UniqueName>sampleHtml</UniqueName>
-              <Description />
-              <UseDescriptionAsTooltip>false</UseDescriptionAsTooltip>
-              <AllowUndeclared>false</AllowUndeclared>
-              <DataType>Empty</DataType>
-              <DataTypeErrorMessage />
-              <FormatString />
-              <ValidationRules />
-              <FillMaps />
-              <UIElements />
-              <SecurityDescriptor>
-                <DaclInherit>true</DaclInherit>
-                <SaclInherit>true</SaclInherit>
-                <SaclAuditTypeFilter>SuccessAudit FailureAudit Information Warning Error</SaclAuditTypeFilter>
-                <Dacl />
-                <Sacl />
-                <RightRoles />
-                <RightRoleRules />
-                <DeleteDaclIds />
-                <DeleteSaclIds />
-                <DeleteRightRoleIds />
-                <DeleteRightRoleRuleIds />
-              </SecurityDescriptor>
-            </UIElement>
-            <UIElement>
-              <Id>26cf9d32-e8fe-401c-b03b-f4f42344c870</Id>
-              <Name>samplePs1</Name>
-              <ControlType>SplxFileSystemManager</ControlType>
-              <UniqueName>samplePs1</UniqueName>
-              <Description />
-              <UseDescriptionAsTooltip>false</UseDescriptionAsTooltip>
-              <AllowUndeclared>false</AllowUndeclared>
-              <DataType>Empty</DataType>
-              <DataTypeErrorMessage />
-              <FormatString />
-              <ValidationRules />
-              <FillMaps />
-              <UIElements />
-              <SecurityDescriptor>
-                <DaclInherit>true</DaclInherit>
-                <SaclInherit>true</SaclInherit>
-                <SaclAuditTypeFilter>SuccessAudit FailureAudit Information Warning Error</SaclAuditTypeFilter>
-                <Dacl />
-                <Sacl />
-                <RightRoles />
-                <RightRoleRules />
-                <DeleteDaclIds />
-                <DeleteSaclIds />
-                <DeleteRightRoleIds />
-                <DeleteRightRoleRuleIds />
-              </SecurityDescriptor>
-            </UIElement>
-          </UIElements>
-          <SecurityDescriptor>
-            <DaclInherit>true</DaclInherit>
-            <SaclInherit>true</SaclInherit>
-            <SaclAuditTypeFilter>SuccessAudit FailureAudit Information Warning Error</SaclAuditTypeFilter>
-            <Dacl />
-            <Sacl />
-            <RightRoles />
-            <RightRoleRules />
-            <DeleteDaclIds>
-              <long>636557742362760941</long>
-            </DeleteDaclIds>
-            <DeleteSaclIds />
-            <DeleteRightRoleIds />
-            <DeleteRightRoleRuleIds />
-          </SecurityDescriptor>
-        </UIElement>
-        <UIElement>
-          <Id>4c76b0f6-c6f8-462a-8c61-67484a1d7e25</Id>
-          <Name>Denied</Name>
-          <ControlType>SplxFileSystemManager</ControlType>
-          <UniqueName>Denied</UniqueName>
-          <Description>This container overrides the permissions from SynapseRoot with a Deny.</Description>
-          <UseDescriptionAsTooltip>false</UseDescriptionAsTooltip>
-          <AllowUndeclared>false</AllowUndeclared>
-          <DataType>Empty</DataType>
-          <DataTypeErrorMessage />
-          <FormatString />
-          <ValidationRules />
-          <FillMaps />
-          <UIElements>
-            <UIElement>
-              <Id>c8182810-8132-4dda-962b-7e782c2c7d65</Id>
-              <Name>sampleCrypto</Name>
-              <ControlType>SplxFileSystemManager</ControlType>
-              <UniqueName>sampleCrypto</UniqueName>
-              <Description />
-              <UseDescriptionAsTooltip>false</UseDescriptionAsTooltip>
-              <AllowUndeclared>false</AllowUndeclared>
-              <DataType>Empty</DataType>
-              <DataTypeErrorMessage />
-              <FormatString />
-              <ValidationRules />
-              <FillMaps />
-              <UIElements />
-              <SecurityDescriptor>
-                <DaclInherit>true</DaclInherit>
-                <SaclInherit>true</SaclInherit>
-                <SaclAuditTypeFilter>SuccessAudit FailureAudit Information Warning Error</SaclAuditTypeFilter>
-                <Dacl />
-                <Sacl />
-                <RightRoles />
-                <RightRoleRules />
-                <DeleteDaclIds />
-                <DeleteSaclIds />
-                <DeleteRightRoleIds />
-                <DeleteRightRoleRuleIds />
-              </SecurityDescriptor>
-            </UIElement>
-            <UIElement>
-              <Id>721a09d5-8ba3-42ac-a754-d4be707f46d1</Id>
-              <Name>sampleShPs</Name>
-              <ControlType>SplxFileSystemManager</ControlType>
-              <UniqueName>sampleShPs</UniqueName>
-              <Description />
-              <UseDescriptionAsTooltip>false</UseDescriptionAsTooltip>
-              <AllowUndeclared>false</AllowUndeclared>
-              <DataType>Empty</DataType>
-              <DataTypeErrorMessage />
-              <FormatString />
-              <ValidationRules />
-              <FillMaps />
-              <UIElements />
-              <SecurityDescriptor>
-                <DaclInherit>true</DaclInherit>
-                <SaclInherit>true</SaclInherit>
-                <SaclAuditTypeFilter>SuccessAudit FailureAudit Information Warning Error</SaclAuditTypeFilter>
-                <Dacl />
-                <Sacl />
-                <RightRoles />
-                <RightRoleRules />
-                <DeleteDaclIds />
-                <DeleteSaclIds />
-                <DeleteRightRoleIds />
-                <DeleteRightRoleRuleIds />
-              </SecurityDescriptor>
-            </UIElement>
-          </UIElements>
-          <SecurityDescriptor>
-            <DaclInherit>true</DaclInherit>
-            <SaclInherit>true</SaclInherit>
-            <SaclAuditTypeFilter>SuccessAudit FailureAudit Information Warning Error</SaclAuditTypeFilter>
-            <Dacl>
-              <AccessControlEntryBase xsi:type="FileSystemAce" Id="636557735958154618" Allowed="false" Inherit="true" SecurityPrincipalId="62398d7d-d10d-4c05-8618-a0dd82e8951c" Right="Execute">
-                <AceRight>256</AceRight>
-              </AccessControlEntryBase>
-            </Dacl>
-            <Sacl />
-            <RightRoles />
-            <RightRoleRules />
-            <DeleteDaclIds />
-            <DeleteSaclIds />
-            <DeleteRightRoleIds />
-            <DeleteRightRoleRuleIds />
-          </SecurityDescriptor>
-        </UIElement>
-      </UIElements>
-      <SecurityDescriptor>
-        <DaclInherit>true</DaclInherit>
-        <SaclInherit>true</SaclInherit>
-        <SaclAuditTypeFilter>SuccessAudit FailureAudit Information Warning Error</SaclAuditTypeFilter>
-        <Dacl>
-          <AccessControlEntryBase xsi:type="FileSystemAce" Id="636557735958154617" Allowed="true" Inherit="true" SecurityPrincipalId="62398d7d-d10d-4c05-8618-a0dd82e8951c" Right="Execute">
-            <AceRight>256</AceRight>
-          </AccessControlEntryBase>
-        </Dacl>
-        <Sacl />
-        <RightRoles />
-        <RightRoleRules />
-        <DeleteDaclIds />
-        <DeleteSaclIds />
-        <DeleteRightRoleIds />
-        <DeleteRightRoleRuleIds />
-      </SecurityDescriptor>
-    </UIElement>
-  </UIElements>
-  <Users />
-  <Groups>
-    <Group>
-      <Id>62398d7d-d10d-4c05-8618-a0dd82e8951c</Id>
-      <Name>Everyone</Name>
-      <Description />
-      <IsLocal>false</IsLocal>
-      <IsBuiltIn>false</IsBuiltIn>
-      <IsEnabled>true</IsEnabled>
-      <MaskValue>1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</MaskValue>
-    </Group>
-  </Groups>
-  <GroupMembership />
-</SuplexStore>
+SecureObjects:
+- UId: 6117f271-14af-4103-a82a-1fe3bb595e32
+  UniqueName: SynapseRoot
+  IsEnabled: true
+  ParentUId: 00000000-0000-0000-0000-000000000000
+  IsSecure: true
+  IsDirty: 
+  Security:
+    DaclAllowInherit: true
+    SaclAllowInherit: true
+    SaclAuditTypeFilter: SuccessAudit, FailureAudit, Information, Warning, Error
+    Dacl:
+    - UId: fb0a4168-7fda-42fd-a65a-b67e448450aa
+      RightType: Suplex.Security.AclModel.FileSystemRight, Suplex.Security.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+      Right: Execute
+      Allowed: True
+      Inheritable: True
+      TrusteeUId: 62398d7d-d10d-4c05-8618-a0dd82e8951c
+    DaclConverters: []
+    Sacl: []
+    Results: {}
+  Parent: 
+  Children:
+  - UId: 0a85b824-9776-4e61-8b0e-a28dfc3188d8
+    UniqueName: Allowed
+    IsEnabled: true
+    ParentUId: 6117f271-14af-4103-a82a-1fe3bb595e32
+    IsSecure: false
+    IsDirty: 
+    Security:
+      DaclAllowInherit: true
+      SaclAllowInherit: true
+      SaclAuditTypeFilter: SuccessAudit, FailureAudit, Information, Warning, Error
+      Dacl: []
+      DaclConverters: []
+      Sacl: []
+      Results: {}
+    Parent: 
+    Children:
+    - UId: 6e34287f-3609-4cb3-ba9b-0e38baf5f4f0
+      UniqueName: sampleFileCopy
+      IsEnabled: true
+      ParentUId: 0a85b824-9776-4e61-8b0e-a28dfc3188d8
+      IsSecure: false
+      IsDirty: 
+      Security:
+        DaclAllowInherit: true
+        SaclAllowInherit: true
+        SaclAuditTypeFilter: SuccessAudit, FailureAudit, Information, Warning, Error
+        Dacl: []
+        DaclConverters: []
+        Sacl: []
+        Results: {}
+      Parent: 
+      Children: []
+    - UId: 9224c1be-de6f-4dc7-94be-39d913b245c9
+      UniqueName: sampleHtml
+      IsEnabled: true
+      ParentUId: 0a85b824-9776-4e61-8b0e-a28dfc3188d8
+      IsSecure: false
+      IsDirty: 
+      Security:
+        DaclAllowInherit: true
+        SaclAllowInherit: true
+        SaclAuditTypeFilter: SuccessAudit, FailureAudit, Information, Warning, Error
+        Dacl: []
+        DaclConverters: []
+        Sacl: []
+        Results: {}
+      Parent: 
+      Children: []
+    - UId: 26cf9d32-e8fe-401c-b03b-f4f42344c870
+      UniqueName: samplePs1
+      IsEnabled: true
+      ParentUId: 0a85b824-9776-4e61-8b0e-a28dfc3188d8
+      IsSecure: false
+      IsDirty: 
+      Security:
+        DaclAllowInherit: true
+        SaclAllowInherit: true
+        SaclAuditTypeFilter: SuccessAudit, FailureAudit, Information, Warning, Error
+        Dacl: []
+        DaclConverters: []
+        Sacl: []
+        Results: {}
+      Parent: 
+      Children: []
+  - UId: 4c76b0f6-c6f8-462a-8c61-67484a1d7e25
+    UniqueName: Denied
+    IsEnabled: true
+    ParentUId: 6117f271-14af-4103-a82a-1fe3bb595e32
+    IsSecure: true
+    IsDirty: 
+    Security:
+      DaclAllowInherit: true
+      SaclAllowInherit: true
+      SaclAuditTypeFilter: SuccessAudit, FailureAudit, Information, Warning, Error
+      Dacl:
+      - UId: d3563e60-e4c2-4939-aa7b-405579b89803
+        RightType: Suplex.Security.AclModel.FileSystemRight, Suplex.Security.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+        Right: Execute
+        Allowed: False
+        Inheritable: True
+        TrusteeUId: 62398d7d-d10d-4c05-8618-a0dd82e8951c
+      DaclConverters: []
+      Sacl: []
+      Results: {}
+    Parent: 
+    Children:
+    - UId: c8182810-8132-4dda-962b-7e782c2c7d65
+      UniqueName: sampleCrypto
+      IsEnabled: true
+      ParentUId: 4c76b0f6-c6f8-462a-8c61-67484a1d7e25
+      IsSecure: false
+      IsDirty: 
+      Security:
+        DaclAllowInherit: true
+        SaclAllowInherit: true
+        SaclAuditTypeFilter: SuccessAudit, FailureAudit, Information, Warning, Error
+        Dacl: []
+        DaclConverters: []
+        Sacl: []
+        Results: {}
+      Parent: 
+      Children: []
+    - UId: 721a09d5-8ba3-42ac-a754-d4be707f46d1
+      UniqueName: sampleShPs
+      IsEnabled: true
+      ParentUId: 4c76b0f6-c6f8-462a-8c61-67484a1d7e25
+      IsSecure: false
+      IsDirty: 
+      Security:
+        DaclAllowInherit: true
+        SaclAllowInherit: true
+        SaclAuditTypeFilter: SuccessAudit, FailureAudit, Information, Warning, Error
+        Dacl: []
+        DaclConverters: []
+        Sacl: []
+        Results: {}
+      Parent: 
+      Children: []
+Users: []
+Groups:
+- IsUser: false
+  Groups: 
+  UId: 62398d7d-d10d-4c05-8618-a0dd82e8951c
+  Name: Everyone
+  Description: ''
+  IsLocal: false
+  IsBuiltIn: false
+  IsEnabled: true
+  IsValid: false
+  IsDirty: 
+GroupMembership: []
