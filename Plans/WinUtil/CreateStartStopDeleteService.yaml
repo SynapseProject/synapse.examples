@@ -1,0 +1,81 @@
+Name: CreateStartStopDeleteService
+Description: Create, start, stop, delete a service
+IsActive: true
+Actions:
+- Name: CreateService
+  Description: Create service
+  Handler:
+    Type: Synapse.Handlers.WinUtil:ServiceHandler
+    Config:
+      Values:
+        Action: Create
+        Timeout: 30000
+        RunSequential: true
+        StartOnCreate: false
+        OutputType: Yaml
+        PrettyPrint: true
+  Parameters:
+    Values:
+      Services:
+      - Name: MyService
+        Server: localhost
+        DisplayName: My Service
+        Description: My Service description
+        BinPath: '"c:\siew hooi\synapse\controller\Synapse.Server.exe" "C:\siew hooi\synapse\controller\Synapse.Server.config.yaml"'
+        StartMode: Automatic
+        StartName: 
+        StartPassword: 
+        Type: OwnProcess
+        OnError: SystemAttemptStartWithGoodConfiguration
+  Actions:
+  - Name: StartService
+    Description: Run the service
+    Handler:
+      Type: Synapse.Handlers.WinUtil:ServiceHandler
+      Config:
+        Values:
+          Action: Start
+          Timeout: 30000
+          RunSequential: true
+          OutputType: Yaml
+          PrettyPrint: true
+    Parameters:
+      Values:
+        Services:
+        - Name: MyService
+          Server: localhost
+    Actions:
+    - Name: StopService
+      Description: Stop the service
+      Handler:
+        Type: Synapse.Handlers.WinUtil:ServiceHandler
+        Config:
+          Values:
+            Action: Stop
+            Timeout: 30000
+            RunSequential: true
+            OutputType: Yaml
+            PrettyPrint: true
+      Parameters:
+        Values:
+          Services:
+          - Name: MyService
+            Server: localhost
+      Actions:
+      - Name: DeleteService
+        Description: Delete the service
+        Handler:
+          Type: Synapse.Handlers.WinUtil:ServiceHandler
+          Config:
+            Values:
+              Action: Delete
+              Timeout: 30000
+              RunSequential: true
+              OutputType: Yaml
+              PrettyPrint: true
+        Parameters:
+          Values:
+            Services:
+            - Name: MyService
+              Server: localhost
+LastModified: 23/04/2019 15:11:39

@@ -1,0 +1,38 @@
+Name: EnableDisableTask
+Description: Example Config/Parameters
+Actions:
+- Name: EnableTask
+  Description: Enable Task
+  Handler:
+    Type: Synapse.Handlers.WinUtil:ScheduledTaskHandler
+    Config:
+      Values:
+        Action: Enable
+        Timeout: 30000
+        RunSequential: true
+        OutputType: Yaml
+        PrettyPrint: true
+  Parameters:
+    Values:
+      Tasks:
+      - Name: MyTask
+        Server: localhost
+  Actions:
+  - Name: DisableTask
+    Description: Disable Task
+    Handler:
+      Type: Synapse.Handlers.WinUtil:ScheduledTaskHandler
+      Config:
+        Values:
+          Action: Disable
+          Timeout: 30000
+          RunSequential: true
+          OutputType: Yaml
+          PrettyPrint: true
+    Parameters:
+      Values:
+        Tasks:
+        - Name: MyTask
+          Server: localhost
+LastModified: 23/04/2019 16:41:40
+
