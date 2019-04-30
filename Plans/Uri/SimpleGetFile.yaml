@@ -1,0 +1,30 @@
+Name: ReadFile
+Description: Example Config/Parameters
+Actions:
+- Name: ReadXmlUsingLocalPath
+  Description: Read an Xml file using local path
+  Handler:
+    Type: Synapse.Handlers.Uri:SimpleUriHandler
+    Config: {}
+  Parameters:
+    Values:
+      Uri: c:\temp\appConfig.xml
+      Format: Xml
+- Name: ReadJsonFileUsingUncPath
+  Description: Read a Json file using Unc path
+  Handler:
+    Type: Synapse.Handlers.Uri:SimpleUriHandler
+    Config: {}
+  Parameters:
+    Values:
+      Uri: \\sklrw744607jr-l/c$\temp\json_in.json
+      Format: Json
+- Name: ReadYamlFileUsingUriPath
+  Description: Read a Yaml file using Uri path
+  Handler:
+    Type: Synapse.Handlers.Uri:SimpleUriHandler
+    Config: {}
+  Parameters:
+    Values:
+      Uri: file:///C:/Siew Hooi/wip/handlers.Uri.net/handlers.Uri.UnitTests/Files/yaml_in.yaml
+      Format: Yaml
